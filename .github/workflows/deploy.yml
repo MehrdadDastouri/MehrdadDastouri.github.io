@@ -1,105 +1,90 @@
-name: Deploy site
+# نام workflow برای شناسایی در تب Actions
+name: Build and Deploy Jekyll site to GitHub Pages
 
+# تعیین می‌کند چه زمانی این workflow اجرا شود
 on:
+  # هر بار که به شاخه main پوش می‌کنید
   push:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
-  pull_request:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
+    branches: ["main"] # اگر نام شاخه اصلی شما master است، این را به "master" تغییر دهید
+  # به شما اجازه می‌دهد این workflow را به صورت دستی از تب Actions اجرا کنید
   workflow_dispatch:
 
+# تنظیم دسترسی‌های لازم برای workflow (روش جدید و امن)
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
+# تنظیمات مربوط به اجرای همزمان (برای جلوگیری از تداخل چند دیپلوی)
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# تعریف کارها (Jobs) که باید انجام شوند
 jobs:
-  deploy:
-    # available images: https://github.com/actions/runner-images#available-images
+  # کار اول: ساخت سایت
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-      - name: Setup Ruby 💎
+
+      - name: Setup Ruby and Bundler 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
-          bundler-cache: true
+          ruby-version: "3.2" # نسخه روبی را می‌توان بر اساس Gemfile تغییر داد
+          bundler-cache: true # کش کردن Gem ها برای افزایش سرعت
+
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-          cache: "pip" # caching pip dependencies
-      - name: Update _config.yml ⚙️
+          python-version: "3.11" # یک نسخه پایدار از پایتون
+          cache: "pip"
+
+      - name: Setup Node.js for PurgeCSS 🧹
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # نسخه LTS نود
+
+      - name: Update _config.yml for Giscus ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
           commitChange: false
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Install and Build 🔧
+
+      - name: Install Dependencies and Build Site 🔧
         run: |
+          # نصب نیازمندی‌های سیستم عامل
           sudo apt-get update && sudo apt-get install -y imagemagick
+          # نصب نیازمندی‌های پایتون
           pip3 install --upgrade nbconvert
+          # نصب نیازمندی‌های Node.js برای PurgeCSS
+          npm install -g purgecss
+          # نصب نیازمندی‌های Ruby
+          bundle install
+          # ساخت سایت
           export JEKYLL_ENV=production
           bundle exec jekyll build
-      - name: Purge unused CSS 🧹
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
+
+      - name: Purge unused CSS after build 🧹
+        run: purgecss -c purgecss.config.js
+
+      - name: Upload artifact for deployment 📦
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: _site
+          path: './_site'
+
+  # کار دوم: انتشار سایت
+  deploy:
+    # این job فقط در صورتی اجرا می‌شود که job 'build' موفقیت‌آمیز باشد
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
