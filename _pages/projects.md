@@ -1,11 +1,11 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: A collection of my research and personal projects in AI, Machine Learning, and DeFi.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [AI/ML, DeFi, SNNs]
 horizontal: false
 ---
 
