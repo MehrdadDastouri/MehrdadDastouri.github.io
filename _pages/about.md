@@ -14,9 +14,9 @@ profile:
     <p>+98 913 4209486</p>
     <p>Iran</p>
 
-news: false  # حذف News
+news: false # حذف News
 selected_papers: false # حذف Selected Publications
-social: false  # حذف social icons
+social: false # حذف social icons
 ---
 
 I hold an M.Sc. in Computer Science, where my research focused on the **mathematical analysis of learning dynamics in Spiking Neural Networks**. My thesis established convergence guarantees for STDP-based learning in recurrent architectures using Lyapunov stability theory and dynamical systems analysis. This work reinforced my commitment to understanding the **theoretical foundations of learning**—not merely what works in practice, but the fundamental principles that govern adaptation in neural systems.
@@ -28,13 +28,13 @@ I am seeking a **Ph.D. position** to pursue rigorous research at the intersectio
 ## Education
 
 **Shahid Beheshti University** | Tehran, Iran  
-*Master of Science in Computer Science (Data Mining)*  
+_Master of Science in Computer Science (Data Mining)_  
 Sep 2020 - Sep 2022  
 **Thesis:** Convergence Analysis of Spike-Timing-Dependent Plasticity Learning Rules in Recurrent Spiking Neural Networks with Applications to Time-Series Classification  
 **GPA:** 3.7/4.0
 
 **Isfahan University of Technology** | Isfahan, Iran  
-*Bachelor of Science in Software Engineering*  
+_Bachelor of Science in Software Engineering_  
 Sep 2008 - Sep 2012  
 **GPA:** 3.0/4.0
 
@@ -43,12 +43,14 @@ Sep 2008 - Sep 2012
 ## Research Projects
 
 ### DeFi Liquidation Risk Analysis: A Case Study on the Aave Protocol
-*Present*
+
+_Present_
 
 This project tackles the critical issue of liquidation risk within the Aave protocol by developing a predictive model based on on-chain data. I am engineering a robust data pipeline to ingest and process historical loan positions from the Polygon blockchain, focusing on key indicators like the Health Factor. The prototype model can already identify over **85% of at-risk accounts 24 hours in advance**. Current research is aimed at improving model resilience to market shocks and understanding the systemic effects of liquidation cascades.
 
 ### Neuromorphic Real-Time Anomaly Detection for Cryptocurrency Markets
-*Present*
+
+_Present_
 
 Leveraging the computational efficiency of Spiking Neural Networks (SNNs), this project introduces a novel system for real-time anomaly detection in cryptocurrency markets. I am designing a custom SNN in snnTorch to identify complex manipulative trading patterns from high-resolution, tick-by-tick data. Initial simulations demonstrate the potential for **sub-50ms detection latencies** and a significant reduction in synaptic operations (SynOps) over traditional RNNs. Current efforts focus on scaling the model with a large-scale dataset and exploring deployment on specialized neuromorphic hardware.
 

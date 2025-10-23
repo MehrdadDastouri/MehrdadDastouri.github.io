@@ -28,13 +28,13 @@
       institution: Shahid Beheshti University, Tehran, Iran
       year: 2020 - 2022
       description:
-        - '<strong>Thesis:</strong> Convergence Analysis of Spike-Timing-Dependent Plasticity Learning Rules in Recurrent Spiking Neural Networks with Applications to Time-Series Classification.'
-        - '<strong>GPA:</strong> 3.7 / 4.0'
+        - "<strong>Thesis:</strong> Convergence Analysis of Spike-Timing-Dependent Plasticity Learning Rules in Recurrent Spiking Neural Networks with Applications to Time-Series Classification."
+        - "<strong>GPA:</strong> 3.7 / 4.0"
     - title: Bachelor of Science (B.Sc.) in Software Engineering
       institution: Isfahan University of Technology, Isfahan, Iran
       year: 2008 - 2012
       description:
-        - '<strong>GPA:</strong> 3.0 / 4.0'
+        - "<strong>GPA:</strong> 3.0 / 4.0"
 
 - title: Work Experience
   type: time_table
