@@ -1,11 +1,20 @@
 ---
-layout: cv
+layout: page
 permalink: /cv/
-title: cv
-nav: false
-nav_order: 5
-cv_pdf: example_pdf.pdf # you can also use external links here
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
+title: Curriculum Vitae
+nav: true # <<-- این تنها تغییری است که باید انجام دهید
+nav_order: 5 # ترتیب نمایش در منو (می‌توانید این عدد را برای جابجایی تب تغییر دهید)
+cv_pdf: assets/pdf/Mehrdad_Dastouri_CV.pdf # <<-- بسیار مهم: مسیر فایل PDF خودتان را اینجا قرار دهید
 ---
+
+<br>
+
+You can download the latest version of my Curriculum Vitae by clicking the button below.
+
+<br>
+
+<div class="text-center">
+  <a href="{{ page.cv_pdf | relative_url }}" class="btn btn-primary btn-lg" role="button" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-download"></i>&nbsp; Download CV (PDF)
+  </a>
+</div>
