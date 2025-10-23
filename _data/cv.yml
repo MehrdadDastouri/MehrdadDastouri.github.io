@@ -18,7 +18,7 @@
 
 - title: About
   type: text
-  contents: > # The '>' character preserves newlines
+  contents: >
     I hold an M.Sc. in Computer Science, where my research focused on the mathematical analysis of learning dynamics in Spiking Neural Networks. My thesis established convergence guarantees for STDP-based learning in recurrent architectures using Lyapunov stability theory and dynamical systems analysis. This work reinforced my commitment to understanding the theoretical foundations of learning—not merely what works in practice, but the fundamental principles that govern adaptation in neural systems. I am seeking a Ph.D. position to pursue rigorous research at the intersection of learning theory, optimization, and neural computation, with the goal of developing algorithms that are both theoretically grounded and practically effective.
 
 - title: Education
@@ -43,36 +43,22 @@
       institution: Self-Employed / Project-Based
       year: 2016 - Present
       description:
-        - Designed and deployed end-to-end, computationally-efficient AI/ML solutions for global clients. Managed projects across domains like FinTech and IoT, specializing in time series analysis, deep learning, and Spiking Neural Networks (SNNs).
-        - title: LLM-Powered DeFi Risk Analysis Agent
-          contents:
-            - Architected an AI agent with a Retrieval-Augmented Generation (RAG) architecture using LangChain and FAISS to provide a natural language interface for a complex DeFi liquidation risk model.
-            - The agent translates complex on-chain metrics into actionable, human-readable reports, reducing time-to-insight for financial analysts by over 90%.
-            - Deployed the solution as a scalable RESTful API using FastAPI, containerized with Docker.
-        - title: Neuromorphic Anomaly Detection for Crypto Trading
-          contents:
-            - Engineered a real-time anomaly detection system for high-frequency crypto data, replacing a costly RNN with a custom Spiking Neural Network (SNN).
-            - Achieved a ~15% reduction in latency and a ~40% decrease in energy consumption.
-            - Delivered the final model as a containerized (Docker) API using Flask for deployment on both cloud and edge devices.
-        - title: End-to-End EMG Gesture Recognition for Prosthetics
-          contents:
-            - Led the development of a hybrid CNN-LSTM pipeline for classifying hand gestures from EMG signals, achieving >95% accuracy and <50ms latency.
-            - Managed the full project lifecycle from data preprocessing to optimization for a next-generation prosthetic control system.
-        - title: Optimized Time-Series Forecasting for Energy Grids
-          contents:
-            - Developed and deployed an end-to-end LSTM-based platform to predict energy consumption for smart grids, achieving >90% forecast accuracy.
-            - Created a lightweight version with a 30% reduced memory footprint for IoT hardware deployments.
+        - Designed and deployed end-to-end, computationally-efficient AI/ML solutions for global clients, managing projects across domains like FinTech and IoT.
+        - '<strong>LLM-Powered DeFi Risk Analysis Agent:</strong> Architected an AI agent with a Retrieval-Augmented Generation (RAG) architecture using LangChain and FAISS to provide a natural language interface for a complex DeFi liquidation risk model. The agent translates complex on-chain metrics into actionable, human-readable reports, reducing time-to-insight for financial analysts by over 90%. Deployed the solution as a scalable RESTful API using FastAPI, containerized with Docker.'
+        - '<strong>Neuromorphic Anomaly Detection for Crypto Trading:</strong> Engineered a real-time anomaly detection system for high-frequency crypto data, replacing a costly RNN with a custom Spiking Neural Network (SNN). Achieved a ~15% reduction in latency and a ~40% decrease in energy consumption. Delivered the model as a containerized (Docker) API using Flask.'
+        - '<strong>End-to-End EMG Gesture Recognition for Prosthetics:</strong> Led the development of a hybrid CNN-LSTM pipeline for classifying hand gestures from EMG signals, achieving >95% accuracy and <50ms latency. Managed the full project lifecycle from data preprocessing to optimization for a next-generation prosthetic control system.'
+        - '<strong>Optimized Time-Series Forecasting for Energy Grids:</strong> Developed and deployed an end-to-end LSTM-based platform to predict energy consumption for smart grids, achieving >90% forecast accuracy. Created a lightweight version with a 30% reduced memory footprint for IoT hardware deployments.'
 
 - title: Research & Personal Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/your-username/repo-name">DeFi Liquidation Risk Analysis on Aave Protocol</a> # لینک گیت‌هاب را جایگزین کنید
+    - title: <a href="https://github.com/MehrdadDastouri/DeFi-Risk-Analysis-Aave" target="_blank">DeFi Liquidation Risk Analysis on Aave Protocol</a>
       year: 2023 - Present
       description:
         - Developing a predictive model based on on-chain data to tackle liquidation risk within the Aave protocol.
         - Engineering a data pipeline to ingest and process historical loan positions from the Polygon blockchain, focusing on Health Factor.
         - The prototype model identifies over 85% of at-risk accounts 24 hours in advance.
-    - title: <a href="https://github.com/your-username/repo-name">Neuromorphic Anomaly Detection for Crypto Markets</a> # لینک گیت‌هاب را جایگزین کنید
+    - title: <a href="https://github.com/MehrdadDastouri/Neuromorphic-Anomaly-Detection-Crypto" target="_blank">Neuromorphic Anomaly Detection for Crypto Markets</a>
       year: 2023 - Present
       description:
         - Designing a custom Spiking Neural Network (SNN) in snnTorch to identify manipulative trading patterns from high-resolution, tick-by-tick data.
