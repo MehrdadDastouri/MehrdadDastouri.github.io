@@ -10,7 +10,7 @@ last_name: Dastouri
 contact_note: >
   Feel free to reach out via email. It's the best way to get in touch with me.
 # description: توضیح کوتاه سایت برای موتورهای جستجو
-description: > 
+description: >
   The personal academic website of Mehrdad Dastouri, an AI and Machine Learning researcher specializing in Spiking Neural Networks, learning theory, and neuromorphic computing.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
@@ -87,8 +87,8 @@ lsi: false
 pagination:
   enabled: true
   per_page: 5
-  permalink: '/blog/page/:num/'
-  sort_field: 'date'
+  permalink: "/blog/page/:num/"
+  sort_field: "date"
   sort_reverse: true
 
 related_blog_posts:
@@ -249,8 +249,8 @@ display_categories: ["external-services"]
 
 scholar:
   # ✅ نام برای بخش مقالات بهینه شد
-  last_name: [Dastouri] 
-  first_name: [Mehrdad, M.] 
+  last_name: [Dastouri]
+  first_name: [Mehrdad, M.]
 
   style: apa
   locale: en

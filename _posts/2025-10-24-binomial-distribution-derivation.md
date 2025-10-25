@@ -62,6 +62,7 @@ categories: statistics probability
     <p>
       And there we have it. The mean of a binomial distribution is simply $\boldsymbol{np}$, and its variance is $\boldsymbol{np(1-p)}$. These elegant results are fundamental for many statistical methods and machine learning models.
     </p>
+
   </div>
 
 </article>

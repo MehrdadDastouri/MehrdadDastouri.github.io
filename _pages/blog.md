@@ -17,7 +17,7 @@ pagination:
     after: 2
 ---
 
-<!-- 
+<!--
   START: Mobile-only Fallback Menu for the Blog Page.
   This menu appears only on mobile screens because the main hamburger menu breaks here.
 -->
@@ -51,10 +51,9 @@ pagination:
 </div>
 <!-- END: Mobile-only Fallback Menu -->
 
-
 {% for post in paginator.posts %}
-  {% if forloop.first and paginator.page == 1 %}
-    
+{% if forloop.first and paginator.page == 1 %}
+
     <!-- Display the first post with FULL content -->
     <h2 class="post-title" style="margin-bottom: 0.5rem;">
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -82,12 +81,12 @@ pagination:
     </div>
     <hr style="margin-top: 2rem; margin-bottom: 2rem;">
 
-  {% else %}
-    
+{% else %}
+
     <!-- Other posts will be displayed as previews -->
     {% include post_preview.html post=post %}
-    
-  {% endif %}
+
+{% endif %}
 {% endfor %}
 
 {% include pagination.html %}
