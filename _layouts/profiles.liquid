@@ -24,8 +24,7 @@ layout: page
 
         <div class="clearfix">
           {% if profile.content %}
-            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-            {{ profile_content | markdownify }}
+            {{ profile.content | markdownify }}
           {% else %}
             {{ content }}
           {% endif %}
