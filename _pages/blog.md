@@ -15,11 +15,12 @@ nav_order: 1
   
   <hr>
 
-  <!-- ### Blog Entries Start Here ### -->
-  <!-- Newest entries go on top. Add a new {% include ... %} line for each new post. -->
+  <!-- Blog Entries Start Here (Newest First) -->
 
-  {% include blog_entries/2025-10-23.md %}
+  {% include blog_entries/2025-10-25.html %}
+  {% include blog_entries/2025-10-24.html %}
+  {% include blog_entries/2025-10-23.html %}
 
-  <!-- ### End of Blog Entries ### -->
+  <!-- End of Blog Entries -->
 
 </div>
