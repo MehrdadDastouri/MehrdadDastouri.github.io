@@ -24,7 +24,38 @@ pagination:
 -->
 
 {% for post in paginator.posts %}
-  {% include post_preview.html %}
+
+  {% if forloop.first and paginator.page == 1 %}
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <p class="post-meta">
+        <span>
+          <i class="fa-solid fa-calendar-days"></i>
+          {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+          {{ post.date | date: date_format }}
+        </span>
+        {% if post.tags and post.tags.size > 0 %}
+        &nbsp; &middot; &nbsp;
+          <span>
+            <i class="fa-solid fa-hashtag"></i>
+            {% for tag in post.tags %}
+              <a href="{{ '/blog/tag/' | append: tag | relative_url }}">{{ tag }}</a>
+              {% unless forloop.last %}&nbsp;{% endunless %}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+
+      <div class="post-content-full">
+        {{ post.content }}
+      </div>
+    </div>
+  {% else %}
+    {% include post_preview.html post=post %}
+  {% endif %}
+
 {% endfor %}
 
 {% include pagination.html %}
