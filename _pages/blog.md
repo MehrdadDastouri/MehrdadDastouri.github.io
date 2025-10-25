@@ -7,13 +7,9 @@ nav: true
 nav_order: 1
 ---
 
-<div class="post">
+<!-- Blog Entries Start Here (Newest First) -->
 
-  <!-- Blog Entries Start Here (Newest First) -->
+{% include blog_entries/2025-10-24.html %}
+{% include blog_entries/2025-10-23.html %}
 
-  {% include blog_entries/2025-10-24.html %}
-  {% include blog_entries/2025-10-23.html %}
-
-  <!-- End of Blog Entries -->
-
-</div>
+<!-- End of Blog Entries -->
