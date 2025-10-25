@@ -45,8 +45,7 @@ pagination:
 </style>
 
 <div class="fallback-menu">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/about/' | relative_url }}">About</a>
+  <a href="{{ '/' | relative_url }}">About</a>
   <a href="{{ '/projects/' | relative_url }}">Projects</a>
   <a href="{{ '/publications/' | relative_url }}">Publications</a>
 </div>
