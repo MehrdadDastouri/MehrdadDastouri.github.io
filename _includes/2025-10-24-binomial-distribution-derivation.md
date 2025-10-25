@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Deriving the Mean and Variance of the Binomial Distribution"
+date: 2025-10-24 11:00:00 -0400
+categories: statistics probability
+---
+
 <!-- Blog Post: Oct 24, 2025 -->
 <article class="p-4 mb-4 border rounded shadow-sm">
   
