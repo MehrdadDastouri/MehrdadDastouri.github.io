@@ -1,0 +1,49 @@
+- title: "Development of AL Algorithms based Design and Application of Drug-Eluting Implants for Chronic Disease Management"
+  venue: "8th International Conference On Science, Engineering And Role Of Technology In New Businesses"
+  date: "2025-03-01"
+  abstract: "This paper explores using AI to optimize the design of drug-eluting implants (DEIs). The goal is to create personalized, patient-specific implants with more accurate drug delivery profiles for managing chronic diseases more effectively."
+
+- title: "Advanced AI Techniques for Predicting Drug Permeability Across Biological Barriers"
+  venue: "8th International Conference on Science, Engineering and Role of Technology in New Businesses"
+  date: "2025-03-01"
+  abstract: "This work reviews advanced AI techniques (ML, DL) for predicting drug permeability. AI models offer a rapid, cost-effective alternative to traditional methods, accelerating drug development and enabling more effective, tailored therapeutics."
+
+- title: "The role of generative artificial intelligence in protein folding"
+  venue: "3th International Conference on Recent Advances In Engineering, Innovation & Technology"
+  date: "2025-03-01"
+  abstract: "Investigates generative AI models for protein folding. Results show these models outperform traditional simulations in accuracy and efficiency, offering a scalable, data-driven approach for structural biology and drug discovery."
+
+- title: "Spiking Neural Networks and Their Applications"
+  venue: "9th International Conference on Electrical Engineering, Computer Science, and Information Technology"
+  date: "2025-02-01"
+  abstract: "This paper reviews Spiking Neural Networks (SNNs), inspired by biological neurons. It discusses their core principles and diverse applications in computer vision, robotics, and solving other complex real-world problems."
+
+- title: "The Economic Potential of Generative Artificial Intelligence"
+  venue: "The 10th International Conference on Electrical, Computer and Mechanical Engineering"
+  date: "2024-09-01"
+  abstract: "This paper explores the economic potential of generative AI. It highlights how this technology can drive significant productivity gains, reduce operational costs, and foster innovation, acting as a key economic engine for the future."
+
+- title: "Data Literacy and Data Strategy"
+  venue: "The 7th International Conference on Electrical Engineering, Computer, Mechanics and Artificial Intelligence"
+  date: "2024-06-01"
+  abstract: "This work emphasizes the critical importance of data literacy and a data strategy. It explains how these elements enable organizations to leverage data as a valuable asset for better decision-making and sustainable growth."
+
+- title: "Machine Learning in Big Data Analysis"
+  venue: "9th National Conference on Modern Studies and Research in Computer, Electrical, and Mechanical Sciences of Iran"
+  date: "2024-06-01"
+  abstract: "Explores the essential role of machine learning algorithms in big data analysis, addressing the scalability challenges of traditional methods and how ML provides crucial tools for extracting valuable patterns from massive datasets."
+
+- title: "Application of Deep Learning in Medical Image Analysis"
+  venue: "1st International Conference on Information Technology, Management and Computer"
+  date: "2024-06-01"
+  abstract: "Discusses the application of deep learning in medical image analysis. Highlights how DL algorithms assist in identifying, classifying, and quantifying patterns, leading to improved accuracy and speed in disease diagnosis."
+
+- title: "Path Planning for Autonomous Mobile Robots Using the Firefly Metaheuristic Algorithm"
+  venue: "8th International Conference on Knowledge and Technology in Electrical Engineering, Computer Engineering, and Mechanics of Iran"
+  date: "2024-03-01"
+  abstract: "Investigates using the Firefly metaheuristic algorithm for autonomous robot path planning. It discusses the algorithm's concepts and challenges, such as avoiding local optima, to achieve efficient and accurate navigation."
+
+- title: "Customer Segmentation Using Data Mining"
+  venue: "7th International Conference on Global Studies in Computer Engineering, Electrical Engineering, and Mechanics"
+  date: "2023-07-01"
+  abstract: "Explores customer segmentation using data mining. Explains how dividing customers into groups helps organizations understand behavior, optimize marketing strategies, and improve customer relationship management (CRM)."
