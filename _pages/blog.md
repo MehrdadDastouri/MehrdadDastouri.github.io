@@ -7,18 +7,13 @@ nav: true
 nav_order: 1
 ---
 
-<!-- 
-  This page serves as the main container for all blog posts.
-  Each post is included from the _includes/blog_entries/ directory.
-  The newest post should always be at the top.
--->
+<div class="post">
 
-<!-- Blog Entries Start Here (Newest First) -->
+  <!-- Blog Entries Start Here (Newest First) -->
 
-{% include blog_entries/2025-10-25.html %}
-<hr>
-{% include blog_entries/2025-10-24.html %}
-<hr>
-{% include blog_entries/2025-10-23.html %}
+  {% include blog_entries/2025-10-24.html %}
+  {% include blog_entries/2025-10-23.html %}
 
-<!-- End of Blog Entries -->
+  <!-- End of Blog Entries -->
+
+</div>
