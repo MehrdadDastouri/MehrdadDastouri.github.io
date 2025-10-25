@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Starting the Blog"
+date: 2025-10-23 09:00:00 -0400
+categories: journal
+---
+
 <!-- Blog Post: Oct 23, 2025 -->
 <article class="p-4 mb-4 border rounded shadow-sm">
   
