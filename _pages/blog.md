@@ -17,7 +17,6 @@ nav_order: 1
 
   <!-- Blog Entries Start Here (Newest First) -->
 
-  {% include blog_entries/2025-10-25.html %}
   {% include blog_entries/2025-10-24.html %}
   {% include blog_entries/2025-10-23.html %}
 
