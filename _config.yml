@@ -91,9 +91,13 @@ blog_description: a simple whitespace theme for academics
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
+# --- BEGIN MODIFICATION ---
 # Pagination
-pagination:
-  enabled: true
+# Replaced the original 'pagination:' block with the standard al-folio settings.
+# This prepares the site for automatic blog post pagination in the future.
+paginate: 5
+paginate_path: /blog/page:num/
+# --- END MODIFICATION ---
 
 related_blog_posts:
   enabled: true
