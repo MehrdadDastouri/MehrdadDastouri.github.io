@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projects
+title: projects
 permalink: /projects/
 description: A collection of my research and personal projects in AI, Machine Learning, and DeFi.
 nav: true
