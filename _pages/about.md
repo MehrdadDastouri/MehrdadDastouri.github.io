@@ -14,22 +14,29 @@ profile:
     <p>+98 913 4209486</p>
     <p>Iran</p>
 
-news: false # حذف News
-selected_papers: false # حذف Selected Publications
-social: false # حذف social icons
+news: false
+selected_papers: false
+social: false
 ---
 
 I hold an M.Sc. in Computer Science, where my research focused on the **mathematical analysis of learning dynamics in Spiking Neural Networks**. My thesis established convergence guarantees for STDP-based learning in recurrent architectures using Lyapunov stability theory and dynamical systems analysis. This work reinforced my commitment to understanding the **theoretical foundations of learning**—not merely what works in practice, but the fundamental principles that govern adaptation in neural systems.
 
 I am seeking a **Ph.D. position** to pursue rigorous research at the intersection of **learning theory, optimization, and neural computation**, with the goal of developing algorithms that are both theoretically grounded and practically effective.
 
-<!-- START: Added ResearchGate Button -->
-<p style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-    <a href="https://www.researchgate.net/profile/Seyed-Dastouri?ev=hdr_xprf" class="btn btn-primary" role="button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-researchgate" aria-hidden="true"></i>&nbsp; View My Research on ResearchGate
+<!-- START: Custom ResearchGate Button -->
+<p style="text-align: center; margin: 2rem 0;">
+    <a href="https://www.researchgate.net/profile/Seyed-Dastouri?ev=hdr_xprf" 
+       class="btn" 
+       role="button" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="background-color: #00CCBB; border-color: #00CCBB; color: white; font-weight: 500;"
+       onmouseover="this.style.backgroundColor='#00b8a9'"
+       onmouseout="this.style.backgroundColor='#00CCBB'">
+        <i class="fab fa-researchgate" aria-hidden="true"></i>&nbsp; ResearchGate
     </a>
 </p>
-<!-- END: Added ResearchGate Button -->
+<!-- END: Custom ResearchGate Button -->
 
 ---
 
