@@ -17,51 +17,20 @@ pagination:
     after: 2
 ---
 
+<!-- TEST CODE -->
+<h2>This is a test to check the menu.</h2>
+<p>Below is a list of posts.</p>
+<hr>
+
 {% for post in paginator.posts %}
-
+  
   {% if forloop.first and paginator.page == 1 %}
-    
-    <!-- 
-      START: First Post (Full Content)
-      We are already inside a container from "layout: page".
-      So we directly output the content of the first post without an extra wrapper div.
-    -->
-    
-    <h2 class="post-title" style="margin-bottom: 0.5rem;">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h2>
-    <p class="post-meta">
-      <span>
-        <i class="fa-solid fa-calendar-days"></i>
-        {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-        {{ post.date | date: date_format }}
-      </span>
-      {% if post.tags and post.tags.size > 0 %}
-      &nbsp; &middot; &nbsp;
-        <span>
-          <i class="fa-solid fa-hashtag"></i>
-          {% for tag in post.tags %}
-            <a href="{{ '/blog/tag/' | append: tag | relative_url }}">{{ tag }}</a>
-            {% unless forloop.last %}&nbsp;{% endunless %}
-          {% endfor %}
-        </span>
-      {% endif %}
-    </p>
-
-    <div class="post-content-full" style="margin-top: 1.5rem;">
-      {{ post.content }}
-    </div>
-
-    <hr style="margin-top: 2rem; margin-bottom: 2rem;">
-
-    <!-- END: First Post (Full Content) -->
-
-
+    <!-- Displaying ONLY the title of the first post -->
+    <h3>FIRST POST: {{ post.title }}</h3>
+    <hr>
   {% else %}
-    
-    <!-- Other posts will be displayed as previews -->
-    {% include post_preview.html post=post %}
-    
+    <!-- Displaying ONLY the title of other posts -->
+    <h3>{{ post.title }}</h3>
   {% endif %}
 
 {% endfor %}
