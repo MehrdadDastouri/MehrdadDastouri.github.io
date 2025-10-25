@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /blog/
-title: Blog
+title: blog
 description: "Daily notes, tips, and insights on AI, technology, and more."
 nav: true
 nav_order: 1
