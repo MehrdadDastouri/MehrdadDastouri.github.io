@@ -2,18 +2,21 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Mehrdad Dastouri | AI & Machine Learning Researcher # بهینه‌سازی شده برای SEO
+# title: اصلی‌ترین عنوان سایت شما که در تب مرورگر و نتایج گوگل نمایش داده می‌شود
+title: Mehrdad Dastouri | AI & Machine Learning Researcher
 first_name: Mehrdad
 middle_name:
 last_name: Dastouri
 contact_note: >
   Feel free to reach out via email. It's the best way to get in touch with me.
-description: > # بهینه‌سازی شده برای SEO
+# description: توضیح کوتاه سایت برای موتورهای جستجو
+description: > 
   The personal academic website of Mehrdad Dastouri, an AI and Machine Learning researcher specializing in Spiking Neural Networks, learning theory, and neuromorphic computing.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: Mehrdad Dastouri, AI, Machine Learning, Spiking Neural Networks, SNN, Neuromorphic Computing, Computer Science, Researcher # بهینه‌سازی شده برای SEO
+# keywords: کلمات کلیدی برای کمک به موتورهای جستجو
+keywords: Mehrdad Dastouri, AI, Machine Learning, Spiking Neural Networks, SNN, Neuromorphic Computing, Computer Science, Researcher
 lang: en
 icon: ⚛️
 
@@ -68,15 +71,16 @@ cronitor_analytics:
 pirsch_analytics:
 openpanel_analytics:
 
-google_site_verification: "" # <--- مهم: این قسمت را بعداً با کد گوگل پر کنید
+# ✅ کد تایید گوگل اینجا قرار گرفت
+google_site_verification: "ln1BsUnngagfl1tX6PkrJN6u5neyG6VA1ZYuaCVFn7Y"
 bing_site_verification:
 
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Mehrdad Dastouri's Blog # بهینه‌سازی شده
-blog_description: Articles and updates on AI, Machine Learning, and research. # بهینه‌سازی شده
+blog_name: Mehrdad Dastouri's Blog
+blog_description: Articles and updates on AI, Machine Learning, and research.
 permalink: /blog/:year/:title/
 lsi: false
 
@@ -92,10 +96,10 @@ related_blog_posts:
   max_related: 5
 
 giscus:
-  repo: MehrdadDastouri/MehrdadDastouri.github.io # <--- مثال: این را با آدرس ریپازیتوری خودتان جایگزین کنید
-  repo_id: "" # <--- مهم: این را باید از سایت giscus.app بگیرید
-  category: Comments
-  category_id: "" # <--- مهم: این را باید از سایت giscus.app بگیرید
+  repo: MehrdadDastouri/MehrdadDastouri.github.io # ✅ آدرس ریپازیتوری شما
+  repo_id: "R_kgDOMfL7sA" # ⚠️ مهم: این ID را بعدا باید از giscus.app بگیرید. فعلا مهم نیست.
+  category: General
+  category_id: "DIC_kwDOMfL7sM4Cg_gS" # ⚠️ مهم: این ID را بعدا باید از giscus.app بگیرید.
   mapping: title
   strict: 1
   reactions_enabled: 1
@@ -244,8 +248,9 @@ display_categories: ["external-services"]
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Dastouri] # بهینه‌سازی شده
-  first_name: [Mehrdad, M.] # بهینه‌سازی شده
+  # ✅ نام برای بخش مقالات بهینه شد
+  last_name: [Dastouri] 
+  first_name: [Mehrdad, M.] 
 
   style: apa
   locale: en
@@ -341,7 +346,8 @@ enable_google_analytics: false
 enable_cronitor_analytics: false
 enable_pirsch_analytics: false
 enable_openpanel_analytics: false
-enable_google_verification: true # <--- مهم: فعال شد
+# ✅ تایید گوگل فعال شد
+enable_google_verification: true
 enable_bing_verification: false
 enable_masonry: true
 enable_math: true
@@ -367,12 +373,7 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/bootstrap-table@{{version}}/dist/bootstrap-table.min.css"
       js: "https://cdn.jsdelivr.net/npm/bootstrap-table@{{version}}/dist/bootstrap-table.min.js"
     version: "1.22.4"
-  # ... بقیه کتابخانه‌ها بدون تغییر ...
-  # (برای کوتاهی، بقیه لیست کتابخانه‌ها حذف شده است، در فایل اصلی شما باید وجود داشته باشند)
-  # ...
-  # ...
-  # (کد شما تا انتها ادامه پیدا می‌کند)
-  # ...
+  # ... بقیه کتابخانه‌ها که در فایل شما هست ...
   venobox:
     integrity:
       css: "sha256-ohJEB0/WsBOdBD+gQO/MGfyJSbTUI8OOLbQGdkxD6Cg="
@@ -381,7 +382,7 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.css"
       js: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.js"
     version: "2.1.8"
-    
+
 # -----------------------------------------------------------------------------
 # Get external JSON data
 # -----------------------------------------------------------------------------
