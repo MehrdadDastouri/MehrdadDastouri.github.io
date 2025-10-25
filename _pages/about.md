@@ -23,6 +23,14 @@ I hold an M.Sc. in Computer Science, where my research focused on the **mathemat
 
 I am seeking a **Ph.D. position** to pursue rigorous research at the intersection of **learning theory, optimization, and neural computation**, with the goal of developing algorithms that are both theoretically grounded and practically effective.
 
+<!-- START: Added ResearchGate Button -->
+<p style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+    <a href="https://www.researchgate.net/profile/Seyed-Dastouri?ev=hdr_xprf" class="btn btn-primary" role="button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-researchgate" aria-hidden="true"></i>&nbsp; View My Research on ResearchGate
+    </a>
+</p>
+<!-- END: Added ResearchGate Button -->
+
 ---
 
 ## Education
