@@ -1,0 +1,33 @@
+{% comment %}
+  _includes/project_preview.liquid
+  This file defines the layout for a single project preview in a list.
+  It's used by the /projects page when displaying projects in a blog-like list.
+{% endcomment %}
+
+<div class="project-preview">
+  <div class="row">
+    {%- assign project_url = "" -%}
+    {%- if project.redirect -%}
+      {%- assign project_url = project.redirect -%}
+    {%- else -%}
+      {%- assign project_url = project.url | relative_url -%}
+    {%- endif -%}
+
+    {% if project.img %}
+    <div class="col-md-3 col-sm-4 mb-3 mb-sm-0">
+      <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        <img class="img-fluid rounded z-depth-1" src="{{ project.img | relative_url }}" alt="{{ project.name }}">
+      </a>
+    </div>
+    <div class="col-md-9 col-sm-8">
+    {% else %}
+    <div class="col-12">
+    {% endif %}
+      <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        <h3 class="project-title">{{ project.name }}</h3>
+      </a>
+      <p class="project-description">{{ project.description }}</p>
+    </div>
+  </div>
+</div>
+<hr class="my-4">
