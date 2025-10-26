@@ -1,0 +1,19 @@
+# _data/projects.yml
+
+- name: DeFi Liquidation Risk Analysis
+  description: A case study on the Aave Protocol using on-chain data to predict liquidation events.
+  url: /projects/liquidation-risk/ # <-- لینک داخلی به یک صفحه در سایت شما
+  img: /assets/img/project-defi.jpg # <-- تصویر مربوط به پروژه (مهم)
+  importance: 1 # <-- هر چه عدد کمتر، بالاتر نمایش داده می‌شود
+
+- name: Spiking Neural Network for Image Classification
+  description: Implemented a Spiking Neural Network (SNN) from scratch to classify MNIST digits, exploring energy-efficient computing paradigms.
+  redirect: https://github.com/your-username/snn-mnist # <-- لینک خارجی (مثلاً گیت‌هاب)
+  img: /assets/img/project-snn.jpg # <-- تصویر مربوط به پروژه
+  importance: 2
+
+- name: Time Series Forecasting with Transformers
+  description: A project on forecasting stock prices using a Transformer-based architecture, outperforming traditional models like ARIMA.
+  url: /projects/transformer-forecasting/
+  img: /assets/img/project-aiml.jpg
+  importance: 3
