@@ -1,315 +1,369 @@
-# -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Mehrdad Dastouri # the website title
-name: Mehrdad Dastouri # your name
-description: >- # A short bio about you. This will be displayed on the home page.
-  A master's student in Artificial Intelligence at the University of Isfahan. 
-  Passionate about machine learning, deep learning, and their applications 
-  in real-world problems.
+# title: اصلی‌ترین عنوان سایت شما که در تب مرورگر و نتایج گوگل نمایش داده می‌شود
+title: Mehrdad Dastouri | AI & Machine Learning Researcher
+first_name: Mehrdad
+middle_name:
+last_name: Dastouri
+contact_note: >
+  Feel free to reach out via email. It's the best way to get in touch with me.
+# description: توضیح کوتاه سایت برای موتورهای جستجو
+description: >
+  The personal academic website of Mehrdad Dastouri, an AI and Machine Learning researcher specializing in Spiking Neural Networks, learning theory, and neuromorphic computing.
+footer_text: >
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+# keywords: کلمات کلیدی برای کمک به موتورهای جستجو
+keywords: Mehrdad Dastouri, AI, Machine Learning, Spiking Neural Networks, SNN, Neuromorphic Computing, Computer Science, Researcher
+lang: en
+icon: ⚛️
 
-# Be sure to use the correct URL, otherwise paths to assets may not work correctly.
-# In development, you can fill it with http://127.0.0.1:4000
-# If you are deploying on GitHub Pages, the url should be http://<your-username>.github.io
-url: "https://MehrdadDastouri.github.io" # the base hostname & protocol for your site
-repository: "MehrdadDastouri/MehrdadDastouri.github.io" # the GitHub repository for your site
-github_username: "MehrdadDastouri"
-
-# -----------------------------------------------------------------------------
-# Jekyll settings
-# -----------------------------------------------------------------------------
-
-# You can add additional Jekyll plugins here. For more information, see https://jekyllrb.com/docs/plugins/
-plugins:
-  - jekyll-include-cache
-  - jekyll-remote-theme
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-toc
-  - jekyll-paginate
-  - jemoji
-
-# The following settings are for the default theme.
-# It is recommended to modify these settings in a custom theme.
-# For more information, see the documentation.
-theme_settings:
-  # The name of the theme.
-  # The default theme is "al-folio".
-  # You can find other themes at https://github.com/topics/al-folio-theme.
-  # theme: al-folio
-
-  # The name of the skin.
-  # The default skin is "default".
-  # You can find other skins at https://github.com/alshedivat/al-folio/tree/master/assets/css/jekyll-theme-conference.
-  # skin: default
-
-  # The title of the page.
-  # The default title is the site title.
-  # title: My awesome website
-
-  # The description of the page.
-  # The default description is the site description.
-  # description: A short description of my awesome website.
-
-  # The author of the page.
-  # The default author is the site name.
-  # author: John Doe
-
-  # The favicon of the page.
-  # The default favicon is /assets/img/favicon.ico.
-  # favicon: /assets/img/favicon.ico
-
-  # The logo of the page.
-  # The default logo is /assets/img/logo.png.
-  # logo: /assets/img/logo.png
-
-  # The search bar.
-  # The default is false.
-  # search: false
-
-  # The table of contents.
-  # The default is false.
-  # toc: false
-
-  # The back to top button.
-  # The default is false.
-  # back_to_top: false
-
-  # The number of posts to show on the home page.
-  # The default is 5.
-  # paginate: 5
-
-  # The path to the pagination pages.
-  # The default is /blog/page:num/.
-  # paginate_path: /blog/page:num/
-
-  # The social media links.
-  # The default is an empty array.
-  social:
-    # behance: your_username
-    # dribbble: your_username
-    # facebook: your_username
-    # flickr: your_username
-    github: MehrdadDastouri
-    # gitlab: your_username
-    # google-scholar: your_username
-    # instagram: your_username
-    linkedin: mehrdad-dastouri
-    # medium: your_username
-    # pinterest: your_username
-    # stack-overflow: your_username
-    # telegram: your_username
-    # twitter: your_username
-    # vimeo: your_username
-    # youtube: your_username
-
-  # Google Analytics
-  google_analytics: # your Google Analytics tracking ID
-
-  # Google Search Console
-  google_site_verification: "ln1BsUnngagfl1tX6PkrJN6u5neyG6VA1ZYuaCVFn7Y"
-
-  # Bing Webmaster Tools
-  bing_site_verification: # your Bing Webmaster Tools verification code
+url: "https://MehrdadDastouri.github.io"
+baseurl: ""
+last_updated: false
+impressum_path:
+back_to_top: true
 
 # -----------------------------------------------------------------------------
-# Blog settings
+# Theme
 # -----------------------------------------------------------------------------
 
-# The title of the blog.
-# The default is "blog".
-blog_name: blog
+repo_theme_light: default
+repo_theme_dark: dark
+repo_trophies:
+  enabled: true
+  theme_light: flat
+  theme_dark: gitdimmed
 
-# The description of the blog.
-# The default is "a simple blog".
-blog_description: a simple blog
+# -----------------------------------------------------------------------------
+# RSS Feed
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Layout
+# -----------------------------------------------------------------------------
+
+navbar_fixed: true
+footer_fixed: true
+search_enabled: false
+socials_in_search: true
+posts_in_search: true
+bib_search: true
+
+max_width: 930px
+
+# -----------------------------------------------------------------------------
+# Open Graph & Schema.org
+# -----------------------------------------------------------------------------
+
+serve_og_meta: false
+serve_schema_org: false
+og_image:
+
+# -----------------------------------------------------------------------------
+# Analytics and search engine verification
+# -----------------------------------------------------------------------------
+
+google_analytics:
+cronitor_analytics:
+pirsch_analytics:
+openpanel_analytics:
+
+# ✅ کد تایید گوگل اینجا قرار گرفت
+google_site_verification: "ln1BsUnngagfl1tX6PkrJN6u5neyG6VA1ZYuaCVFn7Y"
+bing_site_verification:
+
+# -----------------------------------------------------------------------------
+# Blog
+# -----------------------------------------------------------------------------
+
+blog_name: Mehrdad Dastouri's Blog
+blog_description: Articles and updates on AI, Machine Learning, and research.
+permalink: /blog/:year/:title/
+lsi: false
+
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/blog/page/:num/"
+  sort_field: "date"
+  sort_reverse: true
+
+related_blog_posts:
+  enabled: true
+  max_related: 5
+
+giscus:
+  repo: MehrdadDastouri/MehrdadDastouri.github.io
+  repo_id: "R_kgDOMfL7sA"
+  category: General
+  category_id: "DIC_kwDOMfL7sM4Cg_gS"
+  mapping: title
+  strict: 1
+  reactions_enabled: 1
+  input_position: bottom
+  dark_theme: dark
+  light_theme: light
+  emit_metadata: 0
+  lang: en
+  # ✅ برای غیرفعال کردن کامل کامنت‌ها
+  enabled: false
+
+disqus_shortname:
+
+external_sources:
+  - name: medium.com
+    rss_url: https://medium.com/@al-folio/feed
+  - name: Google Blog
+    posts:
+      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+        published_date: 2024-05-14
+
+# -----------------------------------------------------------------------------
+# Newsletter
+# -----------------------------------------------------------------------------
+
+newsletter:
+  enabled: false
+  endpoint:
 
 # -----------------------------------------------------------------------------
 # Collections
 # -----------------------------------------------------------------------------
 
 collections:
+  books:
+    output: true
   news:
+    defaults:
+      layout: post
     output: true
   projects:
     output: true
-    permalink: /projects/:path/
 
 # -----------------------------------------------------------------------------
-# Jekyll-brotli settings
-# -----------------------------------------------------------------------------
-brotli:
-  # The file extensions to compress.
-  # The default is an empty array.
-  # extensions:
-  #  - .html
-  #  - .css
-  #  - .js
-  #  - .json
-  #  - .txt
-  #  - .ico
-  #  - .svg
-  #  - .eot
-  #  - .ttf
-  #  - .woff
-  #  - .woff2
-
-# -----------------------------------------------------------------------------
-# Jekyll remote theme settings
-# -----------------------------------------------------------------------------
-remote_theme: alshedivat/al-folio
-
-# -----------------------------------------------------------------------------
-# SEO
-# -----------------------------------------------------------------------------
-
-# Set to true to verify ownership of the website on Google Search Console
-# and Bing Webmaster Tools.
-# You need to add the verification file to the root of your repository.
-# Looking at the theme, it seems like the following files are used:
-# google_site_verification: google_verification_code.html
-# bing_site_verification: BingSiteAuth.xml
-# Other search engines are also supported. See the documentation for more details.
-enable_google_verification: true
-enable_bing_verification: false # Set to true to verify ownership of the website on Bing Webmaster Tools
-
-# -----------------------------------------------------------------------------
-# Giscus
-# -----------------------------------------------------------------------------
-
-# Giscus is a comments system powered by GitHub Discussions.
-# To enable Giscus, you need to create a GitHub Discussion and then configure it here.
-# For more information, see https://giscus.app/.
-giscus:
-  enabled: false # IMPORTANT: Ensure this is false if you don't use it.
-  repo: # your GitHub repository for Giscus
-  repo_id: # your GitHub repository ID for Giscus
-  category: # your GitHub discussion category for Giscus
-  category_id: # your GitHub discussion category ID for Giscus
-  mapping: # your Giscus mapping
-  strict: # your Giscus strict mode
-  reactions_enabled: # your Giscus reactions enabled
-  emit_metadata: # your Giscus emit metadata
-  input_position: # your Giscus input position
-  theme: # your Giscus theme
-  lang: # your Giscus language
-
-# -----------------------------------------------------------------------------
-# Markdown settings
+# Jekyll settings
 # -----------------------------------------------------------------------------
 
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
   syntax_highlighter_opts:
-    # css_class: 'highlight'
-    # span:
-    #   line_numbers: false
-    # block:
-    #   line_numbers: true
-    #   start_line: 1
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
 
-# -----------------------------------------------------------------------------
-# Jekyll Feed settings
-# -----------------------------------------------------------------------------
-
-feed:
-  # The path to the feed.
-  # The default is /feed.xml.
-  # path: /feed.xml
-
-  # The number of posts to show in the feed.
-  # The default is 10.
-  # limit: 10
-
-# -----------------------------------------------------------------------------
-# Jekyll Paginate settings
-# -----------------------------------------------------------------------------
-
-paginate: 5 # The number of posts to show on the blog page.
-paginate_path: /blog/page:num/ # The path to the pagination pages.
-
-# -----------------------------------------------------------------------------
-# Jekyll SEO Tag settings
-# -----------------------------------------------------------------------------
-
-# For more information, see https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md.
-# seo:
-#   title: false
-#   description: false
-#   author: false
-#   social:
-#     name: John Doe
-#     links:
-#       - https://twitter.com/johndoe
-#       - https://github.com/johndoe
-
-# -----------------------------------------------------------------------------
-# Jekyll Gist settings
-# -----------------------------------------------------------------------------
-
-# For more information, see https://github.com/jekyll/jekyll-gist.
-# gist:
-#   noscript: false
-
-# -----------------------------------------------------------------------------
-# Jekyll TOC settings
-# -----------------------------------------------------------------------------
-
-# For more information, see https://github.com/allejo/jekyll-toc.
-toc:
-  # The minimum number of headings to show the table of contents.
-  # The default is 2.
-  # min_headings: 2
-
-  # The maximum number of headings to show the table of contents.
-  # The default is 6.
-  # max_headings: 6
-
-  # The class of the table of contents.
-  # The default is "toc".
-  # css_class: toc
-
-  # The list type of the table of contents.
-  # The default is "ul".
-  # list_type: ul
-
-# -----------------------------------------------------------------------------
-# Exclude from processing
-# -----------------------------------------------------------------------------
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal exclusion list.
-#
-# Excluded items can be processed by explicitly listing the directories or
-# files' path in the `include:` list.
-#
+include: ["_pages", "_scripts"]
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
+  - bin/
+  - CONTRIBUTING.md
+  - CUSTOMIZE.md
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose-slim.yml
+  - FAQ.md
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - INSTALL.md
+  - LICENSE
+  - lighthouse_results/
+  - package.json
+  - package-lock.json
+  - _pages/about_einstein.md
+  - purgecss.config.js
+  - README.md
+  - readme_preview/
+  - vendor
+keep_files:
+  - CNAME
+  - .nojekyll
+
+plugins:
+  - jekyll-archives-v2
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+
+sass:
+  style: compressed
+
+# -----------------------------------------------------------------------------
+# Jekyll Minifier
+# -----------------------------------------------------------------------------
+
+jekyll-minifier:
+  compress_javascript: false
+  exclude: ["robots.txt", "assets/js/search/*.js"]
+
+# -----------------------------------------------------------------------------
+# Terser
+# -----------------------------------------------------------------------------
+
+terser:
+  compress:
+    drop_console: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Archives
+# -----------------------------------------------------------------------------
+
+jekyll-archives:
+  posts:
+    enabled: [year, tags, categories]
+    permalinks:
+      year: "/blog/:year/"
+      tags: "/blog/:type/:name/"
+      categories: "/blog/:type/:name/"
+  books:
+    enabled: [year, tags, categories]
+
+display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"]
+display_categories: ["external-services"]
+
+# -----------------------------------------------------------------------------
+# Jekyll Scholar
+# -----------------------------------------------------------------------------
+
+scholar:
+  last_name: [Dastouri]
+  first_name: [Mehrdad, M.]
+
+  style: apa
+  locale: en
+
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  bibtex_filters: [latex, smallcaps, superscript]
+
+  replace_strings: true
+  join_strings: true
+
+  details_dir: bibliography
+  details_link: Details
+
+  query: "@*"
+  group_by: year
+  group_order: descending
+
+enable_publication_badges:
+  altmetric: true
+  dimensions: true
+  google_scholar: true
+  inspirehep: true
+
+filtered_bibtex_keywords:
+  [
+    abbr,
+    abstract,
+    additional_info,
+    altmetric,
+    annotation,
+    arxiv,
+    award,
+    award_name,
+    bibtex_show,
+    blog,
+    code,
+    google_scholar_id,
+    html,
+    inspirehep_id,
+    pdf,
+    poster,
+    selected,
+    slides,
+    supp,
+    video,
+    website,
+  ]
+
+max_author_limit: 3
+more_authors_animation_delay: 10
+enable_publication_thumbnails: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Link Attributes
+# -----------------------------------------------------------------------------
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude:
+
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+
+imagemagick:
+  enabled: true
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+    - ".gif"
+  output_formats:
+    webp: "-quality 85"
+
+lazy_loading_images: true
+
+# -----------------------------------------------------------------------------
+# Optional Features
+# -----------------------------------------------------------------------------
+
+enable_google_analytics: false
+enable_cronitor_analytics: false
+enable_pirsch_analytics: false
+enable_openpanel_analytics: false
+enable_google_verification: true
+enable_bing_verification: false
+enable_masonry: true
+enable_math: true
+enable_tooltips: false
+enable_darkmode: true
+enable_navbar_social: false
+enable_project_categories: true
+enable_medium_zoom: true
+enable_progressbar: true
+enable_video_embedding: false
 
 # -----------------------------------------------------------------------------
 # Library versions
 # -----------------------------------------------------------------------------
-    
-# Add the url, version and integrity hash of the libraries you use in your site.
-# The integrity hash is used to ensure that the library is not tampered with.
-# Integrity hashes not provided by the libraries were generated using https://www.srihash.org/
+
 third_party_libraries:
-  download: false # if true, download the versions of the libraries specified below and use the downloaded files
+  download: false
   bootstrap-table:
     integrity:
       css: "sha256-uRX+PiRTR4ysKFRCykT8HLuRCub26LgXJZym3Yeom1c="
@@ -417,7 +471,7 @@ third_party_libraries:
     integrity:
       js: "sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI="
     url:
-      js: "https://cdn.jsdelivr.net/npm/masonry-layout@{{version}}/dist/masonry.pkgd.min.js"
+      js: "https://cdn.jsdelivr.net/npm/masonry-layout@{{version}}/dist/ masonry.pkgd.min.js"
     version: "4.2.2"
   mdb:
     integrity:
@@ -529,3 +583,25 @@ third_party_libraries:
       css: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.css"
       js: "https://cdn.jsdelivr.net/npm/venobox@{{version}}/dist/venobox.min.js"
     version: "2.1.8"
+
+# -----------------------------------------------------------------------------
+# Get external JSON data
+# -----------------------------------------------------------------------------
+
+jekyll_get_json:
+  - data: resume
+    json: assets/json/resume.json
+
+jsonresume:
+  - basics
+  - work
+  - education
+  - publications
+  - projects
+  - volunteer
+  - awards
+  - certificates
+  - skills
+  - languages
+  - interests
+  - references
