@@ -67,15 +67,11 @@ categories: machine-learning mathematics linear-regression
   $$ \mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{X}^T\mathbf{y} $$
 </p>
 
-<h4>Connecting to the Problem's Equation</h4>
+<h4>Connecting Matrix Form to Summation Form</h4>
 <p>
-  The equation in the problem statement is presented using summations. Let's show that our matrix form is identical. The term $\mathbf{X}^T\mathbf{X}$ is:
+  Often, this equation is also presented using summations, which can be useful to see how individual data points contribute. Let's show that our matrix form is identical to this summation-based representation. The term $\mathbf{X}^T\mathbf{X}$ is equivalent to summing the outer product of each data vector with itself:
   $$ \mathbf{X}^T\mathbf{X} = \sum_{n=1}^{N} \mathbf{x}_n \mathbf{x}_n^T $$
-  And the term $\mathbf{X}^T\mathbf{y}$ is:
+  And the term $\mathbf{X}^T\mathbf{y}$ is equivalent to summing each data vector scaled by its corresponding target value:
   $$ \mathbf{X}^T\mathbf{y} = \sum_{n=1}^{N} \mathbf{x}_n y_n = \sum_{n=1}^{N} y_n \mathbf{x}_n $$
-  Substituting these back into our matrix equation, we get:
-  $$ \left( \sum_{n=1}^{N} \mathbf{x}_n \mathbf{x}_n^T \right) \hat{\boldsymbol{\theta}} = \sum_{n=1}^{N} y_n \mathbf{x}_n $$
-  This is precisely the equation (3.13) we were asked to prove.
+  By substituting these back into the Normal Equation, we arrive at its final summation form. This shows that minimizing the sum of squared errors leads directly to this fundamental result for linear regression.
 </p>
-
-<hr class="my-4">
