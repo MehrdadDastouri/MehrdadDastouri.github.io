@@ -79,13 +79,3 @@ categories: machine-learning mathematics linear-regression
 </p>
 
 <hr class="my-4">
-
-<h4>Conclusion</h4>
-<p>
-  We have successfully proven that by minimizing the sum of squared errors, we arrive at the Normal Equation. This provides an elegant, analytical solution for the optimal parameters in a linear regression model, denoted as $\hat{\boldsymbol{\theta}}$. By solving this system of linear equations, often written as $\hat{\boldsymbol{\theta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$, we can directly compute the best-fit parameters without needing iterative methods like gradient descent.
-</p>
-
-پس از جایگزین کردن محتوای فایل پست، سایت را دوباره بیلد کنید. این بار، محتوای پست "Least Squares" باید به درستی و به صورت کامل زیر عنوانش در صفحه وبلاگ نمایش داده شود.
-
----
-**نکته مهم:** خطای `LiquidHTMLParsingError` در `_includes/project_preview.liquid` همچنان وجود دارد و مانع بیلد شدن سایت شما می‌شود. بعد از اینکه این مشکل نمایش پست را حل کردید، باید به سراغ آن برویم. لطفاً محتوای آن فایل را برایم بفرستید تا اصلاحش کنیم.
