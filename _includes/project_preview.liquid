@@ -14,20 +14,26 @@
     {%- endif -%}
 
     {% if project.img %}
-    <div class="col-md-3 col-sm-4 mb-3 mb-sm-0">
-      <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
-        <img class="img-fluid rounded z-depth-1" src="{{ project.img | relative_url }}" alt="{{ project.name }}">
-      </a>
-    </div>
-    <div class="col-md-9 col-sm-8">
+      <div class="col-md-3 col-sm-4 mb-3 mb-sm-0">
+        <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          <img class="img-fluid rounded z-depth-1" src="{{ project.img | relative_url }}" alt="{{ project.name }}">
+        </a>
+      </div>
+      <div class="col-md-9 col-sm-8">
+        <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          <h3 class="project-title">{{ project.name }}</h3>
+        </a>
+        <p class="project-description">{{ project.description }}</p>
+      </div> {# Closes col-md-9 #}
     {% else %}
-    <div class="col-12">
+      <div class="col-12">
+        <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          <h3 class="project-title">{{ project.name }}</h3>
+        </a>
+        <p class="project-description">{{ project.description }}</p>
+      </div> {# Closes col-12 #}
     {% endif %}
-      <a href="{{ project_url }}" {% if project.redirect %}target="_blank" rel="noopener noreferrer"{% endif %}>
-        <h3 class="project-title">{{ project.name }}</h3>
-      </a>
-      <p class="project-description">{{ project.description }}</p>
-    </div>
-  </div>
-</div>
+
+  </div> {# Closes div.row #}
+</div> {# Closes div.project-preview #}
 <hr class="my-4">
