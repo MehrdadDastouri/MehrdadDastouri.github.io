@@ -8,7 +8,7 @@ categories: journal
 <!-- Blog Post: Oct 23, 2025 -->
 <article class="p-4 mb-4 border rounded shadow-sm">
   
-  <h2 class="post-title">October 23, 2025: Starting the Blog</h2>
+  <h2 class="post-title">Starting the Blog</h2>
   
   <p class="post-meta text-muted"><em>A new beginning</em></p>
   
