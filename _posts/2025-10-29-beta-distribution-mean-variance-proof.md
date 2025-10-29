@@ -1,61 +1,85 @@
 ---
 layout: post
-title: "Deriving the Mean and Variance of the Beta Distribution"
+title: Beta Distribution Proof
 date: 2025-10-29 10:00:00 -0330
-categories: statistics probability
+description: Derivation of the Beta distribution from two Gamma distributions.
+tags: math probability
+categories: math
+giscus_comments: true
+related_posts: false
 ---
 
-<p>
-  The Beta distribution is a fundamental continuous probability distribution defined on the interval $[0, 1]$. It is widely used to model random variables that represent proportions, percentages, or probabilities. In Bayesian inference, it serves as the conjugate prior for the Bernoulli, binomial, and geometric distributions.
-</p>
-<p>
-  In this post, we will walk through the step-by-step derivation of the mean (expected value) and variance of the Beta distribution.
-</p>
+<div class="lead">
+This post demonstrates how the Beta distribution can be derived from two Gamma-distributed random variables.
+</div>
 
-<h3>Prerequisites: PDF and the Gamma Function</h3>
-<p>
-  The Probability Density Function (PDF) of the Beta distribution, parameterized by shape parameters $a > 0$ and $b > 0$, is given by:
-  $$ f(x; a, b) = \frac{x^{a-1}(1-x)^{b-1}}{B(a, b)} $$
-  where $B(a, b)$ is the Beta function, which can be expressed using the Gamma function ($\Gamma$):
-  $$ B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)} $$
-  This allows us to write the PDF as:
-  $$ f(x; a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1} $$
-  The key property of the Gamma function that we will leverage throughout our proofs is:
-  $$ \Gamma(z+1) = z\Gamma(z) $$
-</p>
+### Introduction
 
-<hr class="my-4">
+The Beta distribution is a continuous probability distribution defined on the interval $$[0, 1]$$. It is parameterized by two positive shape parameters, denoted by $$\alpha$$ and $$\beta$$. A key property is its relationship with the Gamma distribution.
 
-<h3>Deriving the Mean ($E[X]$)</h3>
-<p>
-  The expected value of $X$ is defined as:
-  $$ E[X] = \int_{-\infty}^{\infty} x f(x) dx = \int_0^1 x \cdot \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1} dx $$
-  Combining the $x$ terms inside the integral, we get:
-  $$ E[X] = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \int_0^1 x^{a}(1-x)^{b-1} dx $$
-  The integral is in the form of a Beta function, $B(a+1, b)$. Therefore, its value is:
-  $$ \int_0^1 x^{a}(1-x)^{b-1} dx = \frac{\Gamma(a+1)\Gamma(b)}{\Gamma(a+1+b)} $$
-  Substituting this back into the expression for $E[X]$:
-  $$ E[X] = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \cdot \frac{\Gamma(a+1)\Gamma(b)}{\Gamma(a+b+1)} $$
-  Now, we use the property $\Gamma(z+1) = z\Gamma(z)$ to simplify $\Gamma(a+1)$ and $\Gamma(a+b+1)$:
-  $$ E[X] = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \cdot \frac{a\Gamma(a)\Gamma(b)}{(a+b)\Gamma(a+b)} $$
-  Canceling the common Gamma terms leaves us with the final result:
-  $$ E[X] = \frac{a}{a+b} $$
-</p>
+If $$X \sim \text{Gamma}(\alpha, 1)$$ and $$Y \sim \text{Gamma}(\beta, 1)$$ are independent random variables, then the random variable $$U = \frac{X}{X+Y}$$ follows a Beta distribution with parameters $$\alpha$$ and $$\beta$$.
 
-<h3>Deriving the Variance ($\text{Var}(X)$)</h3>
-<p>
-  We use the formula $\text{Var}(X) = E[X^2] - (E[X])^2$. We first need to compute the second moment, $E[X^2]$.
-  $$ E[X^2] = \int_0^1 x^2 f(x) dx = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \int_0^1 x^{a+1}(1-x)^{b-1} dx $$
-  The integral is equal to $B(a+2, b)$, so we have:
-  $$ E[X^2] = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \cdot \frac{\Gamma(a+2)\Gamma(b)}{\Gamma(a+b+2)} $$
-  Using the Gamma property repeatedly, $\Gamma(a+2) = (a+1)a\Gamma(a)$ and $\Gamma(a+b+2) = (a+b+1)(a+b)\Gamma(a+b)$:
-  $$ E[X^2] = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} \cdot \frac{(a+1)a\Gamma(a)\Gamma(b)}{(a+b+1)(a+b)\Gamma(a+b)} $$
-  After canceling common terms, we get:
-  $$ E[X^2] = \frac{a(a+1)}{(a+b)(a+b+1)} $$
-  Now, we can compute the variance:
-  $$ \text{Var}(X) = E[X^2] - (E[X])^2 = \frac{a(a+1)}{(a+b)(a+b+1)} - \left(\frac{a}{a+b}\right)^2 $$
-  To simplify, we find a common denominator, which is $(a+b)^2(a+b+1)$:
-  $$ \text{Var}(X) = \frac{a(a+1)(a+b) - a^2(a+b+1)}{(a+b)^2(a+b+1)} $$
-  The numerator expands to $ (a^3 + a^2b + a^2 + ab) - (a^3 + a^2b + a^2) = ab $. Thus, the variance is:
-  $$ \text{Var}(X) = \frac{ab}{(a+b)^2(a+b+1)} $$
-</p>
+$$
+U = \frac{X}{X+Y} \sim \text{Beta}(\alpha, \beta)
+$$
+
+This post will walk through the proof of this property.
+
+### Proof
+
+Let's define two new random variables:
+$$
+U = \frac{X}{X+Y} \quad \text{and} \quad V = X+Y
+$$
+To find the joint probability density function (PDF) of $$(U, V)$$, we first need to express $$X$$ and $$Y$$ in terms of $$U$$ and $$V$$:
+$$
+X = UV \quad \text{and} \quad Y = V - X = V - UV = V(1-U)
+$$
+Since $$X > 0$$ and $$Y > 0$$, we have $$UV > 0$$ and $$V(1-U) > 0$$. As $$V=X+Y$$, $$V$$ must be positive, which implies $$U > 0$$ and $$1-U > 0$$. Therefore, $$0 < U < 1$$ and $$V > 0$$.
+
+Next, we calculate the Jacobian of the transformation:
+$$
+J = \det \begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \det \begin{pmatrix} v & u \\ -v & 1-u \end{pmatrix} = v(1-u) - u(-v) = v - vu + vu = v
+$$
+The absolute value of the Jacobian is $$|J| = |v| = v$$, since $$v>0$$.
+
+The joint PDF of $$X$$ and $$Y$$ is the product of their individual PDFs, as they are independent:
+$$
+f_{X,Y}(x,y) = f_X(x) f_Y(y) = \frac{x^{\alpha-1}e^{-x}}{\Gamma(\alpha)} \frac{y^{\beta-1}e^{-y}}{\Gamma(\beta)}
+$$
+Now, we can find the joint PDF of $$(U, V)$$ using the change of variables formula:
+$$
+f_{U,V}(u,v) = f_{X,Y}(uv, v(1-u)) \cdot |J|
+$$
+$$
+f_{U,V}(u,v) = \frac{(uv)^{\alpha-1}e^{-uv}}{\Gamma(\alpha)} \frac{(v(1-u))^{\beta-1}e^{-v(1-u)}}{\Gamma(\beta)} \cdot v
+$$
+Let's simplify this expression:
+$$
+f_{U,V}(u,v) = \frac{u^{\alpha-1}v^{\alpha-1} \cdot v^{\beta-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} e^{-uv} e^{-v+uv} \cdot v
+$$
+$$
+f_{U,V}(u,v) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha-1+\beta-1+1} e^{-v}
+$$
+$$
+f_{U,V}(u,v) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha+\beta-1} e^{-v}
+$$
+This is the joint PDF for $$U$$ and $$V$$. To find the marginal PDF of $$U$$, we integrate out $$V$$ over its domain $$(0, \infty)$$:
+$$
+f_U(u) = \int_0^\infty f_{U,V}(u,v) \,dv = \int_0^\infty \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha+\beta-1} e^{-v} \,dv
+$$
+The term $$ \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} $$ is constant with respect to $$v$$, so we can pull it out of the integral:
+$$
+f_U(u) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} \int_0^\infty v^{\alpha+\beta-1} e^{-v} \,dv
+$$
+The integral is the definition of the Gamma function $$\Gamma(\alpha+\beta)$$:
+$$
+\int_0^\infty v^{(\alpha+\beta)-1} e^{-v} \,dv = \Gamma(\alpha+\beta)
+$$
+Substituting this back, we get:
+$$
+f_U(u) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} u^{\alpha-1}(1-u)^{\beta-1}
+$$
+This is precisely the PDF of a Beta distribution with parameters $$\alpha$$ and $$\beta$$, defined for $$0 < u < 1$$.
+
+This completes the proof.
