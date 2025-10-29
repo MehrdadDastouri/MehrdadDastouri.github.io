@@ -1,85 +1,62 @@
 ---
 layout: post
-title: Beta Distribution Proof
-date: 2025-10-29 10:00:00 -0330
-description: Derivation of the Beta distribution from two Gamma distributions.
-tags: math probability
-categories: math
-giscus_comments: true
-related_posts: false
+title: "Deriving the Mean and Variance of the Beta Distribution"
+date: 2025-10-29 11:30:00 -0400
+categories: statistics probability
+tags: math beta-distribution
 ---
 
-<div class="lead">
-This post demonstrates how the Beta distribution can be derived from two Gamma-distributed random variables.
-</div>
+<p>
+  Following our discussion on the relationship between the Gamma and Beta distributions, it's natural to explore the fundamental properties of the Beta distribution itself. As a continuous probability distribution defined on the interval $[0, 1]$, the Beta distribution is incredibly versatile, often used in Bayesian inference to model the probability of a success. Today, we will derive its mean (expected value) and variance.
+</p>
+<p>
+  A random variable $X$ follows a Beta distribution, denoted as $X \sim \text{Beta}(\alpha, \beta)$, if its probability density function (PDF) is:
+  $$ f(x; \alpha, \beta) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)} = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} $$
+  where $\alpha$ and $\beta$ are positive shape parameters, and the denominator is the Beta function, which acts as the normalizing constant. Our goal is to prove that $E[X] = \frac{\alpha}{\alpha+\beta}$ and $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$.
+</p>
 
-### Introduction
+<hr class="my-4">
 
-The Beta distribution is a continuous probability distribution defined on the interval $$[0, 1]$$. It is parameterized by two positive shape parameters, denoted by $$\alpha$$ and $$\beta$$. A key property is its relationship with the Gamma distribution.
+<h3>Part 1: Deriving the Mean ($E[X]$)</h3>
+<p>
+  The expected value (mean) of a continuous random variable is defined as $E[X] = \int_{-\infty}^{\infty} x \cdot f(x) \,dx$. For the Beta distribution, the domain is $[0, 1]$, so:
+  $$ E[X] = \int_0^1 x \cdot \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
+  We can take the constant term outside the integral and combine the $x$ terms:
+  $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^{\alpha}(1-x)^{\beta-1} \,dx $$
+  The integral part looks very similar to the kernel of another Beta distribution. Let's rewrite $x^{\alpha}$ as $x^{(\alpha+1)-1}$. The integral is now:
+  $$ \int_0^1 x^{(\alpha+1)-1}(1-x)^{\beta-1} \,dx $$
+  This integral is the definition of the Beta function $B(\alpha+1, \beta)$, which is equal to $\frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+1+\beta)}$. Substituting this back into our equation for $E[X]$:
+  $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)} $$
+  To simplify, we use the key property of the Gamma function: $\Gamma(z+1) = z\Gamma(z)$. Applying this to $\Gamma(\alpha+1)$ and $\Gamma(\alpha+\beta+1)$:
+  $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)\Gamma(\alpha+\beta)} $$
+  Now we can cancel out the common Gamma terms ($\Gamma(\alpha+\beta)$, $\Gamma(\alpha)$, and $\Gamma(\beta)$):
+  $$ E[X] = \frac{\alpha}{\alpha+\beta} $$
+</p>
 
-If $$X \sim \text{Gamma}(\alpha, 1)$$ and $$Y \sim \text{Gamma}(\beta, 1)$$ are independent random variables, then the random variable $$U = \frac{X}{X+Y}$$ follows a Beta distribution with parameters $$\alpha$$ and $$\beta$$.
-
-$$
-U = \frac{X}{X+Y} \sim \text{Beta}(\alpha, \beta)
-$$
-
-This post will walk through the proof of this property.
-
-### Proof
-
-Let's define two new random variables:
-$$
-U = \frac{X}{X+Y} \quad \text{and} \quad V = X+Y
-$$
-To find the joint probability density function (PDF) of $$(U, V)$$, we first need to express $$X$$ and $$Y$$ in terms of $$U$$ and $$V$$:
-$$
-X = UV \quad \text{and} \quad Y = V - X = V - UV = V(1-U)
-$$
-Since $$X > 0$$ and $$Y > 0$$, we have $$UV > 0$$ and $$V(1-U) > 0$$. As $$V=X+Y$$, $$V$$ must be positive, which implies $$U > 0$$ and $$1-U > 0$$. Therefore, $$0 < U < 1$$ and $$V > 0$$.
-
-Next, we calculate the Jacobian of the transformation:
-$$
-J = \det \begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \det \begin{pmatrix} v & u \\ -v & 1-u \end{pmatrix} = v(1-u) - u(-v) = v - vu + vu = v
-$$
-The absolute value of the Jacobian is $$|J| = |v| = v$$, since $$v>0$$.
-
-The joint PDF of $$X$$ and $$Y$$ is the product of their individual PDFs, as they are independent:
-$$
-f_{X,Y}(x,y) = f_X(x) f_Y(y) = \frac{x^{\alpha-1}e^{-x}}{\Gamma(\alpha)} \frac{y^{\beta-1}e^{-y}}{\Gamma(\beta)}
-$$
-Now, we can find the joint PDF of $$(U, V)$$ using the change of variables formula:
-$$
-f_{U,V}(u,v) = f_{X,Y}(uv, v(1-u)) \cdot |J|
-$$
-$$
-f_{U,V}(u,v) = \frac{(uv)^{\alpha-1}e^{-uv}}{\Gamma(\alpha)} \frac{(v(1-u))^{\beta-1}e^{-v(1-u)}}{\Gamma(\beta)} \cdot v
-$$
-Let's simplify this expression:
-$$
-f_{U,V}(u,v) = \frac{u^{\alpha-1}v^{\alpha-1} \cdot v^{\beta-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} e^{-uv} e^{-v+uv} \cdot v
-$$
-$$
-f_{U,V}(u,v) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha-1+\beta-1+1} e^{-v}
-$$
-$$
-f_{U,V}(u,v) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha+\beta-1} e^{-v}
-$$
-This is the joint PDF for $$U$$ and $$V$$. To find the marginal PDF of $$U$$, we integrate out $$V$$ over its domain $$(0, \infty)$$:
-$$
-f_U(u) = \int_0^\infty f_{U,V}(u,v) \,dv = \int_0^\infty \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} v^{\alpha+\beta-1} e^{-v} \,dv
-$$
-The term $$ \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} $$ is constant with respect to $$v$$, so we can pull it out of the integral:
-$$
-f_U(u) = \frac{u^{\alpha-1}(1-u)^{\beta-1}}{\Gamma(\alpha)\Gamma(\beta)} \int_0^\infty v^{\alpha+\beta-1} e^{-v} \,dv
-$$
-The integral is the definition of the Gamma function $$\Gamma(\alpha+\beta)$$:
-$$
-\int_0^\infty v^{(\alpha+\beta)-1} e^{-v} \,dv = \Gamma(\alpha+\beta)
-$$
-Substituting this back, we get:
-$$
-f_U(u) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} u^{\alpha-1}(1-u)^{\beta-1}
-$$
-This is precisely the PDF of a Beta distribution with parameters $$\alpha$$ and $$\beta$$, defined for $$0 < u < 1$$.
-
-This completes the proof.
+<h3>Part 2: Deriving the Variance ($\text{Var}(X)$)</h3>
+<p>
+  To find the variance, we'll use the formula $\text{Var}(X) = E[X^2] - (E[X])^2$. We already have $E[X]$, so we need to calculate the second moment, $E[X^2]$.
+  $$ E[X^2] = \int_0^1 x^2 \cdot \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
+  Similar to the mean calculation, we pull out the constant and combine the $x$ terms ($x^2 \cdot x^{\alpha-1} = x^{\alpha+1}$):
+  $$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^{\alpha+1}(1-x)^{\beta-1} \,dx $$
+  The integral is the Beta function $B(\alpha+2, \beta) = \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+2+\beta)}$. Substituting this in:
+  $$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)} $$
+  We simplify by applying $\Gamma(z+1) = z\Gamma(z)$ multiple times:
+  <ul>
+    <li>$\Gamma(\alpha+2) = (\alpha+1)\Gamma(\alpha+1) = (\alpha+1)\alpha\Gamma(\alpha)$</li>
+    <li>$\Gamma(\alpha+\beta+2) = (\alpha+\beta+1)\Gamma(\alpha+\beta+1) = (\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha+\beta)$</li>
+  </ul>
+  $$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{(\alpha+1)\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha+\beta)} $$
+  After canceling terms, we get the second moment:
+  $$ E[X^2] = \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} $$
+  Finally, we can compute the variance:
+  $$ \text{Var}(X) = E[X^2] - (E[X])^2 = \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} - \left(\frac{\alpha}{\alpha+\beta}\right)^2 $$
+  To combine these fractions, we find a common denominator, which is $(\alpha+\beta)^2(\alpha+\beta+1)$:
+  $$ \text{Var}(X) = \frac{\alpha(\alpha+1)(\alpha+\beta) - \alpha^2(\alpha+\beta+1)}{(\alpha+\beta)^2(\alpha+\beta+1)} $$
+  Expanding the numerator:
+  $$ \text{Numerator} = (\alpha^2+\alpha)(\alpha+\beta) - (\alpha^3+\alpha^2\beta+\alpha^2) $$
+  $$ = (\alpha^3 + \alpha^2\beta + \alpha^2 + \alpha\beta) - \alpha^3 - \alpha^2\beta - \alpha^2 $$
+  $$ = \alpha\beta $$
+  Substituting the simplified numerator back, we arrive at the variance:
+  $$ \text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)} $$
+</p>
