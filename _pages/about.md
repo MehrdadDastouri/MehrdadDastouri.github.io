@@ -1,93 +1,131 @@
----
-layout: about
-title: about
-permalink: /
-subtitle: AI and Machine Learning Researcher | Seeking Ph.D. Opportunities
+<div align="center">
 
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false
-  address: >
-    <p>s.dastouri@alumni.sbu.ac.ir</p>
-    <p><a href="https://www.researchgate.net/profile/Seyed-Dastouri">ResearchGate</a></p>
-    <p>+98 913 4209486</p>
-    <p>Iran</p>
+# 👋 Mehrdad Dastouri
 
-news: false
-selected_papers: false
-social: false
----
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=AI+Researcher+%7C+Deep+Learning+Enthusiast;Exploring+Multimodal+Learning+%26+Visual+Recognition;Building+Intelligent+Systems+for+Tomorrow" alt="Typing SVG" />
 
-I hold an M.Sc. in Computer Science (GPA: 3.7/4.0) from Shahid Beheshti University, where my thesis established rigorous convergence guarantees for spike-timing-dependent plasticity (STDP) in recurrent spiking neural networks through Lyapunov stability analysis. This work demonstrated that STDP-based learning converges under specific conditions in recurrent architectures, with experimental validation on time-series classification benchmarks. My research combined dynamical systems theory, optimization, and neuromorphic computing to understand not merely what works empirically, but the fundamental mathematical principles governing adaptation in biologically-inspired neural systems.
-
-Beyond my thesis, I have pursued research on emergent learning phenomena in modern deep learning—particularly in-context learning dynamics in large language models—and developed practical frameworks for analyzing systemic risk in decentralized finance ecosystems using graph-theoretic methods. I seek a Ph.D. position to deepen my work on learning theory, adversarial robustness, and provably convergent algorithms, contributing theoretical insights with practical impact to foundational questions in AI and machine learning.
-
-<!-- START: Custom ResearchGate Button -->
-<p style="text-align: center; margin: 2rem 0;">
-    <a href="https://www.researchgate.net/profile/Seyed-Dastouri?ev=hdr_xprf" 
-       class="btn" 
-       role="button" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       style="background-color: #00CCBB; border-color: #00CCBB; color: white; font-weight: 500;"
-       onmouseover="this.style.backgroundColor='#00b8a9'"
-       onmouseout="this.style.backgroundColor='#00CCBB'">
-        <i class="fab fa-researchgate" aria-hidden="true"></i>&nbsp; ResearchGate
-    </a>
-</p>
-<!-- END: Custom ResearchGate Button -->
+</div>
 
 ---
 
-## Education
+## 🎓 About Me
 
-**Shahid Beheshti University** | Tehran, Iran  
-_Master of Science in Computer Science (Data Mining)_  
-Sep 2020 - Sep 2022  
-**Thesis:** Convergence Analysis of Spike-Timing-Dependent Plasticity Learning Rules in Recurrent Spiking Neural Networks with Applications to Time-Series Classification  
-**GPA:** 3.7/4.0
+I am an **AI researcher** passionate about advancing the frontiers of **deep learning**, **computer vision**, and **multimodal learning**. My work focuses on developing intelligent systems that can understand and interact with the world through multiple sensory modalities.
 
-**Isfahan University of Technology** | Isfahan, Iran  
-_Bachelor of Science in Software Engineering_  
-Sep 2008 - Sep 2012  
-**GPA:** 3.0/4.0
+> *"The most profound technologies are those that disappear. They weave themselves into the fabric of everyday life until they are indistinguishable from it."* — Mark Weiser
 
 ---
 
-## Professional Experience
+## 🔬 Research Interests
 
-### Freelance Data Scientist & Machine Learning Consultant
+<table>
+<tr>
+<td width="50%" valign="top">
 
-_Self-Employed | 2021–Present_
+### 🧠 Core Areas
+- **Deep Learning Architectures**
+- **Computer Vision & Image Processing**
+- **Multimodal Learning (Vision + Language)**
+- **Representation Learning**
 
-I provided end-to-end data science and machine learning solutions for clients across fintech, blockchain analytics, and algorithmic trading domains. My work included building predictive models for cryptocurrency price movements, developing risk assessment frameworks for DeFi protocols, and implementing automated data pipelines for real-time market monitoring. Notable projects include an LLM-powered DeFi risk analysis agent using RAG architecture (LangChain + FAISS) that reduced time-to-insight by over 90%, a neuromorphic anomaly detection system for crypto trading that achieved 40% energy reduction through SNN implementation, and an EMG gesture recognition pipeline for prosthetics with >95% accuracy and <50ms latency. I delivered custom analytics dashboards, conducted exploratory data analysis on large-scale transaction datasets, and communicated technical findings to non-technical stakeholders. This experience strengthened my ability to translate theoretical concepts into production-ready systems while working independently and managing multiple concurrent projects.
+</td>
+<td width="50%" valign="top">
 
-### Research Assistant — Control Systems Laboratory
+### 🎯 Application Domains
+- **Visual Recognition & Understanding**
+- **Medical Image Analysis**
+- **Human-AI Interaction**
+- **Explainable AI**
 
-_Shahid Beheshti University | 2021–2023_
-
-During my master's program, I contributed to research on neural network stability analysis and bio-inspired learning algorithms. I developed mathematical frameworks for analyzing convergence properties of recurrent architectures, conducted extensive numerical simulations to validate theoretical predictions, and collaborated with faculty on manuscript preparation. I also mentored undergraduate students on machine learning fundamentals and assisted with laboratory infrastructure for computational experiments. This role refined my skills in rigorous mathematical formulation, scientific writing, and collaborative research practices.
-
-### Data Analyst — Market Intelligence
-
-_Contract Positions | 2020–2022_
-
-I worked on several short-term contracts analyzing financial markets and blockchain ecosystems for investment research firms. My responsibilities included collecting and cleaning large datasets from APIs, performing statistical analysis to identify trends and anomalies, and creating visualizations to support strategic decision-making. I developed expertise in Python data science libraries (pandas, NumPy, scikit-learn) and gained practical experience working with messy real-world data under tight deadlines while maintaining analytical rigor.
-
----
-
-## Core Skills
-
-- **Programming Languages:** Python, Julia, C++
-- **AI/ML & SNN Frameworks:** PyTorch, snnTorch, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, SciPy
-- **LLM & NLP Tools:** LangChain, Hugging Face Transformers, FAISS, RAG Architecture
-- **Web Development & Deployment:** Flask, FastAPI, Docker, RESTful APIs, Electron
-- **Core Concepts & Specializations:** Spiking Neural Networks (SNNs), Neuromorphic Computing, Energy-Efficient AI, Deep Learning, Time Series Analysis, Anomaly Detection, Dynamical Systems Theory, Learning Theory
+</td>
+</tr>
+</table>
 
 ---
 
-## Languages
+## 📚 Academic Journey
 
-- **English:** Professional Working Proficiency
-- **Persian:** Native
+<table>
+<tr>
+<td width="20%"><strong>2024 - Present</strong></td>
+<td width="80%"><strong>Independent Research</strong><br/>Focus: Multimodal AI & Visual Learning Systems</td>
+</tr>
+<tr>
+<td><strong>2020 - 2024</strong></td>
+<td><strong>Bachelor of Computer Engineering</strong><br/>Specialized in AI, Machine Learning, and Neural Networks</td>
+</tr>
+</table>
+
+---
+
+## 💻 Technical Skills
+
+```
+AI & Machine Learning
+├── Deep Learning Frameworks
+│   ├── PyTorch ⭐⭐⭐⭐⭐
+│   ├── TensorFlow ⭐⭐⭐⭐
+│   └── JAX ⭐⭐⭐
+├── Computer Vision
+│   ├── OpenCV ⭐⭐⭐⭐⭐
+│   ├── PIL/Pillow ⭐⭐⭐⭐⭐
+│   └── Albumentations ⭐⭐⭐⭐
+├── NLP & Multimodal
+│   ├── Transformers 🤗 ⭐⭐⭐⭐
+│   ├── CLIP/BLIP ⭐⭐⭐⭐
+│   └── LangChain ⭐⭐⭐
+└── Development Tools
+    ├── Git/GitHub ⭐⭐⭐⭐⭐
+    ├── Docker ⭐⭐⭐⭐
+    └── Weights & Biases ⭐⭐⭐⭐
+
+---
+
+## 🎯 Current Learning Goals
+
+| Area | Progress | Focus |
+|------|----------|-------|
+| **Vision Transformers** | ████████░░ 80% | ViT, Swin, DINO architectures |
+| **Diffusion Models** | ██████░░░░ 60% | Stable Diffusion, DALL-E internals |
+| **Reinforcement Learning** | ████░░░░░░ 40% | DQN, PPO, RLHF applications |
+| **MLOps & Production** | ███████░░░ 70% | Model deployment, monitoring |
+
+---
+
+## 📫 Connect With Me
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mehrdad.dastouri@example.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mehrdaddastouri)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mehrdaddastouri)
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://researchgate.net/profile/Mehrdad-Dastouri)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/mehrdaddastouri)
+
+</div>
+
+---
+
+## 📊 Research Philosophy
+
+I believe in **open science** and **reproducible research**. My approach combines:
+
+- 🔍 **Rigorous Experimentation** — Systematic evaluation and ablation studies
+- 📖 **Clear Documentation** — Making research accessible and reproducible  
+- 🤝 **Collaborative Spirit** — Learning from and contributing to the community
+- 🌱 **Continuous Learning** — Staying updated with latest advances
+
+---
+
+<div align="center">
+
+### 💡 *"In God we trust, all others must bring data."* — W. Edwards Deming
+
+---
+
+![Profile Views](https://komarev.com/ghpvc/?username=mehrdaddastouri&color=2E8B57&style=flat-square)
+[![GitHub followers](https://img.shields.io/github/followers/mehrdaddastouri?style=flat-square&color=2E8B57)](https://github.com/mehrdaddastouri)
+
+**Last Updated:** October 2025
+
+</div>
