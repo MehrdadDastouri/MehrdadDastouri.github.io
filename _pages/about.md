@@ -26,10 +26,46 @@ social: false
       width: 100% !important;
       height: auto !important;
     }
+    
+    /* Fix horizontal scroll on mobile */
+    body {
+      overflow-x: hidden !important;
+    }
+    
+    .container {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+    }
+    
+    /* Responsive typography */
+    h1, h2, h3 {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    
+    /* Responsive tables */
+    table {
+      width: 100% !important;
+      display: block !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Responsive images and SVGs */
+    img, svg {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    
+    /* Fix typing SVG on mobile */
+    .typing-svg-container {
+      max-width: 100% !important;
+      overflow: hidden !important;
+    }
   }
 </style>
 
-<div align="center">
+<div align="center" class="typing-svg-container">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=AI+Researcher+%7C+Deep+Learning+Enthusiast;Exploring+Multimodal+Learning+%26+Visual+Recognition;Building+Intelligent+Systems+for+Tomorrow" alt="Typing SVG" />
 </div>
 
@@ -197,13 +233,3 @@ My approach combines:
     └── Staying updated with latest advances
 
 > *"In God we trust, all others must bring data."* — W. Edwards Deming
-
----
-
-<div align="center">
-
-![Profile Views](https://komarev.com/ghpvc/?username=mehrdaddastouri&color=2E8B57&style=flat-square)
-
-**Last Updated:** October 2025
-
-</div>
