@@ -63,6 +63,27 @@ social: false
       overflow: hidden !important;
     }
   }
+  
+  /* Skill tags styling */
+  .skill-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 12px;
+    margin: 4px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  
+  .skill-category {
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-category h4 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
 </style>
 
 <div align="center" class="typing-svg-container">
@@ -80,6 +101,9 @@ Building on this foundation, I have investigated **in-context learning dynamics*
 > **Goal:** I seek a Ph.D. position to deepen my work on **statistical learning theory**, **adversarial robustness**, and **provably convergent algorithms**. My goal is to develop rigorous theoretical guarantees for modern learning systems while demonstrating their practical applicability through open-source implementations and reproducible experiments.
 
 <div align="center" style="margin: 2rem 0;">
+  <a href="https://github.com/MehrdadDastouri" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
   <a href="https://www.researchgate.net/profile/Seyed-Dastouri?ev=hdr_xprf" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white" alt="ResearchGate"/>
   </a>
@@ -154,59 +178,66 @@ Using **Web3.py** to query on-chain data from protocols like Aave and Compound, 
 
 ## 🛠️ Core Skills
 
-<table>
-<tr>
-<td width="50%" valign="top">
+<div class="skill-category">
+  <h4>💻 Programming Languages</h4>
+  <span class="skill-tag">Python</span>
+  <span class="skill-tag">Rust</span>
+  <span class="skill-tag">MATLAB</span>
+</div>
 
-### 💻 Programming Languages
-- **Python** ⭐⭐⭐⭐⭐
-- **Rust** ⭐⭐⭐⭐
-- **MATLAB** ⭐⭐⭐⭐
+<div class="skill-category">
+  <h4>🤖 AI/ML Frameworks</h4>
+  <span class="skill-tag">PyTorch</span>
+  <span class="skill-tag">TensorFlow</span>
+  <span class="skill-tag">JAX</span>
+  <span class="skill-tag">Scikit-learn</span>
+  <span class="skill-tag">Pandas</span>
+  <span class="skill-tag">NumPy</span>
+  <span class="skill-tag">SciPy</span>
+</div>
 
-### 🤖 AI/ML Frameworks
-- **PyTorch** ⭐⭐⭐⭐⭐
-- **TensorFlow** ⭐⭐⭐⭐
-- **JAX** ⭐⭐⭐⭐
-- **Scikit-learn** ⭐⭐⭐⭐⭐
-- **Pandas / NumPy / SciPy** ⭐⭐⭐⭐⭐
+<div class="skill-category">
+  <h4>🧠 SNN & Neuromorphic</h4>
+  <span class="skill-tag">snnTorch</span>
+  <span class="skill-tag">Brian2</span>
+  <span class="skill-tag">NEST</span>
+  <span class="skill-tag">Surrogate Gradient Methods</span>
+</div>
 
-### 🧠 SNN & Neuromorphic
-- **snnTorch** ⭐⭐⭐⭐⭐
-- **Brian2** ⭐⭐⭐⭐
-- **NEST** ⭐⭐⭐⭐
-- **Surrogate Gradient Methods** ⭐⭐⭐⭐⭐
+<div class="skill-category">
+  <h4>🌐 Backend & DevOps</h4>
+  <span class="skill-tag">FastAPI</span>
+  <span class="skill-tag">Flask</span>
+  <span class="skill-tag">Docker</span>
+  <span class="skill-tag">Redis</span>
+  <span class="skill-tag">Celery</span>
+  <span class="skill-tag">WebSocket</span>
+</div>
 
-</td>
-<td width="50%" valign="top">
+<div class="skill-category">
+  <h4>📊 Data Infrastructure</h4>
+  <span class="skill-tag">TimescaleDB</span>
+  <span class="skill-tag">PostgreSQL</span>
+  <span class="skill-tag">Web3.py</span>
+</div>
 
-### 🌐 Backend & DevOps
-- **FastAPI** ⭐⭐⭐⭐⭐
-- **Flask** ⭐⭐⭐⭐
-- **Docker / Docker Compose** ⭐⭐⭐⭐⭐
-- **Redis** ⭐⭐⭐⭐
-- **Celery** ⭐⭐⭐⭐
-- **WebSocket** ⭐⭐⭐⭐
+<div class="skill-category">
+  <h4>🔍 Monitoring & Testing</h4>
+  <span class="skill-tag">Pytest</span>
+  <span class="skill-tag">GitHub Actions</span>
+  <span class="skill-tag">Prometheus</span>
+  <span class="skill-tag">Grafana</span>
+</div>
 
-### 📊 Data Infrastructure
-- **TimescaleDB** ⭐⭐⭐⭐
-- **PostgreSQL** ⭐⭐⭐⭐
-- **Web3.py** ⭐⭐⭐⭐
-
-### 🔍 Monitoring & Testing
-- **Pytest** ⭐⭐⭐⭐⭐
-- **GitHub Actions (CI/CD)** ⭐⭐⭐⭐
-- **Prometheus / Grafana** ⭐⭐⭐⭐
-
-</td>
-</tr>
-</table>
-
-### 🎯 Specializations
-- Convergence Analysis & Statistical Learning Theory
-- Spiking Neural Networks & Neuromorphic Computing
-- Time Series Forecasting & Market Intelligence
-- DeFi Risk Modeling & On-Chain Analytics
-- Production ML Systems & MLOps
+<div class="skill-category">
+  <h4>🎯 Specializations</h4>
+  <span class="skill-tag">Convergence Analysis</span>
+  <span class="skill-tag">Statistical Learning Theory</span>
+  <span class="skill-tag">Spiking Neural Networks</span>
+  <span class="skill-tag">Time Series Forecasting</span>
+  <span class="skill-tag">DeFi Risk Modeling</span>
+  <span class="skill-tag">Production ML Systems</span>
+</div>
 
 ---
 
@@ -221,15 +252,14 @@ Using **Web3.py** to query on-chain data from protocols like Aave and Compound, 
 
 ## 📈 Research Philosophy
 
-```
-My approach combines:
-├── 🔍 Rigorous Experimentation
-│   └── Systematic evaluation and ablation studies
-├── 📖 Clear Documentation  
-│   └── Making research accessible and reproducible
-├── 🤝 Collaborative Spirit
-│   └── Learning from and contributing to the community
-└── 🌱 Continuous Learning
-    └── Staying updated with latest advances
+> My approach combines rigorous experimentation with clear documentation and collaborative spirit. I believe in systematic evaluation, making research accessible and reproducible, and staying updated with the latest advances in the field.
+
+### Core Principles:
+- **🔍 Rigorous Experimentation:** Systematic evaluation and ablation studies
+- **📖 Clear Documentation:** Making research accessible and reproducible  
+- **🤝 Collaborative Spirit:** Learning from and contributing to the community
+- **🌱 Continuous Learning:** Staying updated with latest advances
+
+---
 
 > *"In God we trust, all others must bring data."* — W. Edwards Deming
