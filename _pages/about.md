@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: about
 title: about
