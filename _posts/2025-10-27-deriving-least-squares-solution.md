@@ -5,73 +5,82 @@ date: 2025-10-27 11:00:00 -0400
 categories: machine-learning mathematics linear-regression
 ---
 
-<!-- 
-  The content below is injected directly into the post layout.
-  The wrapping elements like <article> or post title are handled by the layout files.
--->
-<p>
-  Linear regression is often the first algorithm one encounters in machine learning. It's simple, interpretable, and forms the bedrock for many more complex models. The core idea is to find the "line of best fit" that minimizes the error between predicted and actual values. But how do we mathematically define and find this optimal line?
-</p>
-<p>
-  The goal is to find the parameter vector $\boldsymbol{\theta}$ that minimizes the <strong>Sum of Squared Errors (SSE)</strong>. Today, we'll walk through the calculus to derive the famous "Normal Equation," which gives us a closed-form solution for these optimal parameters.
-</p>
+I've been on a bit of a "back to basics" kick lately, revisiting some of the foundational concepts in ML that I use every day but maybe haven't fully appreciated in a while. Linear regression is one of those things – it's literally the first algorithm most of us learn, but there's something elegant about understanding *exactly* why it works mathematically.
 
-<p>Let's assume our model's prediction for a given data point $\mathbf{x}_n$ is linear:
-  $$ \hat{y}_n = \boldsymbol{\theta}^T \mathbf{x}_n $$
-</p>
+Today I want to walk through deriving the Normal Equation from scratch. Sure, every ML library just gives you the answer instantly, but there's real value in seeing how the calculus plays out. Plus, this derivation uses some really nice matrix calculus tricks that show up everywhere in ML.
 
-<hr class="my-4">
+## The Setup
 
-<h3>Step 1: Define the Cost Function (Sum of Squared Errors)</h3>
-<p>
-  The error, or "residual," for a single data point is the difference between the actual value $y_n$ and the predicted value $\hat{y}_n$. We square these errors so that positive and negative errors don't cancel out, and to heavily penalize larger errors.
-</p>
-<p>
-  The total cost function, $J(\boldsymbol{\theta})$, which we want to minimize, is the sum of these squared errors over all $N$ data points in our training set:
-  $$ J(\boldsymbol{\theta}) = \sum_{n=1}^{N} (y_n - \hat{y}_n)^2 = \sum_{n=1}^{N} (y_n - \boldsymbol{\theta}^T \mathbf{x}_n)^2 $$
-</p>
+The goal is simple: find the parameter vector $\boldsymbol{\theta}$ that minimizes the Sum of Squared Errors (SSE) between our predictions and the actual values. For a single data point $\mathbf{x}_n$, our linear model predicts:
 
-<h3>Step 2: Vectorize the Cost Function</h3>
-<p>
-  Working with summations can be cumbersome. We can express the cost function more cleanly using matrix and vector notation. Let's define:
-</p>
-<ul>
-  <li>$\mathbf{y}$: a vector of all target values, $[y_1, y_2, \dots, y_N]^T$.</li>
-  <li>$\mathbf{X}$: the "design matrix," where each row is a data point vector $\mathbf{x}_n^T$.</li>
-  <li>$\boldsymbol{\theta}$: the parameter vector.</li>
-</ul>
-<p>
-  With these, the vector of all predictions is $\mathbf{X}\boldsymbol{\theta}$, and the vector of all errors is $\mathbf{y} - \mathbf{X}\boldsymbol{\theta}$. The sum of squared errors is simply the squared Euclidean norm of this error vector:
-  $$ J(\boldsymbol{\theta}) = \| \mathbf{y} - \mathbf{X}\boldsymbol{\theta} \|_2^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\theta})^T (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
-</p>
+$$ \hat{y}_n = \boldsymbol{\theta}^T \mathbf{x}_n $$
 
-<hr class="my-4">
+---
 
-<h3>Step 3: Minimize the Cost by Taking the Gradient</h3>
-<p>
-  To find the value of $\boldsymbol{\theta}$ that minimizes $J(\boldsymbol{\theta})$, we need to compute its gradient with respect to $\boldsymbol{\theta}$ and set it to zero. First, let's expand the cost function:
-  $$ J(\boldsymbol{\theta}) = (\mathbf{y}^T - \boldsymbol{\theta}^T\mathbf{X}^T) (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
-  $$ J(\boldsymbol{\theta}) = \mathbf{y}^T\mathbf{y} - \mathbf{y}^T\mathbf{X}\boldsymbol{\theta} - \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
-  Since $\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y}$ is a scalar, it's equal to its own transpose, $(\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y})^T = \mathbf{y}^T\mathbf{X}\boldsymbol{\theta}$. So we can combine the middle terms:
-  $$ J(\boldsymbol{\theta}) = \mathbf{y}^T\mathbf{y} - 2\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
-  Now, we take the gradient with respect to $\boldsymbol{\theta}$ using standard matrix calculus rules:
-  $$ \nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = \nabla_{\boldsymbol{\theta}} (\mathbf{y}^T\mathbf{y} - 2\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta}) $$
-  $$ \nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = \mathbf{0} - 2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
-</p>
+## Step 1: The Cost Function
 
-<h3>Step 4: Solve for the Optimal Parameters $\hat{\boldsymbol{\theta}}$</h3>
-<p>
-  Setting the gradient to the zero vector gives us the minimum:
-  $$ -2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{0} $$
-  Where $\hat{\boldsymbol{\theta}}$ denotes the optimal parameter vector. Simplifying this gives the well-known Normal Equation in matrix form:
-  $$ \mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{X}^T\mathbf{y} $$
-</p>
+The cost function $J(\boldsymbol{\theta})$ is just the sum of squared errors across all $N$ training points:
 
-<h4>Connecting Matrix Form to Summation Form</h4>
-<p>
-  Often, this equation is also presented using summations, which can be useful to see how individual data points contribute. Let's show that our matrix form is identical to this summation-based representation. The term $\mathbf{X}^T\mathbf{X}$ is equivalent to summing the outer product of each data vector with itself:
-  $$ \mathbf{X}^T\mathbf{X} = \sum_{n=1}^{N} \mathbf{x}_n \mathbf{x}_n^T $$
-  And the term $\mathbf{X}^T\mathbf{y}$ is equivalent to summing each data vector scaled by its corresponding target value:
-  $$ \mathbf{X}^T\mathbf{y} = \sum_{n=1}^{N} \mathbf{x}_n y_n = \sum_{n=1}^{N} y_n \mathbf{x}_n $$
-  By substituting these back into the Normal Equation, we arrive at its final summation form. This shows that minimizing the sum of squared errors leads directly to this fundamental result for linear regression.
-</p>
+$$ J(\boldsymbol{\theta}) = \sum_{n=1}^{N} (y_n - \hat{y}_n)^2 = \sum_{n=1}^{N} (y_n - \boldsymbol{\theta}^T \mathbf{x}_n)^2 $$
+
+We square the errors so positive and negative deviations don't cancel out, and to give extra penalty to large errors. Pretty standard stuff.
+
+## Step 2: Moving to Matrix Notation
+
+Working with summations gets tedious fast. Let me rewrite this using matrices, which makes the calculus much cleaner. Define:
+
+- $\mathbf{y}$: vector of all target values $[y_1, y_2, \dots, y_N]^T$
+- $\mathbf{X}$: the design matrix where each row is $\mathbf{x}_n^T$
+- $\boldsymbol{\theta}$: our parameter vector
+
+Now the predictions are just $\mathbf{X}\boldsymbol{\theta}$, and the cost function becomes:
+
+$$ J(\boldsymbol{\theta}) = \| \mathbf{y} - \mathbf{X}\boldsymbol{\theta} \|_2^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\theta})^T (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
+
+Much cleaner!
+
+---
+
+## Step 3: Taking the Gradient
+
+To minimize $J(\boldsymbol{\theta})$, I need to find where its gradient equals zero. First, let me expand the cost function:
+
+$$ J(\boldsymbol{\theta}) = (\mathbf{y}^T - \boldsymbol{\theta}^T\mathbf{X}^T) (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
+
+$$ = \mathbf{y}^T\mathbf{y} - \mathbf{y}^T\mathbf{X}\boldsymbol{\theta} - \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
+
+Here's a neat trick: $\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y}$ is a scalar, so it equals its transpose $\mathbf{y}^T\mathbf{X}\boldsymbol{\theta}$. This means I can combine those middle terms:
+
+$$ J(\boldsymbol{\theta}) = \mathbf{y}^T\mathbf{y} - 2\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
+
+Now taking the gradient with respect to $\boldsymbol{\theta}$ using standard matrix calculus:
+
+$$ \nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = \mathbf{0} - 2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
+
+## Step 4: The Normal Equation
+
+Setting the gradient to zero and solving for $\hat{\boldsymbol{\theta}}$:
+
+$$ -2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{0} $$
+
+$$ \boxed{\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{X}^T\mathbf{y}} $$
+
+This is the famous Normal Equation! If $\mathbf{X}^T\mathbf{X}$ is invertible, we can solve directly for $\hat{\boldsymbol{\theta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$.
+
+### Connecting Back to Summations
+
+Sometimes it's useful to see this in summation form to understand how individual data points contribute. The matrix form is actually equivalent to:
+
+$$ \left(\sum_{n=1}^{N} \mathbf{x}_n \mathbf{x}_n^T\right) \hat{\boldsymbol{\theta}} = \sum_{n=1}^{N} y_n \mathbf{x}_n $$
+
+The left side sums the outer products of each feature vector, while the right side sums each feature vector weighted by its target. Same equation, just different notation!
+
+---
+
+## What's Coming Next
+
+This regression derivation got me thinking about probability distributions more broadly. I've been meaning to dive deeper into some distributions that show up constantly in Bayesian methods and probabilistic ML.
+
+In my next couple of posts, I'm planning to work through the moments of the **Beta distribution** and the **Dirichlet distribution**. The Beta distribution is fascinating because it's the conjugate prior for binomial/Bernoulli distributions, and the Dirichlet is its multivariate generalization. Understanding their means, variances, and covariances from first principles will be really useful for when I work with these in practice.
+
+Stay tuned! 📊
