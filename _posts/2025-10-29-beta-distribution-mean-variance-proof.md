@@ -100,4 +100,4 @@ You can think of $\alpha + \beta$ as a "confidence" parameter. Higher values = t
 
 I run into this in A/B testing all the time. Start with a weak prior (Beta(1,1)), then update with actual click data. The posterior mean is literally $\frac{\alpha + \text{clicks}}{\alpha + \beta + \text{total}}$ – same formula.
 
-Next: extending this to multiple categories with the Dirichlet distribution. It's basically the Beta distribution's multivariate cousin, and the math generalizes really nicely.
+
