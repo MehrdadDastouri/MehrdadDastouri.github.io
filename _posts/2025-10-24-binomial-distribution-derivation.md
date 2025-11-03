@@ -91,4 +91,4 @@ I run into this constantly in ML work. Logistic regression? It's modeling Bernou
 
 Understanding these fundamentals makes debugging models way easier. When something looks off in your loss curves or confidence intervals, it often comes back to variance properties like this.
 
-Next up: I want to look at the Beta distribution and how it acts as a conjugate prior for the Binomial. There's some elegant math there that connects these probability distributions in a really satisfying way.
+
