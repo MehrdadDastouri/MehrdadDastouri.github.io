@@ -74,4 +74,4 @@ The factor of $\frac{1}{12}$ is interesting. For a unit interval $[0,1]$, the va
 
 I use this all the time when initializing weights in neural networks or generating random samples for Monte Carlo simulations. Understanding where these formulas come from makes debugging sampling code much easier.
 
-Next up: I want to dig into the multivariate Gaussian distribution. That one's going to involve some matrix calculus, but it's fundamental for understanding things like PCA and Gaussian processes.
+
