@@ -5,10 +5,10 @@ date: 2025-10-23 09:00:00 -0400
 categories: journal
 ---
 
-I've been thinking about starting a blog for a while now. Not the polished, SEO-optimized kind – just a place to document derivations, notes, and things I'm working through.
+I've been thinking about starting a blog for a while. A place to document things I'm learning and working on.
 
-Most of my work sits at the intersection of probability theory, optimization, and learning systems. I spend a lot of time on paper, deriving convergence guarantees, working through stability proofs, understanding *why* certain algorithms behave the way they do. Figured I might as well type some of it up and make it public.
+I work as a data scientist, and I want to go deeper into the theory behind the tools I use every day. Understanding the math, the derivations, the why behind the algorithms.
 
-This is mostly for me, honestly. A way to organize my thoughts and maybe help someone else who's working through similar problems.
+This blog is mostly for me – a way to organize my notes and track my progress. But if it helps someone else along the way, that's great too.
 
-Starting today.
+Let's see where this goes.
