@@ -6,104 +6,98 @@ categories: statistics probability
 tags: math beta-distribution
 ---
 
-After writing about the connection between the Gamma and Beta distributions, I wanted to dig deeper into the Beta distribution itself. It's one of those distributions that shows up *everywhere* in practice – especially in Bayesian inference when you're modeling probabilities or proportions. Since it's defined on $[0, 1]$, it's perfect for representing things like success rates or probabilities.
+I've been using the Beta distribution for years – it's all over Bayesian methods, A/B testing, click-through rate models. But I realized I'd never actually derived its mean and variance myself. I know the formulas ($E[X] = \frac{\alpha}{\alpha+\beta}$ and that gnarly variance expression), but *why* do they look like that?
 
-Today I'm going to work through the derivations of its mean and variance. I know these formulas are readily available, but actually deriving them yourself gives you so much more intuition about how the distribution behaves.
+So I grabbed some paper and worked through the calculus. Turns out there's some satisfying algebra here.
 
-## The Beta Distribution Setup
+## The Beta Distribution
 
-A random variable $X$ follows a Beta distribution, written as $X \sim \text{Beta}(\alpha, \beta)$, when its PDF is:
+A random variable $X \sim \text{Beta}(\alpha, \beta)$ has PDF:
 
 $$ f(x; \alpha, \beta) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} $$
 
-The parameters $\alpha$ and $\beta$ are both positive and control the shape. That fraction with all the Gamma functions? That's just the Beta function $B(\alpha, \beta)$ – it's the normalizing constant that makes sure the PDF integrates to 1.
-
-Our goal: prove that $E[X] = \frac{\alpha}{\alpha+\beta}$ and $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$.
+Lives on $[0, 1]$, which makes it perfect for modeling probabilities. The parameters $\alpha$ and $\beta$ control the shape, and that Gamma function ratio normalizes everything.
 
 ---
 
-## Finding the Mean
+## Deriving the Mean
 
-The expected value is defined as $E[X] = \int_{0}^{1} x \cdot f(x) \,dx$ (the domain is $[0,1]$ for Beta). Plugging in our PDF:
+Start with the definition: $E[X] = \int_{0}^{1} x \cdot f(x) \,dx$.
 
-$$ E[X] = \int_0^1 x \cdot \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
+Plug in the PDF:
 
-Let me pull out that constant term and combine the powers of $x$:
+$$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x \cdot x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
+
+Combine the $x$ terms:
 
 $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^{\alpha}(1-x)^{\beta-1} \,dx $$
 
-Now here's the trick – that integral looks almost like another Beta function! If I write $x^{\alpha}$ as $x^{(\alpha+1)-1}$, then:
+That integral is almost another Beta function. Write $x^{\alpha}$ as $x^{(\alpha+1)-1}$:
 
-$$ \int_0^1 x^{(\alpha+1)-1}(1-x)^{\beta-1} \,dx = B(\alpha+1, \beta) $$
+$$ \int_0^1 x^{(\alpha+1)-1}(1-x)^{\beta-1} \,dx = B(\alpha+1, \beta) = \frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)} $$
 
-And we know the Beta function equals $\frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+1+\beta)}$. Substituting this back:
+Substitute back:
 
 $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)} $$
 
-The key now is using the property $\Gamma(z+1) = z\Gamma(z)$:
+Now use $\Gamma(z+1) = z\Gamma(z)$:
 
 $$ E[X] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)\Gamma(\alpha+\beta)} $$
 
-Watch everything cancel – the $\Gamma(\alpha+\beta)$ terms, the $\Gamma(\alpha)$, and $\Gamma(\beta)$ all disappear:
+Everything cancels beautifully:
 
 $$ \boxed{E[X] = \frac{\alpha}{\alpha+\beta}} $$
 
-Nice and clean! The mean is just $\alpha$ divided by the sum of both parameters.
+Makes sense – the mean is just $\alpha$ relative to the total $\alpha + \beta$.
 
 ---
 
-## Tackling the Variance
+## The Variance
 
-For variance, I'll use $\text{Var}(X) = E[X^2] - (E[X])^2$. We have the mean already, so let's find the second moment:
+For variance: $\text{Var}(X) = E[X^2] - (E[X])^2$. Need to find $E[X^2]$:
 
-$$ E[X^2] = \int_0^1 x^2 \cdot \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
+$$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^2 \cdot x^{\alpha-1}(1-x)^{\beta-1} \,dx $$
 
-Same strategy – pull out the constant and combine the $x$ terms ($x^2 \cdot x^{\alpha-1} = x^{\alpha+1}$):
+$$ = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^{\alpha+1}(1-x)^{\beta-1} \,dx $$
 
-$$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 x^{\alpha+1}(1-x)^{\beta-1} \,dx $$
-
-This time the integral is $B(\alpha+2, \beta) = \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)}$:
+Same trick: $B(\alpha+2, \beta) = \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)}$
 
 $$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)} $$
 
-Now I need to expand those Gamma functions using the recursion property:
+Expand the Gamma functions:
 - $\Gamma(\alpha+2) = (\alpha+1)\alpha\Gamma(\alpha)$
 - $\Gamma(\alpha+\beta+2) = (\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha+\beta)$
 
-Substituting:
+Substitute:
 
 $$ E[X^2] = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \cdot \frac{(\alpha+1)\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha+\beta)} $$
 
-After the cancellations:
+Cancel:
 
 $$ E[X^2] = \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} $$
 
-Now for the variance itself:
+Now compute variance:
 
 $$ \text{Var}(X) = \frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} - \left(\frac{\alpha}{\alpha+\beta}\right)^2 $$
 
-Getting a common denominator of $(\alpha+\beta)^2(\alpha+\beta+1)$:
+Common denominator:
 
 $$ \text{Var}(X) = \frac{\alpha(\alpha+1)(\alpha+\beta) - \alpha^2(\alpha+\beta+1)}{(\alpha+\beta)^2(\alpha+\beta+1)} $$
 
-Let me expand that numerator carefully:
+Expand the numerator:
 
-$$ (\alpha^2+\alpha)(\alpha+\beta) - (\alpha^3+\alpha^2\beta+\alpha^2) $$
-$$ = \alpha^3 + \alpha^2\beta + \alpha^2 + \alpha\beta - \alpha^3 - \alpha^2\beta - \alpha^2 $$
-$$ = \alpha\beta $$
-
-Everything simplifies beautifully to:
+$$ (\alpha^2+\alpha)(\alpha+\beta) - (\alpha^3+\alpha^2\beta+\alpha^2) = \alpha\beta $$
 
 $$ \boxed{\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}} $$
 
 ---
 
-## What This Tells Us
+## What I Noticed
 
-Working through these derivations gave me a better feel for how $\alpha$ and $\beta$ control the distribution. The mean formula $\frac{\alpha}{\alpha+\beta}$ is intuitive – it's the relative weight of $\alpha$.
+The variance formula is interesting. When both $\alpha$ and $\beta$ get large, $(\alpha+\beta)^2$ dominates and variance shrinks. The distribution concentrates around the mean.
 
-The variance is more interesting. Notice that it has $\alpha\beta$ in the numerator and $(\alpha+\beta)^2(\alpha+\beta+1)$ in the denominator. When both $\alpha$ and $\beta$ are large, the variance becomes small – the distribution concentrates tightly around the mean. You can think of $\alpha+\beta$ as a "concentration" or "sample size" parameter.
+You can think of $\alpha + \beta$ as a "confidence" parameter. Higher values = tighter distribution. This shows up constantly when setting Bayesian priors – if you're uncertain, use small $\alpha, \beta$ (like 1, 1 for uniform). If you have strong beliefs, crank them up.
 
-This makes the Beta distribution incredibly flexible for Bayesian priors – you can encode both where you think the probability is (via the mean) and how confident you are (via the concentration).
+I run into this in A/B testing all the time. Start with a weak prior (Beta(1,1)), then update with actual click data. The posterior mean is literally $\frac{\alpha + \text{clicks}}{\alpha + \beta + \text{total}}$ – same formula.
 
-Next up, I'll explore the multivariate version of this – the Dirichlet distribution!
+Next: extending this to multiple categories with the Dirichlet distribution. It's basically the Beta distribution's multivariate cousin, and the math generalizes really nicely.
