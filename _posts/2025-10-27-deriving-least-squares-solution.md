@@ -5,82 +5,88 @@ date: 2025-10-27 11:00:00 -0400
 categories: machine-learning mathematics linear-regression
 ---
 
-I've been on a bit of a "back to basics" kick lately, revisiting some of the foundational concepts in ML that I use every day but maybe haven't fully appreciated in a while. Linear regression is one of those things – it's literally the first algorithm most of us learn, but there's something elegant about understanding *exactly* why it works mathematically.
+Linear regression is probably the first ML algorithm I ever learned, and I've implemented it dozens of times. But recently I caught myself just calling `model.fit()` without really thinking about what's happening under the hood. So I sat down and worked through the Normal Equation derivation from scratch.
 
-Today I want to walk through deriving the Normal Equation from scratch. Sure, every ML library just gives you the answer instantly, but there's real value in seeing how the calculus plays out. Plus, this derivation uses some really nice matrix calculus tricks that show up everywhere in ML.
+Turns out there's some genuinely elegant calculus here. It's one of those rare cases where the math is both clean *and* intuitive.
 
-## The Setup
+## The Goal
 
-The goal is simple: find the parameter vector $\boldsymbol{\theta}$ that minimizes the Sum of Squared Errors (SSE) between our predictions and the actual values. For a single data point $\mathbf{x}_n$, our linear model predicts:
+Find the parameter vector $\boldsymbol{\theta}$ that minimizes squared error. For a single data point $\mathbf{x}_n$, our prediction is:
 
 $$ \hat{y}_n = \boldsymbol{\theta}^T \mathbf{x}_n $$
 
+Simple enough. Now minimize the total error.
+
 ---
 
-## Step 1: The Cost Function
+## The Cost Function
 
-The cost function $J(\boldsymbol{\theta})$ is just the sum of squared errors across all $N$ training points:
+Sum of squared errors across all $N$ points:
 
-$$ J(\boldsymbol{\theta}) = \sum_{n=1}^{N} (y_n - \hat{y}_n)^2 = \sum_{n=1}^{N} (y_n - \boldsymbol{\theta}^T \mathbf{x}_n)^2 $$
+$$ J(\boldsymbol{\theta}) = \sum_{n=1}^{N} (y_n - \boldsymbol{\theta}^T \mathbf{x}_n)^2 $$
 
-We square the errors so positive and negative deviations don't cancel out, and to give extra penalty to large errors. Pretty standard stuff.
+We square errors so positive and negative deviations don't cancel. Also penalizes large mistakes more heavily, which usually makes sense.
 
-## Step 2: Moving to Matrix Notation
+## Matrix Form (Way Cleaner)
 
-Working with summations gets tedious fast. Let me rewrite this using matrices, which makes the calculus much cleaner. Define:
+Summations get messy fast. Let me use matrix notation:
 
-- $\mathbf{y}$: vector of all target values $[y_1, y_2, \dots, y_N]^T$
-- $\mathbf{X}$: the design matrix where each row is $\mathbf{x}_n^T$
-- $\boldsymbol{\theta}$: our parameter vector
+- $\mathbf{y}$: target values $[y_1, y_2, \dots, y_N]^T$
+- $\mathbf{X}$: design matrix (each row is $\mathbf{x}_n^T$)
+- $\boldsymbol{\theta}$: parameter vector
 
-Now the predictions are just $\mathbf{X}\boldsymbol{\theta}$, and the cost function becomes:
+Cost function becomes:
 
 $$ J(\boldsymbol{\theta}) = \| \mathbf{y} - \mathbf{X}\boldsymbol{\theta} \|_2^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\theta})^T (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
 
-Much cleaner!
+Much better.
 
 ---
 
-## Step 3: Taking the Gradient
+## Finding the Minimum
 
-To minimize $J(\boldsymbol{\theta})$, I need to find where its gradient equals zero. First, let me expand the cost function:
+Expand it out:
 
 $$ J(\boldsymbol{\theta}) = (\mathbf{y}^T - \boldsymbol{\theta}^T\mathbf{X}^T) (\mathbf{y} - \mathbf{X}\boldsymbol{\theta}) $$
 
 $$ = \mathbf{y}^T\mathbf{y} - \mathbf{y}^T\mathbf{X}\boldsymbol{\theta} - \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
 
-Here's a neat trick: $\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y}$ is a scalar, so it equals its transpose $\mathbf{y}^T\mathbf{X}\boldsymbol{\theta}$. This means I can combine those middle terms:
+Here's a nice trick: $\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y}$ is a scalar, so it equals its transpose. Combine those middle terms:
 
 $$ J(\boldsymbol{\theta}) = \mathbf{y}^T\mathbf{y} - 2\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y} + \boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
 
-Now taking the gradient with respect to $\boldsymbol{\theta}$ using standard matrix calculus:
+Take the gradient:
 
-$$ \nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = \mathbf{0} - 2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
+$$ \nabla_{\boldsymbol{\theta}} J(\boldsymbol{\theta}) = -2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\boldsymbol{\theta} $$
 
-## Step 4: The Normal Equation
-
-Setting the gradient to zero and solving for $\hat{\boldsymbol{\theta}}$:
+Set it to zero:
 
 $$ -2\mathbf{X}^T\mathbf{y} + 2\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{0} $$
 
 $$ \boxed{\mathbf{X}^T\mathbf{X}\hat{\boldsymbol{\theta}} = \mathbf{X}^T\mathbf{y}} $$
 
-This is the famous Normal Equation! If $\mathbf{X}^T\mathbf{X}$ is invertible, we can solve directly for $\hat{\boldsymbol{\theta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$.
+That's the Normal Equation. If $\mathbf{X}^T\mathbf{X}$ is invertible (usually is), then:
 
-### Connecting Back to Summations
+$$ \hat{\boldsymbol{\theta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y} $$
 
-Sometimes it's useful to see this in summation form to understand how individual data points contribute. The matrix form is actually equivalent to:
+### What It Means
+
+Sometimes the summation form makes more intuitive sense:
 
 $$ \left(\sum_{n=1}^{N} \mathbf{x}_n \mathbf{x}_n^T\right) \hat{\boldsymbol{\theta}} = \sum_{n=1}^{N} y_n \mathbf{x}_n $$
 
-The left side sums the outer products of each feature vector, while the right side sums each feature vector weighted by its target. Same equation, just different notation!
+Left side: sum of outer products of features. Right side: features weighted by targets. It's basically saying "match the weighted average of inputs to outputs."
 
 ---
 
-## What's Coming Next
+## Why This Matters
 
-This regression derivation got me thinking about probability distributions more broadly. I've been meaning to dive deeper into some distributions that show up constantly in Bayesian methods and probabilistic ML.
+I rarely compute this by hand anymore – gradient descent is often faster for large datasets, and libraries handle everything. But understanding the closed-form solution helps with:
 
-In my next couple of posts, I'm planning to work through the moments of the **Beta distribution** and the **Dirichlet distribution**. The Beta distribution is fascinating because it's the conjugate prior for binomial/Bernoulli distributions, and the Dirichlet is its multivariate generalization. Understanding their means, variances, and covariances from first principles will be really useful for when I work with these in practice.
+- **Debugging**: When linear regression fails, it's usually because $\mathbf{X}^T\mathbf{X}$ is singular (collinear features)
+- **Regularization**: Ridge regression just adds $\lambda \mathbf{I}$ to $\mathbf{X}^T\mathbf{X}$, which makes perfect sense once you see this
+- **Weighted least squares**: Same derivation, just add a weight matrix
 
-Stay tuned! 📊
+Plus the matrix calculus tricks here show up *everywhere* in ML – from neural net backprop to kernel methods.
+
+Next up: I want to dig into the Beta and Dirichlet distributions. They're conjugate priors for binomial and multinomial likelihoods, and there's some really satisfying math connecting everything together.
