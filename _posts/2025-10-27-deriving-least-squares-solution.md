@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deriving the Mean and Variance of the Binomial Distribution"
-date: 2025-10-24 10:00:00 -0400
+date: 2025-10-27 10:00:00 -0400
 categories: probability statistics binomial-distribution
 ---
 
