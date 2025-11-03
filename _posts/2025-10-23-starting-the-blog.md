@@ -5,17 +5,10 @@ date: 2025-10-23 09:00:00 -0400
 categories: journal
 ---
 
-<!-- Blog Post: Oct 23, 2025 -->
-<article class="p-4 mb-4 border rounded shadow-sm">
-  
-  <h2 class="post-title">Starting the Blog</h2>
-  
-  <p class="post-meta text-muted"><em>A new beginning</em></p>
-  
-  <div class="post-content">
-    <p>
-      Today marks the first entry in this digital notebook. The goal is to create a simple, direct way to share knowledge and document my professional journey. By simplifying the structure of this site, I can focus more on the content itself rather than the underlying complexity. I look forward to sharing more in the coming days.
-    </p>
-  </div>
+I've been thinking about starting a blog for a while now. Not the polished, SEO-optimized kind – just a place to document derivations, notes, and things I'm working through.
 
-</article>
+Most of my work sits at the intersection of probability theory, optimization, and learning systems. I spend a lot of time on paper, deriving convergence guarantees, working through stability proofs, understanding *why* certain algorithms behave the way they do. Figured I might as well type some of it up and make it public.
+
+This is mostly for me, honestly. A way to organize my thoughts and maybe help someone else who's working through similar problems.
+
+Starting today.
