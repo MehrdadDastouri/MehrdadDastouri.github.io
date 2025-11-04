@@ -117,15 +117,6 @@ Building on this foundation, I have investigated **in-context learning dynamics*
 
 ---
 
-## 🌍 Languages
-
-| Language | Proficiency |
-|----------|-------------|
-| **English** | Professional Working Proficiency |
-| **Persian (فارسی)** | Native |
-
----
-
 ## 📈 Research Philosophy
 
 > My approach combines rigorous experimentation with clear documentation and collaborative spirit. I believe in systematic evaluation, making research accessible and reproducible, and staying updated with the latest advances in the field.
