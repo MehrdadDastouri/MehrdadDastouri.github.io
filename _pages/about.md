@@ -107,12 +107,12 @@ Building on this foundation, I have investigated **in-context learning dynamics*
 
 ## 🛠️ Core Skills
 
-**💻 Programming Languages:** Python, Rust, MATLAB
-**🤖 AI/ML Frameworks:** PyTorch, TensorFlow, JAX, Scikit-learn, Pandas, NumPy, SciPy
-**🧠 SNN & Neuromorphic:** snnTorch, Brian2, NEST, Surrogate Gradient Methods
-**🌐 Backend & DevOps:** FastAPI, Flask, Docker, Redis, Celery, WebSocket
-**📊 Data Infrastructure:** TimescaleDB, PostgreSQL, Web3.py
-**🔍 Monitoring & Testing:** Pytest, GitHub Actions, Prometheus, Grafana
+**💻 Programming Languages:** Python, Rust, MATLAB  
+**🤖 AI/ML Frameworks:** PyTorch, TensorFlow, JAX, Scikit-learn, Pandas, NumPy, SciPy  
+**🧠 SNN & Neuromorphic:** snnTorch, Brian2, NEST, Surrogate Gradient Methods  
+**🌐 Backend & DevOps:** FastAPI, Flask, Docker, Redis, Celery, WebSocket  
+**📊 Data Infrastructure:** TimescaleDB, PostgreSQL, Web3.py  
+**🔍 Monitoring & Testing:** Pytest, GitHub Actions, Prometheus, Grafana  
 **🎯 Specializations:** Convergence Analysis, Statistical Learning Theory, Spiking Neural Networks, Time Series Forecasting, DeFi Risk Modeling, Production ML Systems
 
 ---
