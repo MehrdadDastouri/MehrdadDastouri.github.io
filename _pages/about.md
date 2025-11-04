@@ -64,16 +64,12 @@ social: false
     }
   }
   
-  /* Skill tags styling */
+  /* Simple skill tags - no color, no border */
   .skill-tag {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 4px 12px;
+    padding: 5px 12px;
     margin: 4px;
-    border-radius: 20px;
     font-size: 0.9em;
-    font-weight: 500;
   }
   
   .skill-category {
@@ -81,8 +77,9 @@ social: false
   }
   
   .skill-category h4 {
-    color: #667eea;
+    color: #555;
     margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 </style>
 
@@ -123,56 +120,6 @@ Building on this foundation, I have investigated **in-context learning dynamics*
 **Bachelor of Science in Software Engineering**  
 📅 Sep 2008 - Sep 2012  
 🎯 **GPA:** 3.0/4.0
-
----
-
-## 💼 Research & Professional Experience
-
-### 🧠 SNN Convergence Analysis Toolkit
-*Independent Research | Jan 2025 – Mar 2025*
-
-I implemented the theoretical framework from my M.Sc. thesis as an **open-source Python library** for analyzing convergence properties of spike-timing-dependent plasticity (STDP) in recurrent spiking neural networks. The toolkit provides:
-- Numerical methods for **Lyapunov stability verification**
-- Energy landscape visualization
-- Systematic benchmarking across time-series classification tasks from the UCR archive
-
-Through this work, I translated rigorous mathematical results into **reproducible computational experiments**, demonstrating how dynamical systems theory can guide the design of more stable neuromorphic learning algorithms. The project includes comprehensive documentation, automated testing, and interactive Jupyter notebooks that allow researchers to explore convergence behavior under different architectural choices and hyperparameter configurations.
-
----
-
-### 📊 Statistical Learning Theory Experiments
-*Theoretical Investigation | Mar 2025 – Apr 2025*
-
-I developed an educational framework for visualizing core concepts in **statistical learning theory**, including:
-- PAC learnability
-- VC dimension
-- Rademacher complexity
-
-Using synthetic datasets and controlled experiments, I implemented **interactive demonstrations** showing how sample complexity scales with hypothesis class complexity, empirical risk minimization behaviors, and the bias-variance tradeoff across different model families. This work bridges abstract theoretical guarantees with concrete computational experiments, making foundational machine learning theory more accessible through hands-on exploration. The project employs **Streamlit** for interactive dashboards and includes detailed mathematical derivations alongside experimental validations.
-
----
-
-### 📈 Real-Time Cryptocurrency Market Intelligence Dashboard
-*Applied ML Engineering | Apr 2025 – May 2025*
-
-I built a **production-grade system** for real-time monitoring and forecasting of cryptocurrency market dynamics, integrating WebSocket streams from multiple exchanges with time-series prediction models. The architecture employs:
-- **Redis** for low-latency message queuing
-- **TimescaleDB** for efficient storage of high-frequency tick data
-- **Prophet/LSTM models** for short-term price forecasting
-
-I implemented the backend using **FastAPI** with comprehensive testing (>80% coverage), containerized the entire stack with **Docker Compose**, and deployed monitoring dashboards that visualize order book imbalances, volatility regimes, and anomaly detection alerts. This project demonstrates my ability to translate theoretical time-series analysis into scalable, production-ready systems.
-
----
-
-### 🔐 DeFi Protocol Risk Monitoring API
-*Applied Research | May 2025 – Jun 2025*
-
-I designed a **RESTful API** for continuous risk assessment of decentralized finance lending protocols, focusing on:
-- Collateralization ratios
-- Liquidation cascades
-- Systemic contagion risk
-
-Using **Web3.py** to query on-chain data from protocols like Aave and Compound, I implemented asynchronous task scheduling with **Celery** to compute risk metrics across multiple blockchain networks. The system calculates health factors for individual positions, identifies concentration risks in collateral pools, and provides early warning signals for potential liquidation events. The API follows production best practices including comprehensive error handling, rate limiting, structured logging, and automated integration tests, showcasing my ability to build reliable infrastructure for financial applications.
 
 ---
 
