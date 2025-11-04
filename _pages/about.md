@@ -63,24 +63,6 @@ social: false
       overflow: hidden !important;
     }
   }
-  
-  /* Simple skill tags - no color, no border */
-  .skill-tag {
-    display: inline-block;
-    padding: 5px 12px;
-    margin: 4px;
-    font-size: 0.9em;
-  }
-  
-  .skill-category {
-    margin-bottom: 1.5rem;
-  }
-  
-  .skill-category h4 {
-    color: #555;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
 </style>
 
 <div align="center" class="typing-svg-container">
@@ -125,66 +107,13 @@ Building on this foundation, I have investigated **in-context learning dynamics*
 
 ## 🛠️ Core Skills
 
-<div class="skill-category">
-  <h4>💻 Programming Languages</h4>
-  <span class="skill-tag">Python</span>
-  <span class="skill-tag">Rust</span>
-  <span class="skill-tag">MATLAB</span>
-</div>
-
-<div class="skill-category">
-  <h4>🤖 AI/ML Frameworks</h4>
-  <span class="skill-tag">PyTorch</span>
-  <span class="skill-tag">TensorFlow</span>
-  <span class="skill-tag">JAX</span>
-  <span class="skill-tag">Scikit-learn</span>
-  <span class="skill-tag">Pandas</span>
-  <span class="skill-tag">NumPy</span>
-  <span class="skill-tag">SciPy</span>
-</div>
-
-<div class="skill-category">
-  <h4>🧠 SNN & Neuromorphic</h4>
-  <span class="skill-tag">snnTorch</span>
-  <span class="skill-tag">Brian2</span>
-  <span class="skill-tag">NEST</span>
-  <span class="skill-tag">Surrogate Gradient Methods</span>
-</div>
-
-<div class="skill-category">
-  <h4>🌐 Backend & DevOps</h4>
-  <span class="skill-tag">FastAPI</span>
-  <span class="skill-tag">Flask</span>
-  <span class="skill-tag">Docker</span>
-  <span class="skill-tag">Redis</span>
-  <span class="skill-tag">Celery</span>
-  <span class="skill-tag">WebSocket</span>
-</div>
-
-<div class="skill-category">
-  <h4>📊 Data Infrastructure</h4>
-  <span class="skill-tag">TimescaleDB</span>
-  <span class="skill-tag">PostgreSQL</span>
-  <span class="skill-tag">Web3.py</span>
-</div>
-
-<div class="skill-category">
-  <h4>🔍 Monitoring & Testing</h4>
-  <span class="skill-tag">Pytest</span>
-  <span class="skill-tag">GitHub Actions</span>
-  <span class="skill-tag">Prometheus</span>
-  <span class="skill-tag">Grafana</span>
-</div>
-
-<div class="skill-category">
-  <h4>🎯 Specializations</h4>
-  <span class="skill-tag">Convergence Analysis</span>
-  <span class="skill-tag">Statistical Learning Theory</span>
-  <span class="skill-tag">Spiking Neural Networks</span>
-  <span class="skill-tag">Time Series Forecasting</span>
-  <span class="skill-tag">DeFi Risk Modeling</span>
-  <span class="skill-tag">Production ML Systems</span>
-</div>
+**💻 Programming Languages:** Python, Rust, MATLAB
+**🤖 AI/ML Frameworks:** PyTorch, TensorFlow, JAX, Scikit-learn, Pandas, NumPy, SciPy
+**🧠 SNN & Neuromorphic:** snnTorch, Brian2, NEST, Surrogate Gradient Methods
+**🌐 Backend & DevOps:** FastAPI, Flask, Docker, Redis, Celery, WebSocket
+**📊 Data Infrastructure:** TimescaleDB, PostgreSQL, Web3.py
+**🔍 Monitoring & Testing:** Pytest, GitHub Actions, Prometheus, Grafana
+**🎯 Specializations:** Convergence Analysis, Statistical Learning Theory, Spiking Neural Networks, Time Series Forecasting, DeFi Risk Modeling, Production ML Systems
 
 ---
 
