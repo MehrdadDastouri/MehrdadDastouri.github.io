@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Machine Learning Researcher | Provable AI & Neuromorphic Computing Specialist
+subtitle: Machine Learning Researcher | Convergence Analysis & Neuromorphic Computing
 
 profile:
   align: right
@@ -59,16 +59,6 @@ social: false
     }
   }
   
-  .metric-highlight {
-    display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin: 0 2px;
-  }
-  
   .skill-tag {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -88,29 +78,21 @@ social: false
     color: #667eea;
     margin-bottom: 0.5rem;
   }
-
-  .impact-box {
-    background: #f8f9fa;
-    border-left: 4px solid #667eea;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 4px;
-  }
 </style>
 
 <div align="center" class="typing-svg-container">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=Provable+AI+%7C+Convergence+Guarantees+Expert;Neuromorphic+Computing+%7C+Production+ML+Systems;Building+Theoretically-Grounded+Intelligent+Systems" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=AI+Researcher+%7C+Deep+Learning+Enthusiast;Exploring+Multimodal+Learning+%26+Visual+Recognition;Building+Intelligent+Systems+for+Tomorrow" alt="Typing SVG" />
 </div>
 
 ---
 
-## 🎯 Research Impact Summary
+## 👨‍🔬 Research Focus
 
-**Machine Learning Researcher** with proven track record in establishing **rigorous convergence guarantees** for biologically-inspired neural networks. Translated theoretical frameworks into **production-grade open-source tools** with >80% test coverage. Developed real-time ML systems processing high-frequency data streams and built risk monitoring APIs serving DeFi protocols. **Seeking Ph.D. opportunities** to advance provably convergent learning algorithms and adversarial robustness theory.
+I hold an M.Sc. in Computer Science (GPA: 3.7/4.0) from **Shahid Beheshti University**, where my thesis established convergence guarantees for spike-timing-dependent plasticity (STDP) in recurrent spiking neural networks. Using Lyapunov stability analysis, I proved that STDP-based learning converges under specific conditions and validated these results on time-series benchmarks from the UCR archive. My research combines dynamical systems theory, stochastic optimization, and neuromorphic computing to understand the mathematical principles governing adaptation in biologically-inspired systems.
 
-<div class="impact-box">
-  <strong>Key Achievements:</strong> Established first convergence proofs for STDP in recurrent SNNs • Validated theory across 20+ UCR time-series benchmarks • Built 3 production ML systems with <100ms latency • Open-sourced research tools used by neuromorphic computing community
-</div>
+Building on this foundation, I have investigated in-context learning dynamics in transformer models and developed graph-theoretic methods for detecting risk in decentralized finance protocols.
+
+> **Goal:** I seek a Ph.D. position to advance my work on statistical learning theory, adversarial robustness, and provably convergent algorithms. I aim to develop rigorous theoretical guarantees while demonstrating practical applicability through open-source implementations.
 
 <div align="center" style="margin: 2rem 0;">
   <a href="https://github.com/MehrdadDastouri" target="_blank" rel="noopener noreferrer">
@@ -125,16 +107,16 @@ social: false
 
 ## 🎓 Education
 
-**Master of Science in Computer Science** | Shahid Beheshti University, Tehran  
-*Sep 2020 - Sep 2022* | **GPA: 3.7/4.0**
+### Shahid Beheshti University | Tehran, Iran
+**Master of Science in Computer Science (Data Mining)**  
+📅 Sep 2020 - Sep 2022  
+📚 **Thesis:** Convergence Analysis of Spike-Timing-Dependent Plasticity Learning Rules in Recurrent Spiking Neural Networks with Applications to Time-Series Classification  
+🎯 **GPA:** 3.7/4.0
 
-- **Thesis:** Convergence Analysis of STDP Learning Rules in Recurrent SNNs
-- Established first Lyapunov-based convergence guarantees for spike-timing-dependent plasticity
-- Validated theoretical results across <span class="metric-highlight">20+ UCR time-series benchmarks</span>
-- Combined dynamical systems theory with neuromorphic computing
-
-**Bachelor of Science in Software Engineering** | Isfahan University of Technology  
-*Sep 2008 - Sep 2012* | **GPA: 3.0/4.0**
+### Isfahan University of Technology | Isfahan, Iran
+**Bachelor of Science in Software Engineering**  
+📅 Sep 2008 - Sep 2012  
+🎯 **GPA:** 3.0/4.0
 
 ---
 
@@ -143,117 +125,115 @@ social: false
 ### 🧠 SNN Convergence Analysis Toolkit
 *Independent Research | Jan 2025 – Mar 2025*
 
-**Impact:** Released first open-source library for analyzing STDP convergence in recurrent SNNs, enabling researchers to verify stability without manual mathematical derivations.
-
-- Implemented Lyapunov stability verification achieving <span class="metric-highlight">>95% accuracy</span> in predicting convergence behavior
-- Reduced stability analysis time from days (manual proofs) to <span class="metric-highlight"><2 hours</span> (automated verification)
-- Provided interactive Jupyter notebooks downloaded <span class="metric-highlight">500+ times</span> in first month
-- Achieved <span class="metric-highlight">85% test coverage</span> with comprehensive documentation
-
-**Technologies:** PyTorch, snnTorch, NumPy, pytest, Jupyter
+I implemented my M.Sc. thesis as an open-source Python library for analyzing convergence of STDP in recurrent spiking neural networks. The toolkit provides numerical methods for Lyapunov stability verification, energy landscape visualization, and systematic benchmarking across UCR time-series tasks. This work translated rigorous mathematical results into reproducible experiments, showing how dynamical systems theory guides more stable neuromorphic learning. The project achieved >95% accuracy in predicting convergence behavior and reduced analysis time from days to hours through automated verification. It includes comprehensive documentation, automated testing (85% coverage), and interactive Jupyter notebooks for exploring convergence under different architectures.
 
 ---
 
 ### 📊 Statistical Learning Theory Experiments
 *Theoretical Investigation | Mar 2025 – Apr 2025*
 
-**Impact:** Created interactive educational framework making abstract ML theory accessible through hands-on experiments, adopted by university instructors.
-
-- Built Streamlit dashboards visualizing PAC learnability, VC dimension, and Rademacher complexity
-- Demonstrated sample complexity scaling across <span class="metric-highlight">10 hypothesis classes</span>
-- Reduced student confusion on bias-variance tradeoff by <span class="metric-highlight">40%</span> (based on instructor feedback)
-- Generated synthetic datasets covering <span class="metric-highlight">15 learning scenarios</span>
-
-**Technologies:** Python, Scikit-learn, Streamlit, Matplotlib
+I developed an educational framework visualizing PAC learnability, VC dimension, and Rademacher complexity. Using synthetic datasets and controlled experiments, I created interactive demonstrations showing how sample complexity scales with hypothesis class complexity and the bias-variance tradeoff across model families. The Streamlit dashboards make foundational ML theory accessible through hands-on exploration, with detailed mathematical derivations alongside experimental validations. Based on instructor feedback, this approach reduced student confusion on key concepts by approximately 40%.
 
 ---
 
 ### 📈 Real-Time Cryptocurrency Market Intelligence Dashboard
 *Applied ML Engineering | Apr 2025 – May 2025*
 
-**Impact:** Deployed production system processing <span class="metric-highlight">10,000+ market events/second</span> with <100ms latency, enabling real-time trading decisions.
-
-- Integrated WebSocket streams from <span class="metric-highlight">5 major exchanges</span> (Binance, Coinbase, Kraken)
-- Reduced price prediction error by <span class="metric-highlight">15%</span> using Prophet/LSTM ensemble
-- Achieved <span class="metric-highlight">99.9% uptime</span> through Docker containerization and health monitoring
-- Implemented anomaly detection catching <span class="metric-highlight">8/10 major price swings</span> in backtesting
-
-**Technologies:** FastAPI, Redis, TimescaleDB, Prophet, LSTM, Docker, pytest (>80% coverage)
+I built a production system for real-time cryptocurrency market monitoring and forecasting. The architecture integrates WebSocket streams from five major exchanges with Redis for low-latency messaging, TimescaleDB for high-frequency data storage, and Prophet/LSTM models for price forecasting. I implemented the FastAPI backend with >80% test coverage, containerized the stack with Docker Compose, and deployed monitoring dashboards for order book analysis and anomaly detection. The system processes over 10,000 market events per second with sub-100ms latency and achieved 99.9% uptime in deployment.
 
 ---
 
 ### 🔐 DeFi Protocol Risk Monitoring API
 *Applied Research | May 2025 – Jun 2025*
 
-**Impact:** Built REST API monitoring <span class="metric-highlight">$50M+</span> in DeFi collateral, providing early warnings for liquidation cascades.
-
-- Tracked health factors for <span class="metric-highlight">1,000+ lending positions</span> across Aave and Compound
-- Identified concentration risks preventing <span class="metric-highlight">3 potential liquidation events</span> (>$2M at risk)
-- Reduced query latency by <span class="metric-highlight">60%</span> through asynchronous task scheduling with Celery
-- Implemented comprehensive error handling achieving <span class="metric-highlight">99.5% API reliability</span>
-
-**Technologies:** Python, Web3.py, FastAPI, Celery, PostgreSQL, Docker
+I designed a RESTful API for continuous risk assessment of DeFi lending protocols, focusing on collateralization ratios and liquidation cascades. Using Web3.py to query on-chain data from Aave and Compound, I implemented asynchronous task scheduling with Celery to compute risk metrics across blockchain networks. The system tracks over 1,000 lending positions representing $50M+ in collateral, calculating health factors and identifying concentration risks. In backtesting, it successfully identified 3 potential liquidation events representing over $2M at risk. The API follows production best practices with comprehensive error handling and 99.5% reliability.
 
 ---
 
-## 🛠️ Technical Skills
+## 🛠️ Core Skills
 
 <div class="skill-category">
-  <h4>💻 Programming & ML</h4>
-  <span class="skill-tag">Python (Expert)</span>
-  <span class="skill-tag">PyTorch</span>
-  <span class="skill-tag">JAX</span>
+  <h4>💻 Programming Languages</h4>
+  <span class="skill-tag">Python</span>
   <span class="skill-tag">Rust</span>
-  <span class="skill-tag">TensorFlow</span>
-  <span class="skill-tag">Scikit-learn</span>
+  <span class="skill-tag">MATLAB</span>
 </div>
 
 <div class="skill-category">
-  <h4>🧠 Neuromorphic & Theory</h4>
+  <h4>🤖 AI/ML Frameworks</h4>
+  <span class="skill-tag">PyTorch</span>
+  <span class="skill-tag">TensorFlow</span>
+  <span class="skill-tag">JAX</span>
+  <span class="skill-tag">Scikit-learn</span>
+  <span class="skill-tag">Pandas</span>
+  <span class="skill-tag">NumPy</span>
+  <span class="skill-tag">SciPy</span>
+</div>
+
+<div class="skill-category">
+  <h4>🧠 SNN & Neuromorphic</h4>
   <span class="skill-tag">snnTorch</span>
   <span class="skill-tag">Brian2</span>
   <span class="skill-tag">NEST</span>
-  <span class="skill-tag">Statistical Learning Theory</span>
-  <span class="skill-tag">Convergence Analysis</span>
+  <span class="skill-tag">Surrogate Gradient Methods</span>
 </div>
 
 <div class="skill-category">
-  <h4>🌐 Production Systems</h4>
+  <h4>🌐 Backend & DevOps</h4>
   <span class="skill-tag">FastAPI</span>
+  <span class="skill-tag">Flask</span>
   <span class="skill-tag">Docker</span>
   <span class="skill-tag">Redis</span>
-  <span class="skill-tag">PostgreSQL</span>
   <span class="skill-tag">Celery</span>
   <span class="skill-tag">WebSocket</span>
 </div>
 
 <div class="skill-category">
-  <h4>🔍 DevOps & Testing</h4>
-  <span class="skill-tag">Pytest (>80% coverage)</span>
+  <h4>📊 Data Infrastructure</h4>
+  <span class="skill-tag">TimescaleDB</span>
+  <span class="skill-tag">PostgreSQL</span>
+  <span class="skill-tag">Web3.py</span>
+</div>
+
+<div class="skill-category">
+  <h4>🔍 Monitoring & Testing</h4>
+  <span class="skill-tag">Pytest</span>
   <span class="skill-tag">GitHub Actions</span>
   <span class="skill-tag">Prometheus</span>
   <span class="skill-tag">Grafana</span>
+</div>
+
+<div class="skill-category">
+  <h4>🎯 Specializations</h4>
+  <span class="skill-tag">Convergence Analysis</span>
+  <span class="skill-tag">Statistical Learning Theory</span>
+  <span class="skill-tag">Spiking Neural Networks</span>
+  <span class="skill-tag">Time Series Forecasting</span>
+  <span class="skill-tag">DeFi Risk Modeling</span>
+  <span class="skill-tag">Production ML Systems</span>
 </div>
 
 ---
 
 ## 🌍 Languages
 
-- **English:** Professional Working Proficiency (Technical Writing, Research Communication)
-- **Persian (فارسی):** Native
+| Language | Proficiency |
+|----------|-------------|
+| **English** | Professional Working Proficiency |
+| **Persian (فارسی)** | Native |
 
 ---
 
-## 🎯 What I Bring to Your Research Group
+## 📈 Research Philosophy
 
-**Rigorous Theory:** Proven ability to establish mathematical guarantees (convergence proofs, stability analysis)
+> My approach combines rigorous experimentation with clear documentation and collaborative spirit. I believe in systematic evaluation, making research accessible and reproducible, and staying updated with the latest advances in the field.
 
-**Practical Implementation:** Track record of translating theory into production systems (>80% test coverage, 99.9% uptime)
-
-**Open Science:** Committed to reproducible research through comprehensive documentation and open-source tools
-
-**Interdisciplinary Mindset:** Combines dynamical systems, statistical learning theory, and neuromorphic computing
+### Core Principles:
+- **🔍 Rigorous Experimentation:** Systematic evaluation and ablation studies
+- **📖 Clear Documentation:** Making research accessible and reproducible  
+- **🤝 Collaborative Spirit:** Learning from and contributing to the community
+- **🌱 Continuous Learning:** Staying updated with latest advances
 
 ---
 
-> *"Theory without practice is sterile; practice without theory is blind."* — Adapted from Immanuel Kant
+> *"In God we trust, all others must bring data."* — W. Edwards Deming
