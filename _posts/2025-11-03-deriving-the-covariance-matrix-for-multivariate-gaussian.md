@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deriving the Covariance Matrix for Multivariate Gaussian"
-date: 2025-11-04 08:00:00 -0400
+date: 2025-11-03 08:00:00 -0400
 categories: statistics probability
 tags: math multivariate-gaussian covariance-matrix linear-algebra
 ---
