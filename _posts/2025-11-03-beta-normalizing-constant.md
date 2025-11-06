@@ -1,125 +1,133 @@
 ---
 layout: post
-title: "Beta Distribution Normalizing Constant"
-date: 2025-11-03
-categories: [probability, distributions]
-tags: [beta-distribution, bayesian, conjugate-priors]
-math: true
+title: "Why the Beta Distribution Has That Weird Normalizing Constant"
+date: 2025-11-06 10:30:00 -0400
+categories: probability statistics
+tags: beta-distribution bayesian
 ---
 
-## Problem 2.5: Beta Distribution Normalizing Constant
+After deriving the mean and variance of the Beta distribution a few days ago, I got curious about something I'd always taken for granted: that normalizing constant.
 
-Today I worked on showing that the normalizing constant in the beta distribution with parameters $a$ and $b$ is:
+You know how the Beta PDF is:
 
-$$\frac{\Gamma(a + b)}{\Gamma(a)\Gamma(b)}$$
+$$ f(x; \alpha, \beta) = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta-1} $$
 
-This might seem like a minor detail, but it's actually pretty important when you're working with Bayesian inference—especially when you need to compute posteriors or marginal likelihoods.
-
----
-
-### The Beta PDF
-
-The beta distribution is defined as:
-
-$$\text{Beta}(x \mid a, b) = \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1}, \quad 0 \leq x \leq 1$$
-
-where $B(a,b)$ is the **beta function**, which serves as the normalizing constant to ensure the PDF integrates to 1.
-
-Our goal is to show that:
-
-$$B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$$
+That ratio of Gamma functions always felt mysterious to me. Like, why that specific form? Today I worked through the math to see where it comes from.
 
 ---
 
-### Step 1: Start with the Beta Function Definition
+## The Beta Function
 
-By definition, the beta function is:
+The Beta distribution gets its name from the **Beta function**, defined as:
 
-$$B(a,b) = \int_0^1 x^{a-1}(1-x)^{b-1} \, dx$$
+$$ B(\alpha, \beta) = \int_0^1 x^{\alpha-1}(1-x)^{\beta-1} \, dx $$
 
-This integral ensures that the beta PDF is properly normalized.
+This integral shows up constantly in probability. For the Beta distribution to be a valid PDF, we need it to integrate to 1, so we divide by $B(\alpha, \beta)$ to normalize it.
 
----
+The question is: what does $B(\alpha, \beta)$ equal?
 
-### Step 2: Connect to the Gamma Function
+Turns out it has a beautiful connection to the Gamma function:
 
-Recall the **gamma function**:
+$$ B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)} $$
 
-$$\Gamma(a) = \int_0^\infty t^{a-1} e^{-t} \, dt$$
+Which means the normalizing constant we need is:
 
-There's a useful relationship between the beta and gamma functions. The hint tells us to use the property:
+$$ \frac{1}{B(\alpha, \beta)} = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} $$
 
-$$\Gamma(a+1) = a\Gamma(a)$$
-
-This is the recursive property of the gamma function, which you probably know from $n! = n \cdot (n-1)!$ for integers.
+Let me show you why this works.
 
 ---
 
-### Step 3: Use a Key Integral Identity
+## Connecting Beta and Gamma Functions
 
-There's a classical result that connects the beta function to gamma functions:
+Recall the **Gamma function**:
 
-$$B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$$
+$$ \Gamma(\alpha) = \int_0^\infty t^{\alpha-1} e^{-t} \, dt $$
 
-To derive this, we can use the integral representation of the gamma function and make a substitution. Here's the idea:
+Here's the trick: write out $\Gamma(\alpha)$ and $\Gamma(\beta)$ as integrals and multiply them:
 
-1. Write $\Gamma(a)$ and $\Gamma(b)$ as integrals:
-   $$\Gamma(a) = \int_0^\infty s^{a-1} e^{-s} \, ds$$
-   $$\Gamma(b) = \int_0^\infty t^{b-1} e^{-t} \, dt$$
+$$ \Gamma(\alpha)\Gamma(\beta) = \left(\int_0^\infty s^{\alpha-1} e^{-s} \, ds\right) \left(\int_0^\infty t^{\beta-1} e^{-t} \, dt\right) $$
 
-2. Multiply them together:
-   $$\Gamma(a)\Gamma(b) = \int_0^\infty \int_0^\infty s^{a-1} t^{b-1} e^{-(s+t)} \, ds \, dt$$
+This is a double integral:
 
-3. Make the substitution $u = s + t$ and $x = \frac{s}{s+t}$, so $s = ux$ and $t = u(1-x)$.
+$$ = \int_0^\infty \int_0^\infty s^{\alpha-1} t^{\beta-1} e^{-(s+t)} \, ds \, dt $$
 
-4. The Jacobian of this transformation is $u$, and the limits become $0 \leq x \leq 1$ and $0 \leq u < \infty$.
+Now comes the clever part. Make the substitution:
+- $u = s + t$
+- $x = \frac{s}{s+t}$
 
-5. After substitution, the double integral separates into:
-   $$\Gamma(a)\Gamma(b) = \left(\int_0^1 x^{a-1}(1-x)^{b-1} \, dx\right) \left(\int_0^\infty u^{a+b-1} e^{-u} \, du\right)$$
+So $s = ux$ and $t = u(1-x)$. The Jacobian of this transformation is $u$.
 
-6. Recognize that:
-   - The first integral is $B(a,b)$
-   - The second integral is $\Gamma(a+b)$
+The limits change to:
+- $0 \leq x \leq 1$
+- $0 \leq u < \infty$
+
+Substitute into the integral:
+
+$$ \Gamma(\alpha)\Gamma(\beta) = \int_0^1 \int_0^\infty (ux)^{\alpha-1} (u(1-x))^{\beta-1} e^{-u} \cdot u \, du \, dx $$
+
+Simplify the powers:
+
+$$ = \int_0^1 \int_0^\infty u^{\alpha-1} x^{\alpha-1} u^{\beta-1} (1-x)^{\beta-1} e^{-u} \cdot u \, du \, dx $$
+
+$$ = \int_0^1 \int_0^\infty x^{\alpha-1}(1-x)^{\beta-1} u^{\alpha+\beta-1} e^{-u} \, du \, dx $$
+
+Now here's the magic – this separates into two independent integrals:
+
+$$ = \left(\int_0^1 x^{\alpha-1}(1-x)^{\beta-1} \, dx\right) \left(\int_0^\infty u^{\alpha+\beta-1} e^{-u} \, du\right) $$
+
+Recognize these:
+- First integral: $B(\alpha, \beta)$
+- Second integral: $\Gamma(\alpha+\beta)$
 
 So we get:
-$$\Gamma(a)\Gamma(b) = B(a,b) \cdot \Gamma(a+b)$$
 
-Rearranging:
-$$B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$$
+$$ \Gamma(\alpha)\Gamma(\beta) = B(\alpha, \beta) \cdot \Gamma(\alpha+\beta) $$
 
----
+Rearrange:
 
-### Step 4: Therefore, the Normalizing Constant is...
-
-The normalizing constant in the beta PDF is:
-
-$$\frac{1}{B(a,b)} = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}$$
-
-This is exactly what we wanted to show! ✅
+$$ \boxed{B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}} $$
 
 ---
 
-### Why This Matters
+## So the Normalizing Constant Is...
 
-This result is crucial in Bayesian statistics. The beta distribution is the **conjugate prior** for the Bernoulli and binomial likelihoods. When you're doing Bayesian A/B testing or parameter estimation for probabilities, you constantly work with beta distributions.
+Since we want $\frac{1}{B(\alpha, \beta)}$ to normalize the Beta PDF:
 
-Knowing that the normalizing constant is expressed in terms of gamma functions makes it easy to:
-- Compute posterior distributions analytically
-- Derive moments (mean, variance)
-- Work with the beta-binomial distribution
+$$ \frac{1}{B(\alpha, \beta)} = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} $$
 
-If you've ever used a Bayesian framework for conversion rate optimization or click-through rate modeling, you've relied on this relationship without even thinking about it.
+That's exactly the form we see in the Beta distribution! ✓
 
 ---
 
-### Quick Sanity Check
+## Why This Matters
 
-For integer values, $\Gamma(n) = (n-1)!$, so if $a = 2$ and $b = 3$:
+This result is everywhere in Bayesian statistics. The Beta distribution is the **conjugate prior** for Bernoulli and binomial likelihoods.
 
-$$B(2,3) = \frac{\Gamma(2)\Gamma(3)}{\Gamma(5)} = \frac{1! \cdot 2!}{4!} = \frac{2}{24} = \frac{1}{12}$$
+When you're doing A/B testing or modeling conversion rates, you're constantly updating Beta distributions. The fact that the normalizing constant has this closed form (using Gamma functions) makes all the posterior calculations tractable.
 
-You can verify this by integrating $\int_0^1 x(1-x)^2 \, dx$ directly, and you'll get $\frac{1}{12}$. ✅
+Without this relationship, we'd be stuck computing horrible integrals every time we wanted to update a prior.
 
 ---
 
-That's it for today! Next up: gamma distribution moments (Problem 2.6), which will be another fun one.
+## Quick Sanity Check
+
+For integers, $\Gamma(n) = (n-1)!$. Let's try $\alpha = 2, \beta = 3$:
+
+$$ B(2,3) = \frac{\Gamma(2)\Gamma(3)}{\Gamma(5)} = \frac{1! \cdot 2!}{4!} = \frac{2}{24} = \frac{1}{12} $$
+
+We can verify this by direct integration:
+
+$$ B(2,3) = \int_0^1 x(1-x)^2 \, dx $$
+
+Expand $(1-x)^2 = 1 - 2x + x^2$:
+
+$$ = \int_0^1 (x - 2x^2 + x^3) \, dx = \left[\frac{x^2}{2} - \frac{2x^3}{3} + \frac{x^4}{4}\right]_0^1 $$
+
+$$ = \frac{1}{2} - \frac{2}{3} + \frac{1}{4} = \frac{6 - 8 + 3}{12} = \frac{1}{12} $$
+
+Perfect match! ✓
+
+---
+
+That change of variables trick (from $(s,t)$ to $(u,x)$) is one of those classic probability theory moves that shows up everywhere. Same technique works for deriving the distribution of ratios, sums, and products of random variables.
