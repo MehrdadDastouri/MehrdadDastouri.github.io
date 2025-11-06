@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Beta Distribution Moments"
-date: 2025-11-02 11:30:00 -0400
+title: "Understanding the Beta Distribution: Mean and Variance"
+date: 2025-10-29 11:30:00 -0400
 categories: statistics probability
 tags: math beta-distribution
 ---
@@ -99,5 +99,3 @@ The variance formula is interesting. When both $\alpha$ and $\beta$ get large, $
 You can think of $\alpha + \beta$ as a "confidence" parameter. Higher values = tighter distribution. This shows up constantly when setting Bayesian priors – if you're uncertain, use small $\alpha, \beta$ (like 1, 1 for uniform). If you have strong beliefs, crank them up.
 
 I run into this in A/B testing all the time. Start with a weak prior (Beta(1,1)), then update with actual click data. The posterior mean is literally $\frac{\alpha + \text{clicks}}{\alpha + \beta + \text{total}}$ – same formula.
-
-
