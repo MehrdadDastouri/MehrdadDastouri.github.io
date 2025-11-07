@@ -7,11 +7,11 @@ tags: [beta-distribution, normalization, gamma-function]
 math: true
 ---
 
-A few days ago, I worked through the mean and variance of the Beta distribution. While doing that, I kept wondering about that normalizing constant $\frac{1}{B(a,b)}$ – where does it actually come from? Why does it guarantee that the Beta pdf integrates to 1?
+The Beta distribution has this normalizing constant $\frac{1}{B(a,b)}$ at the front. I was curious about where it comes from and why it's needed.
 
 ## The Beta Distribution
 
-Recall that the Beta distribution has the form:
+The Beta distribution is:
 
 $$
 \text{Beta}(x \mid a, b) = \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1}
@@ -19,71 +19,55 @@ $$
 
 where $x \in [0,1]$ and $a, b > 0$.
 
-The term $B(a,b)$ is called the **Beta function**, and it's defined as:
+The term $B(a,b)$ is the Beta function:
 
 $$
 B(a,b) = \int_0^1 x^{a-1}(1-x)^{b-1} \, dx
 $$
 
-## Why Do We Need It?
+## Why We Need Normalization
 
-For any probability density function, we need:
-
-$$
-\int_0^1 \text{Beta}(x \mid a, b) \, dx = 1
-$$
-
-If we didn't have the normalizing constant, we'd have:
+For any probability density, the integral over its support must equal 1. Without the normalizing constant, we'd have:
 
 $$
 \int_0^1 x^{a-1}(1-x)^{b-1} \, dx = B(a,b)
 $$
 
-This integral generally doesn't equal 1. So we divide by $B(a,b)$ to "normalize" it:
+This usually isn't 1, so we divide by $B(a,b)$:
 
 $$
 \int_0^1 \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1} \, dx = \frac{B(a,b)}{B(a,b)} = 1
 $$
 
-Perfect! Now it's a proper probability distribution.
-
 ## Connection to the Gamma Function
 
-The Beta function has a beautiful relationship with the Gamma function:
+The Beta function relates to the Gamma function:
 
 $$
 B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
 $$
 
-where the Gamma function is defined as:
+where
 
 $$
 \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} \, dt
 $$
 
-For positive integers $n$, we have $\Gamma(n) = (n-1)!$.
+For positive integers, $\Gamma(n) = (n-1)!$, so:
 
-### Why Is This Useful?
+$$
+B(a,b) = \frac{(a-1)!(b-1)!}{(a+b-1)!}
+$$
 
-This connection is incredibly handy because:
+This makes computation much easier. For example, when calculating moments:
 
-1. **Easier computation**: Computing $\Gamma(a)\Gamma(b)/\Gamma(a+b)$ is often easier than computing the integral $B(a,b)$ directly.
+$$
+\mathbb{E}[X^k] = \frac{B(a+k, b)}{B(a,b)} = \frac{\Gamma(a+k)\Gamma(b)\Gamma(a+b)}{\Gamma(a)\Gamma(b)\Gamma(a+b+k)}
+$$
 
-2. **Special cases**: For integer values of $a$ and $b$, we can use factorials:
-   
-   $$
-   B(a,b) = \frac{(a-1)!(b-1)!}{(a+b-1)!}
-   $$
+## Example: Beta(2, 3)
 
-3. **Moments**: When I calculated the mean and variance earlier, I used this relationship extensively. For example:
-   
-   $$
-   \mathbb{E}[X^k] = \frac{B(a+k, b)}{B(a,b)} = \frac{\Gamma(a+k)\Gamma(b)\Gamma(a+b)}{\Gamma(a)\Gamma(b)\Gamma(a+b+k)}
-   $$
-
-## A Quick Example
-
-Let's verify normalization for $\text{Beta}(2, 3)$:
+For $\text{Beta}(2, 3)$:
 
 $$
 B(2,3) = \frac{\Gamma(2)\Gamma(3)}{\Gamma(5)} = \frac{1! \cdot 2!}{4!} = \frac{2}{24} = \frac{1}{12}
@@ -95,25 +79,20 @@ $$
 \text{Beta}(x \mid 2, 3) = 12x(1-x)^2
 $$
 
-Let's check that it integrates to 1:
+Checking the integral:
 
 $$
 \int_0^1 12x(1-x)^2 \, dx
 $$
 
-Using the substitution $u = 1-x$:
+Using $u = 1-x$:
 
 $$
 = 12\int_0^1 (1-u)u^2 \, du = 12\int_0^1 (u^2 - u^3) \, du
 $$
 
 $$
-= 12\left[\frac{u^3}{3} - \frac{u^4}{4}\right]_0^1 = 12\left(\frac{1}{3} - \frac{1}{4}\right) = 12 \cdot \frac{1}{12} = 1 \quad ✓
+= 12\left[\frac{u^3}{3} - \frac{u^4}{4}\right]_0^1 = 12\left(\frac{1}{3} - \frac{1}{4}\right) = 1
 $$
 
-It works!
-
-## Final Thoughts
-
-The normalizing constant might seem like just a technical detail at first, but it's actually quite elegant. The connection between the Beta and Gamma functions reveals deeper mathematical structure, and it makes calculations much more tractable.
-
+The normalizing constant does its job—the pdf integrates to 1.
