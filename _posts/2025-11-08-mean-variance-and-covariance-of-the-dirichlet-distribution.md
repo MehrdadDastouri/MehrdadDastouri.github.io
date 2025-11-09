@@ -1,194 +1,92 @@
 ---
 layout: post
-title: "Mean, Variance, and Covariance of the Dirichlet Distribution"
+title: "Mean and Variance of the Dirichlet Distribution"
 date: 2025-11-08
 categories: [probability, distributions]
-tags: [dirichlet-distribution, multivariate, mean, variance, covariance]
+tags: [dirichlet-distribution, mean, variance, moments]
 math: true
 ---
 
-The Dirichlet distribution is a multivariate generalization of the Beta distribution. It's defined over probability vectors and is widely used in Bayesian statistics, especially for modeling proportions.
+The Dirichlet distribution is basically the multivariate version of the Beta. It's the go-to choice when you need a distribution over probability vectors—like modeling topic proportions in documents or species abundances in ecology.
 
-## The Dirichlet Distribution
-
-For $K$ variables $x_1, x_2, \ldots, x_K$ with $\sum_{k=1}^K x_k = 1$ and $x_k \geq 0$, the Dirichlet pdf is:
+The pdf for a $K$-dimensional Dirichlet is:
 
 $$
-\text{Dir}(\mathbf{x} \mid \boldsymbol{\alpha}) = \frac{\Gamma(\bar{a})}{{\prod_{k=1}^K \Gamma(a_k)}} \prod_{k=1}^K x_k^{a_k - 1}
+\text{Dir}(\mathbf{x} \mid \boldsymbol{\alpha}) = \frac{\Gamma(\alpha_0)}{\prod_{k=1}^K \Gamma(\alpha_k)} \prod_{k=1}^K x_k^{\alpha_k - 1}
 $$
 
-where $\boldsymbol{\alpha} = (a_1, a_2, \ldots, a_K)$ and $\bar{a} = \sum_{k=1}^K a_k$.
+where $\mathbf{x} = (x_1, \ldots, x_K)$ with $x_k > 0$ and $\sum_{k=1}^K x_k = 1$, and $\alpha_0 = \sum_{k=1}^K \alpha_k$.
 
-## Mean
+## Finding the Mean
 
-The mean of each component $x_k$ is:
-
-$$
-\mathbb{E}[x_k] = \frac{a_k}{\bar{a}}, \quad k = 1, 2, \ldots, K
-$$
-
-### Derivation
-
-Using the normalization property:
+For the mean of $x_j$, I need:
 
 $$
-\int \text{Dir}(\mathbf{x} \mid \boldsymbol{\alpha}) \, d\mathbf{x} = 1
+\mathbb{E}[x_j] = \int x_j \cdot \text{Dir}(\mathbf{x} \mid \boldsymbol{\alpha}) \, d\mathbf{x}
 $$
 
-We can write:
+Here's the trick: pulling out the normalizing constant and focusing on the part that depends on $x_j$:
 
 $$
-\mathbb{E}[x_k] = \int x_k \cdot \text{Dir}(\mathbf{x} \mid \boldsymbol{\alpha}) \, d\mathbf{x}
+= \frac{\Gamma(\alpha_0)}{\prod_k \Gamma(\alpha_k)} \int x_j^{\alpha_j} \prod_{k \neq j} x_k^{\alpha_k - 1} \, d\mathbf{x}
 $$
 
-$$
-= \frac{\Gamma(\bar{a})}{\prod_{j=1}^K \Gamma(a_j)} \int x_k^{a_k} \prod_{j \neq k} x_j^{a_j - 1} \, d\mathbf{x}
-$$
-
-This integral equals:
+This integral looks like a Dirichlet with updated parameters $(\alpha_1, \ldots, \alpha_j + 1, \ldots, \alpha_K)$. Since the integral of any valid pdf is 1:
 
 $$
-\frac{\prod_{j=1}^K \Gamma(a_j + \delta_{jk})}{\Gamma(\bar{a} + 1)}
+\int x_j^{\alpha_j} \prod_{k \neq j} x_k^{\alpha_k - 1} \, d\mathbf{x} = \frac{\prod_k \Gamma(\alpha_k')}{\Gamma(\alpha_0')}
 $$
 
-where $\delta_{jk} = 1$ if $j = k$, and $0$ otherwise. Since $\Gamma(a_k + 1) = a_k \Gamma(a_k)$ and $\Gamma(\bar{a} + 1) = \bar{a} \Gamma(\bar{a})$:
+where $\alpha_j' = \alpha_j + 1$ and $\alpha_0' = \alpha_0 + 1$. Simplifying:
 
 $$
-\mathbb{E}[x_k] = \frac{\Gamma(\bar{a})}{\prod_{j=1}^K \Gamma(a_j)} \cdot \frac{a_k \Gamma(a_k) \prod_{j \neq k} \Gamma(a_j)}{\bar{a} \Gamma(\bar{a})}
+\mathbb{E}[x_j] = \frac{\Gamma(\alpha_0)}{\Gamma(\alpha_0 + 1)} \cdot \frac{\Gamma(\alpha_j + 1)}{\Gamma(\alpha_j)} = \frac{\alpha_j}{\alpha_0}
 $$
 
-$$
-= \frac{a_k}{\bar{a}}
-$$
+So each component's mean is just its parameter divided by the sum of all parameters. Makes intuitive sense—larger $\alpha_j$ means more mass on that component.
 
-## Variance
+## Computing the Variance
 
-The variance of each component is:
+For variance, I need $\mathbb{E}[x_j^2]$ first:
 
 $$
-\sigma_{x_k}^2 = \frac{a_k (\bar{a} - a_k)}{\bar{a}^2 (1 + \bar{a})}, \quad k = 1, 2, \ldots, K
+\mathbb{E}[x_j^2] = \frac{\Gamma(\alpha_0)}{\prod_k \Gamma(\alpha_k)} \int x_j^{\alpha_j + 1} \prod_{k \neq j} x_k^{\alpha_k - 1} \, d\mathbf{x}
 $$
 
-### Derivation
-
-We need $\mathbb{E}[x_k^2]$:
+Same idea—this is a Dirichlet with $\alpha_j'' = \alpha_j + 2$ and $\alpha_0'' = \alpha_0 + 2$:
 
 $$
-\mathbb{E}[x_k^2] = \frac{\Gamma(\bar{a})}{\prod_{j=1}^K \Gamma(a_j)} \int x_k^{a_k + 1} \prod_{j \neq k} x_j^{a_j - 1} \, d\mathbf{x}
+\mathbb{E}[x_j^2] = \frac{\Gamma(\alpha_0)}{\Gamma(\alpha_0 + 2)} \cdot \frac{\Gamma(\alpha_j + 2)}{\Gamma(\alpha_j)} = \frac{\alpha_j(\alpha_j + 1)}{\alpha_0(\alpha_0 + 1)}
 $$
 
-This gives:
+Now the variance:
 
 $$
-\mathbb{E}[x_k^2] = \frac{\Gamma(\bar{a})}{\prod_{j=1}^K \Gamma(a_j)} \cdot \frac{\Gamma(a_k + 2) \prod_{j \neq k} \Gamma(a_j)}{\Gamma(\bar{a} + 2)}
+\text{Var}(x_j) = \frac{\alpha_j(\alpha_j + 1)}{\alpha_0(\alpha_0 + 1)} - \left(\frac{\alpha_j}{\alpha_0}\right)^2
 $$
 
-$$
-= \frac{a_k (a_k + 1)}{\bar{a} (\bar{a} + 1)}
-$$
-
-So the variance is:
+Combining terms:
 
 $$
-\sigma_{x_k}^2 = \mathbb{E}[x_k^2] - (\mathbb{E}[x_k])^2
+= \frac{\alpha_j(\alpha_j + 1)\alpha_0 - \alpha_j^2(\alpha_0 + 1)}{\alpha_0^2(\alpha_0 + 1)} = \frac{\alpha_j(\alpha_0 - \alpha_j)}{\alpha_0^2(\alpha_0 + 1)}
 $$
 
-$$
-= \frac{a_k (a_k + 1)}{\bar{a} (\bar{a} + 1)} - \frac{a_k^2}{\bar{a}^2}
-$$
+So the variance depends on both $\alpha_j$ and the total concentration $\alpha_0$. Higher $\alpha_0$ means tighter concentration around the mean.
+
+## Quick Example
+
+Take $\text{Dir}([2, 3, 5])$ with $\alpha_0 = 10$. The means are:
 
 $$
-= \frac{a_k (a_k + 1) \bar{a} - a_k^2 (\bar{a} + 1)}{\bar{a}^2 (\bar{a} + 1)}
+\mathbb{E}[x_1] = \frac{2}{10} = 0.2, \quad \mathbb{E}[x_2] = 0.3, \quad \mathbb{E}[x_3] = 0.5
 $$
 
-$$
-= \frac{a_k [a_k \bar{a} + \bar{a} - a_k \bar{a} - a_k]}{\bar{a}^2 (\bar{a} + 1)}
-$$
+For variance of $x_1$:
 
 $$
-= \frac{a_k (\bar{a} - a_k)}{\bar{a}^2 (1 + \bar{a})}
+\text{Var}(x_1) = \frac{2 \cdot 8}{100 \cdot 11} = \frac{16}{1100} \approx 0.0145
 $$
 
-## Covariance
+The variances get smaller as $\alpha_0$ increases—so if you had $\text{Dir}([20, 30, 50])$ instead, everything would be much more concentrated around $(0.2, 0.3, 0.5)$.
 
-For $i \neq j$, the covariance is:
-
-$$
-\text{cov}[x_i, x_j] = -\frac{a_i a_j}{\bar{a}^2 (1 + \bar{a})}
-$$
-
-### Derivation
-
-We need $\mathbb{E}[x_i x_j]$:
-
-$$
-\mathbb{E}[x_i x_j] = \frac{\Gamma(\bar{a})}{\prod_{k=1}^K \Gamma(a_k)} \int x_i^{a_i} x_j^{a_j} \prod_{k \neq i, j} x_k^{a_k - 1} \, d\mathbf{x}
-$$
-
-$$
-= \frac{\Gamma(a_i + 1) \Gamma(a_j + 1) \prod_{k \neq i,j} \Gamma(a_k)}{\Gamma(\bar{a} + 2)} \cdot \frac{\Gamma(\bar{a})}{\prod_{k=1}^K \Gamma(a_k)}
-$$
-
-$$
-= \frac{a_i a_j}{\bar{a} (\bar{a} + 1)}
-$$
-
-So:
-
-$$
-\text{cov}[x_i, x_j] = \mathbb{E}[x_i x_j] - \mathbb{E}[x_i] \mathbb{E}[x_j]
-$$
-
-$$
-= \frac{a_i a_j}{\bar{a} (\bar{a} + 1)} - \frac{a_i a_j}{\bar{a}^2}
-$$
-
-$$
-= \frac{a_i a_j \bar{a} - a_i a_j (\bar{a} + 1)}{\bar{a}^2 (\bar{a} + 1)}
-$$
-
-$$
-= -\frac{a_i a_j}{\bar{a}^2 (1 + \bar{a})}
-$$
-
-The negative covariance makes sense: since the components must sum to 1, if one increases, the others must decrease.
-
-## Example: Dirichlet(2, 3, 5)
-
-For $\boldsymbol{\alpha} = (2, 3, 5)$, we have $\bar{a} = 10$.
-
-Means:
-
-$$
-\mathbb{E}[x_1] = \frac{2}{10} = 0.2, \quad \mathbb{E}[x_2] = \frac{3}{10} = 0.3, \quad \mathbb{E}[x_3] = \frac{5}{10} = 0.5
-$$
-
-Variances:
-
-$$
-\sigma_{x_1}^2 = \frac{2 \cdot 8}{100 \cdot 11} \approx 0.0145
-$$
-
-$$
-\sigma_{x_2}^2 = \frac{3 \cdot 7}{100 \cdot 11} \approx 0.0191
-$$
-
-$$
-\sigma_{x_3}^2 = \frac{5 \cdot 5}{100 \cdot 11} \approx 0.0227
-$$
-
-Covariances:
-
-$$
-\text{cov}[x_1, x_2] = -\frac{2 \cdot 3}{100 \cdot 11} \approx -0.0055
-$$
-
-$$
-\text{cov}[x_1, x_3] = -\frac{2 \cdot 5}{100 \cdot 11} \approx -0.0091
-$$
-
-$$
-\text{cov}[x_2, x_3] = -\frac{3 \cdot 5}{100 \cdot 11} \approx -0.0136
-$$
-
-The distribution is centered at $(0.2, 0.3, 0.5)$ with negative correlations between components.
+What I find neat is how the variance formula shows the tradeoff: $\alpha_j$ pulls one way (larger means more variance initially), but $\alpha_0$ in the denominator pulls the other way (larger total concentration means less variance overall). It's this balance that makes the Dirichlet so flexible for modeling uncertainty in compositional data.
