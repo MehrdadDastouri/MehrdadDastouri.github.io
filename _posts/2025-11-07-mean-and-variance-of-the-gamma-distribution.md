@@ -7,100 +7,66 @@ tags: [gamma-distribution, mean, variance, moments]
 math: true
 ---
 
-The Gamma distribution is useful for modeling positive continuous variables, especially when dealing with waiting times or rate parameters. The pdf is:
+The Gamma distribution shows up a lot when modeling waiting times or rate parameters. The pdf is:
 
 $$
 \text{Gamma}(x \mid a, b) = \frac{b^a}{\Gamma(a)} x^{a-1} e^{-bx}, \quad a, b, x > 0
 $$
 
-where $a$ is the shape parameter and $b$ is the rate parameter.
+Here $a$ is the shape parameter and $b$ is the rate parameter.
 
-## Mean of the Gamma Distribution
+## Finding the Mean
 
-The mean is:
-
-$$
-\mathbb{E}[X] = \int_0^\infty x \cdot \frac{b^a}{\Gamma(a)} x^{a-1} e^{-bx} \, dx
-$$
+To get the mean, I start with:
 
 $$
-= \frac{b^a}{\Gamma(a)} \int_0^\infty x^a e^{-bx} \, dx
+\mathbb{E}[X] = \int_0^\infty x \cdot \frac{b^a}{\Gamma(a)} x^{a-1} e^{-bx} \, dx = \frac{b^a}{\Gamma(a)} \int_0^\infty x^a e^{-bx} \, dx
 $$
 
-Using the substitution $u = bx$, so $x = u/b$ and $dx = du/b$:
+The substitution $u = bx$ simplifies this. With $x = u/b$ and $dx = du/b$:
 
 $$
-= \frac{b^a}{\Gamma(a)} \int_0^\infty \left(\frac{u}{b}\right)^a e^{-u} \frac{du}{b}
+= \frac{b^a}{\Gamma(a)} \int_0^\infty \left(\frac{u}{b}\right)^a e^{-u} \frac{du}{b} = \frac{1}{b \cdot \Gamma(a)} \int_0^\infty u^a e^{-u} \, du
 $$
 
-$$
-= \frac{b^a}{\Gamma(a)} \cdot \frac{1}{b^{a+1}} \int_0^\infty u^a e^{-u} \, du
-$$
+The integral gives $\Gamma(a+1) = a\Gamma(a)$, so:
 
 $$
-= \frac{1}{b \cdot \Gamma(a)} \int_0^\infty u^a e^{-u} \, du
+\mathbb{E}[X] = \frac{a\Gamma(a)}{b \cdot \Gamma(a)} = \frac{a}{b}
 $$
 
-The integral is $\Gamma(a+1) = a \Gamma(a)$, so:
+Pretty straightforward once you do the substitution.
+
+## Calculating the Variance
+
+For variance, I need $\mathbb{E}[X^2]$ first:
 
 $$
-\mathbb{E}[X] = \frac{a \Gamma(a)}{b \cdot \Gamma(a)} = \frac{a}{b}
+\mathbb{E}[X^2] = \frac{b^a}{\Gamma(a)} \int_0^\infty x^{a+1} e^{-bx} \, dx
 $$
 
-## Variance of the Gamma Distribution
-
-The variance is $\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$. First, we find $\mathbb{E}[X^2]$:
+Same $u = bx$ trick:
 
 $$
-\mathbb{E}[X^2] = \int_0^\infty x^2 \cdot \frac{b^a}{\Gamma(a)} x^{a-1} e^{-bx} \, dx
-$$
-
-$$
-= \frac{b^a}{\Gamma(a)} \int_0^\infty x^{a+1} e^{-bx} \, dx
-$$
-
-Using $u = bx$ again:
-
-$$
-= \frac{b^a}{\Gamma(a)} \cdot \frac{1}{b^{a+2}} \int_0^\infty u^{a+1} e^{-u} \, du
-$$
-
-$$
-= \frac{1}{b^2 \cdot \Gamma(a)} \cdot \Gamma(a+2)
+= \frac{1}{b^2 \cdot \Gamma(a)} \int_0^\infty u^{a+1} e^{-u} \, du = \frac{\Gamma(a+2)}{b^2 \cdot \Gamma(a)}
 $$
 
 Since $\Gamma(a+2) = (a+1)a\Gamma(a)$:
 
 $$
-\mathbb{E}[X^2] = \frac{(a+1)a\Gamma(a)}{b^2 \cdot \Gamma(a)} = \frac{a(a+1)}{b^2}
+\mathbb{E}[X^2] = \frac{a(a+1)}{b^2}
 $$
 
-Now the variance:
+Now variance is:
 
 $$
-\text{Var}(X) = \frac{a(a+1)}{b^2} - \left(\frac{a}{b}\right)^2
+\text{Var}(X) = \frac{a(a+1)}{b^2} - \left(\frac{a}{b}\right)^2 = \frac{a(a+1) - a^2}{b^2} = \frac{a}{b^2}
 $$
 
-$$
-= \frac{a(a+1)}{b^2} - \frac{a^2}{b^2} = \frac{a(a+1) - a^2}{b^2} = \frac{a}{b^2}
-$$
+So the mean is $a/b$ and variance is $a/b^2$. The spread depends on both parameters.
 
-So we have:
+## Quick Example
 
-$$
-\mathbb{E}[X] = \frac{a}{b}, \quad \sigma_X^2 = \frac{a}{b^2}
-$$
+For $\text{Gamma}(2, 3)$, the mean is $2/3 \approx 0.667$ and variance is $2/9 \approx 0.222$. The distribution centers around $2/3$ with moderate spread.
 
-## Quick Check
-
-For $\text{Gamma}(2, 3)$:
-
-$$
-\mathbb{E}[X] = \frac{2}{3} \approx 0.667
-$$
-
-$$
-\sigma_X^2 = \frac{2}{9} \approx 0.222
-$$
-
-The distribution is centered around $2/3$ with moderate spread.
+What's interesting is that the variance scales with $a$ but inversely with $b^2$—so higher rate parameters really tighten things up.
