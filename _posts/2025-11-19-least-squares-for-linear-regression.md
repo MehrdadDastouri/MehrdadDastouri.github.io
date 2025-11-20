@@ -51,11 +51,6 @@ This is exactly Eq. (3.13) from the book.
 
 ## Why It Matters
 
-This isn't just some abstract formula. The normal equations are the foundation of:
+This isn't just some abstract formula. The normal equations show up in linear regression, obviously, but also in ridge regression where you just add $\lambda I$ to $\mathbf{X}^T \mathbf{X}$. The same structure appears in Kalman filtering (just in recursive form) and even in neural network weight updates when you're in the linear case.
 
-- Linear regression (obviously)
-- Ridge regression (add $\lambda I$ to $\mathbf{X}^T \mathbf{X}$)
-- Kalman filtering (same structure, recursive form)
-- Neural network weight updates in the linear case
-
-What I find neat is that $(\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T$ is the **pseudoinverse** of $\mathbf{X}$ when $\mathbf{X}$ isn't square. So least squares is really just projection onto the column space of $\mathbf{X}$.
+What I find neat is that $(\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T$ is the **pseudoinverse** of $\mathbf{X}$ when $\mathbf{X}$ isn't square. So least squares is really just projection onto the column space of $\mathbf{X}$. That geometric intuition makes everything click.
