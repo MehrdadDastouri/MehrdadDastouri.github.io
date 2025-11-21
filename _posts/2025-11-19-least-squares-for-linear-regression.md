@@ -47,7 +47,6 @@ If $\mathbf{X}^T \mathbf{X}$ is invertible (i.e., columns of $\mathbf{X}$ are li
 
 $$\hat{\theta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$
 
-This is exactly Eq. (3.13) from the book.
 
 ## Why It Matters
 
