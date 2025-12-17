@@ -1,70 +1,131 @@
 ---
-title: "Why Sufficient Statistics Are All You Need for Maximum Likelihood"
-date: "2025-12-12"
-slug: "sufficient-statistics-ml-estimation"
-description: "Proving that if a sufficient statistic exists, the ML estimate can be expressed as a function of that statistic alone—no need to look at the full data."
-tags: ["statistics", "sufficient statistics", "maximum likelihood", "estimation theory", "factorization theorem"]
+title: "ML Estimation for Gaussian Mean and Variance"
+date: "2025-12-13"
+slug: "ml-estimation-for-gaussian-mean-and-variance"
+description: "Deriving the maximum likelihood estimates for the mean and variance of a Gaussian distribution from independent observations."
+tags: ["maximum-likelihood", "gaussian", "sample-mean", "sample-variance", "estimation-theory"]
+math: true
 ---
 
-There's a beautiful economy principle hiding in estimation theory: if you've found a sufficient statistic, you've found everything that matters for maximum likelihood estimation.
+This is one of the most fundamental calculations in statistics. Given independent Gaussian observations, what are the maximum likelihood estimates of the mean and variance? The answer is the sample mean and sample variance, but there is a subtle twist regarding bias that deserves attention.
 
-This isn't just an elegant mathematical curiosity—it has profound practical implications. It tells us that data compression, when done correctly, costs us nothing in terms of estimation quality.
+## Setup
 
-## The Claim
+We observe $N$ independent random variables $x_1, x_2, \ldots, x_N$, each drawn from
 
-Let $T(\mathcal{X})$ be a sufficient statistic for parameter $\theta$. Then the maximum likelihood estimate $\hat{\theta}_{\text{ML}}$ can be written purely as a function of $T(\mathcal{X})$.
+$$
+x_n \sim \mathcal{N}(\mu, \sigma^2)
+$$
 
-In other words:
-\[
-\hat{\theta}_{\text{ML}} = g(T(\mathcal{X}))
-\]
-for some function $g$.
+where both $\mu$ and $\sigma^2$ are unknown. Our goal is to find the ML estimates $\hat{\mu}_{\text{ML}}$ and $\hat{\sigma}^2_{\text{ML}}$.
 
-## What Sufficiency Gives Us
+## The Likelihood Function
 
-By the Fisher-Neyman factorization theorem, $T(\mathcal{X})$ is sufficient for $\theta$ if and only if the likelihood function factors as:
-\[
-L(\theta; \mathcal{X}) = h(\mathcal{X}) \cdot g(T(\mathcal{X}), \theta)
-\]
+Since the observations are independent, the joint pdf is the product of the marginals:
 
-Here $h(\mathcal{X})$ depends only on the data (not on $\theta$), while $g(T(\mathcal{X}), \theta)$ captures all the $\theta$-dependence through the sufficient statistic.
+$$
+p(\mathbf{x}; \mu, \sigma^2) = \prod_{n=1}^{N} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x_n - \mu)^2}{2\sigma^2} \right)
+$$
 
-## The Proof
+Taking the logarithm gives the log-likelihood:
 
-The ML estimate maximizes the likelihood:
-\[
-\hat{\theta}_{\text{ML}} = \arg\max_{\theta} \, L(\theta; \mathcal{X})
-\]
+$$
+\ell(\mu, \sigma^2) = -\frac{N}{2}\log(2\pi) - \frac{N}{2}\log(\sigma^2) - \frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2
+$$
 
-Substituting the factorization:
-\[
-\hat{\theta}_{\text{ML}} = \arg\max_{\theta} \, h(\mathcal{X}) \cdot g(T(\mathcal{X}), \theta)
-\]
+## Maximizing with Respect to $\mu$
 
-Now here's the key observation: $h(\mathcal{X}) \geq 0$ (it's part of a probability density), and crucially, **it doesn't depend on $\theta$**.
+Taking the partial derivative with respect to $\mu$:
 
-So when we're maximizing over $\theta$, the factor $h(\mathcal{X})$ is just a positive constant. It doesn't affect where the maximum occurs:
-\[
-\hat{\theta}_{\text{ML}} = \arg\max_{\theta} \, g(T(\mathcal{X}), \theta)
-\]
+$$
+\frac{\partial \ell}{\partial \mu} = \frac{1}{\sigma^2}\sum_{n=1}^{N}(x_n - \mu)
+$$
 
-And there it is. The right-hand side depends on $\mathcal{X}$ only through $T(\mathcal{X})$.
+Setting this to zero:
 
-Define:
-\[
-\hat{\theta}_{\text{ML}} = \psi(T(\mathcal{X})) \quad \text{where} \quad \psi(t) = \arg\max_{\theta} \, g(t, \theta)
-\]
+$$
+\sum_{n=1}^{N}(x_n - \mu) = 0 \implies \sum_{n=1}^{N} x_n = N\mu
+$$
 
-The ML estimate is a function of the sufficient statistic alone. $\blacksquare$
+Therefore,
 
-## Remarks
+$$
+\hat{\mu}_{\text{ML}} = \frac{1}{N}\sum_{n=1}^{N} x_n
+$$
 
-- **Data reduction without loss**: This result justifies why we can "compress" data into sufficient statistics before doing ML estimation. We lose no information relevant to finding the optimal $\theta$.
+This is simply the sample mean.
 
-- **Computational blessing**: In practice, sufficient statistics are often low-dimensional summaries. Instead of maximizing over the full data space, we work with these summaries—same answer, less computation.
+## Maximizing with Respect to $\sigma^2$
 
-- **The converse intuition**: This result makes sense when you think about what sufficiency means. If $T(\mathcal{X})$ captures everything the data tells us about $\theta$, then of course our best guess about $\theta$ shouldn't need anything beyond $T(\mathcal{X})$.
+Now take the partial derivative with respect to $\sigma^2$:
 
-- **Connection to exponential families**: For exponential family distributions, the sufficient statistic has a particularly nice form, and ML estimation often reduces to simple moment matching with $T(\mathcal{X})$.
+$$
+\frac{\partial \ell}{\partial \sigma^2} = -\frac{N}{2\sigma^2} + \frac{1}{2(\sigma^2)^2}\sum_{n=1}^{N}(x_n - \mu)^2
+$$
 
-- **Why $h(\mathcal{X}) \geq 0$ matters**: We used that $h$ is non-negative. If $h$ could be negative, multiplying by it might flip the optimization. But since $h$ is part of factoring a density, non-negativity is guaranteed.
+Setting this to zero and solving:
+
+$$
+\frac{N}{2\sigma^2} = \frac{1}{2(\sigma^2)^2}\sum_{n=1}^{N}(x_n - \mu)^2
+$$
+
+$$
+N\sigma^2 = \sum_{n=1}^{N}(x_n - \mu)^2
+$$
+
+$$
+\sigma^2 = \frac{1}{N}\sum_{n=1}^{N}(x_n - \mu)^2
+$$
+
+Since we are maximizing jointly, we substitute $\hat{\mu}_{\text{ML}}$ for $\mu$:
+
+$$
+\hat{\sigma}^2_{\text{ML}} = \frac{1}{N}\sum_{n=1}^{N}(x_n - \hat{\mu}_{\text{ML}})^2
+$$
+
+Notice the denominator is $N$, not $N-1$.
+
+## Verifying the Maximum
+
+We should confirm this is a maximum rather than a minimum or saddle point. The log-likelihood is concave in $(\mu, \sigma^2)$ over the domain $\sigma^2 > 0$. The term $-\frac{N}{2}\log(\sigma^2)$ is concave in $\sigma^2$, and the quadratic term is concave in $\mu$ for fixed $\sigma^2$. The critical point is therefore the global maximum.
+
+## The Bias Issue
+
+The ML estimate $\hat{\mu}_{\text{ML}}$ is unbiased:
+
+$$
+\mathbb{E}[\hat{\mu}_{\text{ML}}] = \mu
+$$
+
+However, $\hat{\sigma}^2_{\text{ML}}$ is biased:
+
+$$
+\mathbb{E}[\hat{\sigma}^2_{\text{ML}}] = \frac{N-1}{N}\sigma^2 \neq \sigma^2
+$$
+
+The bias arises because we use the estimated mean rather than the true mean in the sum of squares. This "uses up" one degree of freedom.
+
+The unbiased estimator of variance is
+
+$$
+s^2 = \frac{1}{N-1}\sum_{n=1}^{N}(x_n - \hat{\mu}_{\text{ML}})^2 = \frac{N}{N-1}\hat{\sigma}^2_{\text{ML}}
+$$
+
+But ML does not optimize for unbiasedness. It maximizes likelihood, and these two objectives lead to different estimators here.
+
+## Summary
+
+For i.i.d. Gaussian observations with unknown mean and variance:
+
+| Parameter | ML Estimate | Unbiased? |
+|-----------|-------------|-----------|
+| $\mu$ | $\frac{1}{N}\sum_{n=1}^{N} x_n$ | Yes |
+| $\sigma^2$ | $\frac{1}{N}\sum_{n=1}^{N}(x_n - \hat{\mu})^2$ | No |
+
+## Final Remarks
+
+As $N \to \infty$, the bias in $\hat{\sigma}^2_{\text{ML}}$ vanishes since $\frac{N-1}{N} \to 1$. The ML estimator is asymptotically unbiased.
+
+Interestingly, the ML estimator for $\sigma^2$ has lower MSE than the unbiased estimator $s^2$ for small $N$. Unbiasedness is not always the most important property.
+
+This example illustrates a general theme in estimation theory. ML is a principle for finding estimators, not a guarantee of any particular finite-sample property. Its strength lies in generality and asymptotic optimality.
