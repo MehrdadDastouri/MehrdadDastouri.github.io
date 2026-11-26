@@ -9,6 +9,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://mehrdaddastouri.github.io/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Mehrdad Dastouri — Quantitative ML &amp; Market Microstructure">
+  <meta property="og:description" content="Independent Researcher working on Quantitative Market Microstructure, Automated Market Makers (Uniswap v4), Stochastic Control, and Distributionally Robust Reinforcement Learning.">
+  <meta property="og:url" content="https://mehrdaddastouri.github.io/">
+  <meta property="og:image" content="https://mehrdaddastouri.github.io/assets/img/profile.jpg?v=20261126">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mehrdad Dastouri",
+    "alternateName": "Seyed Mehrdad Dastouri",
+    "url": "https://mehrdaddastouri.github.io/",
+    "image": "https://mehrdaddastouri.github.io/assets/img/profile.jpg?v=20261126",
+    "jobTitle": "Quantitative Machine Learning & Market Microstructure Researcher",
+    "description": "Independent Researcher focusing on Quantitative Market Microstructure, Automated Market Makers, Stochastic Control, and Distributionally Robust Reinforcement Learning.",
+    "email": "mailto:s.dastouri@alumni.sbu.ac.ir",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Shahid Beheshti University"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Isfahan University of Technology"
+      }
+    ],
+    "knowsAbout": [
+      "Quantitative Market Microstructure",
+      "Distributionally Robust Reinforcement Learning",
+      "Automated Market Makers",
+      "Uniswap v4 Dynamic Fee Mechanisms",
+      "Stochastic Control",
+      "High-Frequency Time-Series Modeling"
+    ],
+    "sameAs": [
+      "https://github.com/MehrdadDastouri",
+      "https://orcid.org/0009-0003-7959-770X",
+      "https://www.linkedin.com/in/seyedmehrdad-dastouri-b855a93a2",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523"
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -20,7 +63,6 @@
         <a href="#education">Education</a>
         <a href="#toolkit">Toolkit</a>
         <a href="assets/files/Mehrdad_Dastouri_CV_2026.pdf" target="_blank" rel="noopener">CV</a>
-        <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
       </nav>
     </div>
   </header>
@@ -187,26 +229,6 @@
 
   <script>
     (function () {
-      var root = document.documentElement;
-      var btn = document.getElementById("themeToggle");
-      var saved = localStorage.getItem("theme");
-      if (saved === "dark") {
-        root.setAttribute("data-theme", "dark");
-        btn.textContent = "Light";
-      }
-      btn.addEventListener("click", function () {
-        var isDark = root.getAttribute("data-theme") === "dark";
-        if (isDark) {
-          root.removeAttribute("data-theme");
-          localStorage.setItem("theme", "light");
-          btn.textContent = "Dark";
-        } else {
-          root.setAttribute("data-theme", "dark");
-          localStorage.setItem("theme", "dark");
-          btn.textContent = "Light";
-        }
-      });
-
       var bibToggle = document.getElementById("bibToggle");
       var bibBox = document.getElementById("bibtexBox");
       var bibCopy = document.getElementById("bibCopy");

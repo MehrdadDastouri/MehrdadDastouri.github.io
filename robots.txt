@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mehrdaddastouri.github.io/sitemap.xml
