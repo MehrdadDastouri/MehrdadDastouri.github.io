@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mehrdad Dastouri — Quantitative ML &amp; Market Microstructure</title>
+  <meta name="description" content="Mehrdad Dastouri — Quantitative Machine Learning and Market Microstructure Researcher working on Automated Market Makers, Stochastic Control, and Distributionally Robust Reinforcement Learning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Mehrdad Dastouri</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="assets/files/Mehrdad_Dastouri_CV_2026.pdf" target="_blank" rel="noopener">CV</a>
+        <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <h1>Mehrdad Dastouri</h1>
+        <p class="hero-subtitle">Quantitative Machine Learning &amp; Market Microstructure Researcher</p>
+        <p class="hero-affiliation">Independent Researcher &middot; M.Sc. Computer Science (Data Mining), Shahid Beheshti University</p>
+        <p class="hero-bio">
+          My research focuses on quantitative market microstructure, stochastic control, and distributionally robust reinforcement learning under non-stationary order flow. I combine game-theoretic and convex optimization modeling (Stackelberg games, Wasserstein ambiguity sets, KKT clearing) with vectorized Python/PyTorch simulation and empirical on-chain and Level-2 order-book forensics.
+        </p>
+        <div class="links-row">
+          <a class="pill pill-primary" href="assets/files/Mehrdad_Dastouri_CV_2026.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a>
+          <a class="pill" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523" target="_blank" rel="noopener">SSRN (7755523)</a>
+          <a class="pill" href="https://github.com/MehrdadDastouri" target="_blank" rel="noopener">GitHub</a>
+          <a class="pill" href="https://orcid.org/0009-0003-7959-770X" target="_blank" rel="noopener">ORCID</a>
+          <a class="pill" href="https://www.linkedin.com/in/seyedmehrdad-dastouri-b855a93a2" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="mailto:s.dastouri@alumni.sbu.ac.ir">Email</a>
+        </div>
+      </div>
+      <div class="hero-photo"><img src="assets/img/profile.jpg" alt="Mehrdad Dastouri" loading="eager"></div>
+    </section>
+
+    <section id="research">
+      <h2>Research &amp; Working Paper</h2>
+
+      <article class="paper-card">
+        <span class="paper-tag">Working Paper &middot; SSRN 7755523</span>
+        <h3 class="paper-title">Distributionally Robust Reinforcement Learning for Dynamic Fee Mechanisms under Non-Stationary Order Flow in Automated Market Makers</h3>
+        <p class="paper-meta">Mehrdad Dastouri (Solo Author) &middot; 2026 &middot; Preprint &amp; Extended Technical Monograph</p>
+        <p class="paper-abstract">
+          Models dynamic swap-fee control for Uniswap v4 <code>beforeSwap</code> hooks as an oracle-free Robust MDP nested inside a sequential Stackelberg game with closed-form KKT CEX-DEX arbitrage clearing and empirically calibrated fee-elastic retail demand. Anchors fees on an uncapped validation-calibrated volatility floor (c<sub>base</sub> = 20.0) with a bounded residual (&plusmn;25 bps) trained via Joint 1-Wasserstein Residual DR-PPO, then distills the converged actor via L2-regularized ridge regression into a deterministic 15-coefficient O(1) polynomial. Calibrated to 15.8M 1-second Binance ETH/USDC observations and 31,252 Ethereum mainnet Uniswap v3 swaps (April&ndash;September 2024), ranking first under continuous adversarial state spoofing and transferring zero-shot to Layer-2 (2s and 1s) block cadences.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-val">&minus;57.5%</span>
+            <span class="metric-lbl">Aug 2024 crash Net LVR vs. 5 bps static</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">&minus;59.4%</span>
+            <span class="metric-lbl">Maximum Drawdown reduction</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">94.1%</span>
+            <span class="metric-lbl">Full-info oracle PnL (stationary, oracle-free)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">&lt;2,000</span>
+            <span class="metric-lbl">EVM gas via 15-coeff O(1) distillation</span>
+          </div>
+        </div>
+
+        <div class="paper-actions">
+          <a class="btn-small" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523" target="_blank" rel="noopener">SSRN Page</a>
+          <a class="btn-small" href="assets/files/Dastouri_2026_AMM_DR_RL_Working_Paper.pdf" target="_blank" rel="noopener">Working Paper (PDF)</a>
+          <a class="btn-small" href="assets/files/Dastouri_2026_AMM_DR_RL_Monograph.pdf" target="_blank" rel="noopener">Technical Monograph (PDF)</a>
+          <a class="btn-small" href="https://github.com/MehrdadDastouri/amm-dr-rl-uniswap-v4" target="_blank" rel="noopener">Code &amp; Benchmarks</a>
+          <button class="btn-small" id="bibToggle" type="button">BibTeX</button>
+        </div>
+
+        <div class="bibtex-wrap" id="bibtexBox">
+          <button class="btn-small copy-btn" id="bibCopy" type="button">Copy</button>
+          <pre id="bibtexText">@article{dastouri2026amm,
+  title   = {Distributionally Robust Reinforcement Learning for Dynamic Fee Mechanisms under Non-Stationary Order Flow in Automated Market Makers},
+  author  = {Dastouri, Mehrdad},
+  year    = {2026},
+  journal = {SSRN Electronic Journal},
+  note    = {SSRN Working Paper No. 7755523},
+  url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523}
+}</pre>
+        </div>
+      </article>
+
+      <div class="pub-item">
+        <h3>Hybrid Multi-Filter Deep Learning-Based Feature Extraction for Stock Movement Prediction</h3>
+        <p class="meta">M.Sc. Thesis, Shahid Beheshti University &middot; 2022 &middot; Advisors: Dr. Hadi Farahani, Dr. Saeed Reza Kheradpisheh</p>
+        <p>
+          Engineered an autoencoder representation-learning and <code>tsfresh</code> statistical feature-extraction pipeline with p-value hypothesis filtering feeding a hybrid CNN-LSTM architecture for financial trend and closing-price forecasting.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Research &amp; Quantitative Engineering Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Independent Quantitative Systems Engineer &amp; Researcher</span>
+          <span class="entry-date">Dec 2021 &ndash; Present</span>
+        </div>
+        <div class="entry-sub">Market Microstructure, Automated Market Makers &amp; High-Frequency Execution Systems</div>
+        <ul class="clean-list">
+          <li><strong>Vectorized Microstructure Simulator (VecAMMEnv):</strong> Architected a 32-environment vectorized NumPy/PyTorch AMM simulator with exact KKT arbitrage clearing, Welford online state normalization, PyTorch autograd Kantorovich-Rubinstein gradient penalties, and multi-seed ablation/stress-testing harnesses covering 2.68M+ discrete blocks.</li>
+          <li><strong>On-Chain RPC Forensics &amp; Calibration:</strong> Built archival Ethereum RPC pipelines (dRPC / Blockscout) to decode Uniswap v3 <code>Swap</code> events, reconstruct active virtual liquidity from <code>sqrtPriceX96</code>, align swaps against 1-second CEX feeds for 60-second markout decomposition, and estimate empirical retail fee elasticity.</li>
+          <li><strong>High-Frequency Order-Book Modeling &amp; Shadow Validation:</strong> Developed Python algorithmic trading and Level-2 order-book logging pipelines for perpetual crypto venues with strict out-of-sample forensics, empirical shadow-trade validation gates, and memory-preserving features (fractional differentiation, directional OFI, realized volatility).</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Independent Software &amp; Machine Learning Engineer</span>
+          <span class="entry-date">Aug 2016 &ndash; Nov 2021</span>
+        </div>
+        <div class="entry-sub">Project-Based Applied Data Science &amp; Backend Systems</div>
+        <ul class="clean-list">
+          <li><strong>Time-Series &amp; Predictive Modeling:</strong> Designed end-to-end Python machine learning pipelines (PyTorch, Scikit-learn, Gradient Boosting, LSTM/CNN) for financial time-series forecasting, anomaly detection, and tabular classification.</li>
+          <li><strong>Production Deployment:</strong> Containerized data-ingestion and model-inference services using Docker, Flask REST APIs, and automated Linux/Git testing workflows.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Shahid Beheshti University (SBU), Tehran, Iran</span>
+          <span class="entry-date">Sep 2020 &ndash; Oct 2022</span>
+        </div>
+        <div class="entry-sub">M.Sc. in Computer Science (Data Mining), Department of Computer Science, Faculty of Mathematical Sciences &middot; GPA: 3.7 / 4.0</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Isfahan University of Technology (IUT), Isfahan, Iran</span>
+          <span class="entry-date">Sep 2008 &ndash; Sep 2012</span>
+        </div>
+        <div class="entry-sub">B.Sc. in Computer Engineering (Software Engineering) &middot; GPA: 3.0 / 4.0</div>
+      </div>
+    </section>
+
+    <section id="toolkit">
+      <h2>Research Areas &amp; Technical Toolkit</h2>
+      <div class="toolkit-grid">
+        <div class="toolkit-item">
+          <h3>Core Research Areas</h3>
+          <p>Distributionally Robust Reinforcement Learning, Quantitative Market Microstructure, Algorithmic Mechanism Design, Decentralized Finance (AMM / Uniswap v4 Hooks), High-Frequency Time-Series Modeling.</p>
+        </div>
+        <div class="toolkit-item">
+          <h3>ML &amp; Optimization</h3>
+          <p>PyTorch, NumPy, SciPy, Pandas, Scikit-learn, tsfresh; PPO &amp; Distributionally Robust RL, Convex &amp; KKT Optimization, Wasserstein Ambiguity Sets, Policy Distillation.</p>
+        </div>
+        <div class="toolkit-item">
+          <h3>Programming &amp; Smart Contracts</h3>
+          <p>Python (Advanced), SQL, Bash / PowerShell, Solidity (Uniswap v4 Hook Specification &amp; EVM Gas Analysis).</p>
+        </div>
+        <div class="toolkit-item">
+          <h3>Quantitative &amp; Systems Infrastructure</h3>
+          <p>High-Frequency L2 Order-Book &amp; On-Chain RPC Forensics, Vectorized Simulation, Linux (WSL2), Git, Docker, Quarto, LaTeX, Pandoc.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; 2026 Mehrdad Dastouri</span>
+      <span>ORCID: <a href="https://orcid.org/0009-0003-7959-770X" target="_blank" rel="noopener">0009-0003-7959-770X</a> &middot; <a href="mailto:s.dastouri@alumni.sbu.ac.ir">s.dastouri@alumni.sbu.ac.ir</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("themeToggle");
+      var saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        root.setAttribute("data-theme", "dark");
+        btn.textContent = "Light";
+      }
+      btn.addEventListener("click", function () {
+        var isDark = root.getAttribute("data-theme") === "dark";
+        if (isDark) {
+          root.removeAttribute("data-theme");
+          localStorage.setItem("theme", "light");
+          btn.textContent = "Dark";
+        } else {
+          root.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+          btn.textContent = "Light";
+        }
+      });
+
+      var bibToggle = document.getElementById("bibToggle");
+      var bibBox = document.getElementById("bibtexBox");
+      var bibCopy = document.getElementById("bibCopy");
+      var bibText = document.getElementById("bibtexText").textContent;
+      bibToggle.addEventListener("click", function () {
+        bibBox.classList.toggle("open");
+      });
+      bibCopy.addEventListener("click", function () {
+        navigator.clipboard.writeText(bibText).then(function () {
+          bibCopy.textContent = "Copied";
+          setTimeout(function () { bibCopy.textContent = "Copy"; }, 1800);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
