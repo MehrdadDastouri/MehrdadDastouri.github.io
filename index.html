@@ -48,7 +48,8 @@
       "https://github.com/MehrdadDastouri",
       "https://orcid.org/0009-0003-7959-770X",
       "https://www.linkedin.com/in/seyedmehrdad-dastouri-b855a93a2",
-      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523"
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523",
+      "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=14097988"
     ]
   }
   </script>
@@ -89,7 +90,7 @@
     </section>
 
     <section id="research">
-      <h2>Research &amp; Working Paper</h2>
+      <h2>Research &amp; Working Papers</h2>
 
       <article class="paper-card">
         <span class="paper-tag">Working Paper &middot; SSRN 7755523</span>
@@ -135,6 +136,51 @@
   journal = {SSRN Electronic Journal},
   note    = {SSRN Working Paper No. 7755523},
   url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7755523}
+}</pre>
+        </div>
+      </article>
+
+      <article class="paper-card" style="margin-top: 1.5rem;">
+        <span class="paper-tag">Working Paper &middot; 2026 Preprint</span>
+        <h3 class="paper-title">Regime-Aware Distributionally Robust Market Making in Non-Stationary CLOBs: Exact Wasserstein-1 HJB Perturbation with Bayesian Changepoint Variance Reset</h3>
+        <p class="paper-meta">Mehrdad Dastouri (Solo Author) &middot; 2026 &middot; Working Paper (10 Pages)</p>
+        <p class="paper-abstract">
+          Derives an exact 1-Wasserstein distributionally robust extension of the Gu&eacute;ant&ndash;Lehalle&ndash;Fernandez-Tapia (GLFT) market-making HJB control problem via Kantorovich&ndash;Rubinstein duality. Worst-case adverse drift enters as a linear diagonal penalty (&minus;k&epsilon;|q|) inside the Cole&ndash;Hopf Metzler tridiagonal operator, preserving O(Q&sup2;) spectral tractability (&lt;50 &mu;s) and proving strict spread monotonicity in &epsilon;. Couples strictly causal Normal-Inverse-Gamma BOCPD on 1-minute log realized volatility (for fast EWMA variance reset) with a rolling 60-minute one-sided 1-Wasserstein shift detector, calibrated strictly out-of-sample on April&ndash;September 2024 Binance 1-second ETH/USDC data.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-val">98.5%</span>
+            <span class="metric-lbl">Full-info oracle capture (Exp 1, 30 episodes)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">&minus;94.4%</span>
+            <span class="metric-lbl">MDD vs. Classical GLFT (1.00% vs. 17.96%)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">&minus;72.9%</span>
+            <span class="metric-lbl">Aug 1&ndash;5 crash MDD cut (Exp 2B empirical)</span>
+          </div>
+          <div class="metric">
+            <span class="metric-val">8 / 8</span>
+            <span class="metric-lbl">Strictly monotonic ablation splits</span>
+          </div>
+        </div>
+
+        <div class="paper-actions">
+          <a class="btn-small" href="assets/files/Dastouri_2026_CLOB_W1_BOCPD_DRO_GLFT.pdf" target="_blank" rel="noopener">Working Paper (PDF)</a>
+          <a class="btn-small" href="https://github.com/MehrdadDastouri/clob-w1-bocpd-dro-glft" target="_blank" rel="noopener">Code &amp; Benchmarks</a>
+          <button class="btn-small" id="bibToggle2" type="button">BibTeX</button>
+        </div>
+
+        <div class="bibtex-wrap" id="bibtexBox2">
+          <button class="btn-small copy-btn" id="bibCopy2" type="button">Copy</button>
+          <pre id="bibtexText2">@misc{dastouri2026clob,
+  title  = {Regime-Aware Distributionally Robust Market Making in Non-Stationary CLOBs: Exact Wasserstein-1 HJB Perturbation with Bayesian Changepoint Variance Reset},
+  author = {Dastouri, Mehrdad},
+  year   = {2026},
+  note   = {Working Paper, Preprint},
+  url    = {https://github.com/MehrdadDastouri/clob-w1-bocpd-dro-glft}
 }</pre>
         </div>
       </article>
@@ -229,19 +275,22 @@
 
   <script>
     (function () {
-      var bibToggle = document.getElementById("bibToggle");
-      var bibBox = document.getElementById("bibtexBox");
-      var bibCopy = document.getElementById("bibCopy");
-      var bibText = document.getElementById("bibtexText").textContent;
-      bibToggle.addEventListener("click", function () {
-        bibBox.classList.toggle("open");
-      });
-      bibCopy.addEventListener("click", function () {
-        navigator.clipboard.writeText(bibText).then(function () {
-          bibCopy.textContent = "Copied";
-          setTimeout(function () { bibCopy.textContent = "Copy"; }, 1800);
+      function wireBib(toggleId, boxId, copyId, textId) {
+        var t = document.getElementById(toggleId);
+        var b = document.getElementById(boxId);
+        var c = document.getElementById(copyId);
+        var x = document.getElementById(textId);
+        if (!t || !b || !c || !x) return;
+        t.addEventListener("click", function () { b.classList.toggle("open"); });
+        c.addEventListener("click", function () {
+          navigator.clipboard.writeText(x.textContent).then(function () {
+            c.textContent = "Copied";
+            setTimeout(function () { c.textContent = "Copy"; }, 1800);
+          });
         });
-      });
+      }
+      wireBib("bibToggle", "bibtexBox", "bibCopy", "bibtexText");
+      wireBib("bibToggle2", "bibtexBox2", "bibCopy2", "bibtexText2");
     })();
   </script>
 </body>
